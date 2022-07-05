@@ -7,7 +7,6 @@
 body {
   font-family: 'Metrophobic', sans-serif;
   @apply break-words;
-
 }
 
 body:before{
