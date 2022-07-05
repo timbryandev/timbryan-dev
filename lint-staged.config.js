@@ -3,8 +3,8 @@ module.exports = {
   '**/*.ts?(x)': () => 'tsc --noEmit',
 
   // Lint then format TypeScript and JavaScript files
-  '*.(ts|tsx|js|jsx)': ['eslint --fix'],
+  '**/*.(ts|tsx|js|jsx)': ['eslint --fix'],
 
   // Format MarkDown and JSON
-  '*.(md|json)': ['prettier --write'],
+  '**/*.(md|json)': ['prettier --write'],
 };
