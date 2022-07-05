@@ -16,11 +16,11 @@ const Index = (props: IBlogGalleryProps) => (
 );
 
 export const getStaticProps: GetStaticProps<IBlogGalleryProps> = async () => {
-  const posts = getPublishedPosts(['title', 'date', 'slug']);
+  const posts = getPublishedPosts(['title', 'posted', 'updated', 'slug']);
   const pagination: IPaginationProps = {};
 
   if (posts.length > AppConfig.pagination_size) {
-    pagination.next = '/page2';
+    pagination.next = '/page2'; // TODO pagination needs to be smarter than this
   }
 
   return {

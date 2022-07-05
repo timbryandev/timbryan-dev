@@ -1,8 +1,7 @@
 ---
 title: "Next.js blog Boilerplate Presentation"
 description: Everything you need to use this Nextjs Boilerplate template
-date: "2020-06-01"
-modified_date: "2020-06-01"
+posted: "2020-06-01"
 image: /assets/images/posts/random-img.jpg
 status: archived
 ---

@@ -1,8 +1,8 @@
 ---
 title: "Get stuck in with Tim & Deno"
 description: It's not the NodeJS killer, but it might go that way...
-date: "2021-04-27"
-modified_date: "2021-10-13"
+posted: "2021-04-27"
+updated: "2021-10-13"
 image: /assets/images/posts/deno-logo.png
 status: published
 ---

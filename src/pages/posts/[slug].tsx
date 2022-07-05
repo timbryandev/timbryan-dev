@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { format } from 'date-fns';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 import { Main } from '../../components/Main';
+import PublishDate from '../../components/PublishDate';
 import { Content } from '../../content/Content';
 import { Meta } from '../../layout/Meta';
 import { getAllPosts, getPostBySlug } from '../../utils/Content';
@@ -16,8 +16,8 @@ type IPostUrl = {
 type IPostProps = {
   title: string;
   description: string;
-  date: string;
-  modified_date: string;
+  posted: string;
+  updated: string;
   status: string;
   image: string;
   content: string;
@@ -31,8 +31,8 @@ const DisplayPost = (props: IPostProps) => (
         description={props.description}
         post={{
           image: props.image,
-          date: props.date,
-          modified_date: props.modified_date,
+          posted: props.posted,
+          updated: props.updated,
           status: props.status,
         }}
       />
@@ -42,7 +42,7 @@ const DisplayPost = (props: IPostProps) => (
       {props.title}
     </h1>
     <div className="text-center text-sm mb-8">
-      {format(new Date(props.date), 'LLLL d, yyyy')}
+      <PublishDate {...props} showUpdated={true} />
     </div>
 
     <img src={props.image} className="mx-auto" alt="" />
@@ -75,8 +75,8 @@ export const getStaticProps: GetStaticProps<IPostProps, IPostUrl> = async ({
   const post = getPostBySlug(params!.slug, [
     'title',
     'description',
-    'date',
-    'modified_date',
+    'posted',
+    'updated',
     'status',
     'image',
     'content',
@@ -88,8 +88,8 @@ export const getStaticProps: GetStaticProps<IPostProps, IPostUrl> = async ({
     props: {
       title: post.title,
       description: post.description,
-      date: post.date,
-      modified_date: post.modified_date,
+      posted: post.posted,
+      updated: post.updated ?? post.posted,
       status: post.status,
       image: post.image,
       content,

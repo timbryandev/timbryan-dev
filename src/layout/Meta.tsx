@@ -12,8 +12,8 @@ type IMetaProps = {
   canonical?: string;
   post?: {
     image: string;
-    date: string;
-    modified_date: string;
+    posted: string;
+    updated: string;
     status: string;
   };
 };
@@ -99,12 +99,12 @@ const Meta = (props: IMetaProps) => {
             />
             <meta
               property="article:published_time"
-              content={new Date(props.post.date).toISOString()}
+              content={new Date(props.post.posted).toISOString()}
               key="article:published_time"
             />
             <meta
               property="article:modified_time"
-              content={new Date(props.post.modified_date).toISOString()}
+              content={new Date(props.post.updated).toISOString()}
               key="article:modified_time"
             />
             <meta
@@ -141,10 +141,8 @@ const Meta = (props: IMetaProps) => {
             },
             "headline": "${props.title} | ${AppConfig.site_name}",
             "image": ["${AppConfig.url}${router.basePath}${props.post.image}"],
-            "datePublished": "${new Date(props.post.date).toISOString()}",
-            "dateModified": "${new Date(
-              props.post.modified_date
-            ).toISOString()}",
+            "datePublished": "${new Date(props.post.posted).toISOString()}",
+            "dateModified": "${new Date(props.post.updated).toISOString()}",
             "status":"${props.post.status}"
             "mainEntityOfPage": {
               "@type": "WebPage",

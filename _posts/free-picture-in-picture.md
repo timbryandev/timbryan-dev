@@ -1,8 +1,8 @@
 ---
 title: "Create a free Picture-In-Picture video feature on desktop"
 description: Don't pay for this premium feature when you can make it yourself.
-date: "2022-01-06"
-modified_date: "2022-06-29"
+posted: "2022-01-06"
+updated: "2022-06-29"
 image: /assets/images/posts/charlesdeluvio-h6OLeuqZ6mg-unsplash.jpg
 status: published
 ---

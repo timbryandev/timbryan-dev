@@ -24,9 +24,12 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
   fields.forEach((field) => {
     if (field === 'slug') {
       items[field] = realSlug;
+      return;
     }
+
     if (field === 'content') {
       items[field] = content;
+      return;
     }
 
     if (data[field]) {
@@ -42,7 +45,7 @@ export function getAllPosts(fields: string[] = [], publishedOnly = false) {
   const posts = slugs
     .map((slug) => getPostBySlug(slug, fields))
     // sort posts by date in descending order
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
+    .sort((post1, post2) => (post1.updated > post2.updated ? -1 : 1));
 
   if (publishedOnly) {
     return posts.filter((post) => post.status === 'published');

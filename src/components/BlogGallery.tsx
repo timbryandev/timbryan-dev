@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { format } from 'date-fns';
 import Link from 'next/link';
 
 import { PostItems } from '../utils/Content';
 import { Pagination, IPaginationProps } from './Pagination';
+import PublishDate from './PublishDate';
 
 export type IBlogGalleryProps = {
   posts: PostItems[];
@@ -26,7 +26,11 @@ const BlogGallery = (props: IBlogGalleryProps) => (
                 {post.title}
               </h2>
               <div className="text-right justify-self-end whitespace-nowrap pl-2">
-                {format(new Date(post.date), 'LLL d, yyyy')}
+                <PublishDate
+                  posted={post.posted}
+                  updated={post.updated}
+                  showUpdated={false}
+                />
               </div>
             </a>
           </Link>
