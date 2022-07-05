@@ -10,20 +10,17 @@ const Toggle = () => {
   const { theme, setTheme } = React.useContext(ThemeContext);
 
   return (
-    <div className="transition duration-500 ease-in-out rounded-full p-2">
-      {theme === 'dark' ? (
-        <FaSun
-          onClick={() => setTheme('light')}
-          className={BUTTON_CLASSES}
-          title="Turn the lights on"
-        />
-      ) : (
-        <FaMoon
-          onClick={() => setTheme('dark')}
-          className={BUTTON_CLASSES}
-          title="Turn the lights off"
-        />
-      )}
+    <div className="transition duration-500 ease-in-out rounded-full p-2 flex">
+      <FaSun
+        onClick={() => setTheme('light')}
+        title="Turn the lights on"
+        className={`${BUTTON_CLASSES} ${theme === 'light' ? 'disabled' : ''}`}
+      />
+      <FaMoon
+        onClick={() => setTheme('dark')}
+        title="Turn the lights off"
+        className={`${BUTTON_CLASSES} ${theme === 'dark' ? 'disabled' : ''}`}
+      />
     </div>
   );
 };

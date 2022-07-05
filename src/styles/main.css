@@ -9,7 +9,7 @@ body {
   @apply break-words;
 }
 
-body:before{
+body:before {
   content: ' ';
   display: block;
   position: fixed;
@@ -124,5 +124,11 @@ code:not([class*='language']) {
 }
 
 hr {
-@apply border-t border-zinc-700 dark:border-zinc-400;
+  @apply border-t border-zinc-700 dark:border-zinc-400;
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  transition: opacity 0.5s ease-in-out;
 }
