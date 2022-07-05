@@ -7,7 +7,7 @@ image: /assets/images/posts/deno-logo.png
 status: published
 ---
 
-Deno? I hear you ask. Deno is a NodeJS rival/alternative that is sharply increasing in popularity, particularly after its [1.0.0](https://github.com/denoland/deno/releases/tag/v1.0.0) released in May 2020 (current version (as of April 2021) = [1.9.1](https://github.com/denoland/deno/releases/tag/v1.9.1)) and aims to be better than its predecessor and fix a lot of its well-known pitfalls.
+Deno? I hear you ask. [Deno](https://github.com/denoland/deno) is a Node(JS) anagram/rival/alternative that is sharply increasing in popularity, particularly after it's [1.0.0](https://github.com/denoland/deno/releases/tag/v1.0.0) released in May 2020 and aims to be better than its predecessor and fix a lot of its well-known pitfalls.
 
 ## Table of Contents
 
@@ -27,19 +27,21 @@ Deno? I hear you ask. Deno is a NodeJS rival/alternative that is sharply increas
 
 - I'll also be assuming you're using a Mac and VSCode (as I am), but I'll try and keep instructions as broad as possible to support as many varied setups as possible.
 
-- At the time of writing, everything is correct as of Deno V1.8.3. Given Deno is still relatively young, some parts of this article may no longer be correct and may need updating as and when needed.
+- Everything in this article is deemed fit for use with Deno v[1.11.1](https://github.com/denoland/deno/releases/tag/v1.11.1). Given Deno is still relatively young, some parts of this article may no longer be correct and may require updating as and when needed.
 
 ## What is Deno?
 
-Like NodeJs, Deno is a technology we can use to write "server-side Javascript". In many ways, it is extremely close to Node and I consider it to be a spiritual successor to Node. It shares the same creator and uses the V8 Javascript engine but differs in that it is implemented in Rust and supports both WebAssembly and Typescript by default (no need for a `tsconfig.json` or any other setup process!).
+Like Node, Deno is a technology we can use to write "server-side Javascript". In many ways, it is extremely close to Node and I consider it to be a spiritual successor to Node. It shares the same creator and uses the V8 Javascript engine but differs in that it is implemented in Rust rather than C++ and supports both WebAssembly and Typescript by default (no need for a `tsconfig.json` or any other setup process! However, you can include one for your specific needs).
 
-We even have support for some current [web standard APIs](https://github.com/denoland/deno/blob/main/cli/dts/lib.deno.shared_globals.d.ts) such as `fetch`, `addEventListener`, `removeEventListener`, `setInterval`, `clearInterval`, `dispatchEvent` and even has a `window` object that allows us to listen for lifecycle events such as
+Deno tries to be as browser-friendly by supporting as many of the current [web standard APIs](https://github.com/denoland/deno/blob/main/cli/dts/lib.deno.shared_globals.d.ts) as possible, such as `fetch`, `addEventListener`, `removeEventListener`, `setInterval`, `clearInterval`, `dispatchEvent` and even has a `window` object that allows us to listen for lifecycle events such as
 
 ```javascript
 window.onload = (e) => console.log("Howdy 🤠");
 ```
 
-The most common use case I've seen for Deno is combining the pros of its server-side capabilities with ExpressJS for full-stack typescript applications, but the only real hands-on experience I've had with it is for building little tools for process automation and document transformations (generating CSVs, automate big copy/paste jobs etc...) but essentially whatever you can do with Node, Deno should be able to do it just as well!
+One of the goals of the project was to avoid inventing new APIs, which was a requirement in 2009 by Node for handling operations like `require`ing modules before the ES6 import/export syntax existed which is why there was a focus on being browser-friendly. However, there are some APIs that it does need to invent for file i/o like Node's top-level `FS` operations (most of which are available in the standard library). However, Deno differs again as Deno's FS implementation is achieved by a compatibility layer as opposed to writing C++ addons as Node requires)
+
+A common use case I've seen for Deno is combining the pros of its server-side capabilities with ExpressJS for full-stack typescript applications, but the only hands-on experience I've had with it is for building little tools for process automation and document transformations (generating CSVs, automate big copy/paste jobs etc...) but essentially whatever you can do with Node, Deno should be able to do it just as well!
 
 ### Deno's Standard Library & Third-Party Modules
 
@@ -50,21 +52,20 @@ import { serve } from "https://deno.land/std@0.92.0/http/server.ts";
 const server = serve({ hostname: "0.0.0.0", port: 8080 });
 ```
 
-**Note**: I'm specifying `std@0.92.0` to ensure the correct version is used when others use my project. You can _safely_ omit the version and Deno will grab the latest version instead. In my case, omitting the version gave me the following `Warning Implicitly using latest version (0.94.0) for https://deno.land/std/http/server.ts`
+**Note**: I'm specifying `std@0.92.0` to ensure the correct version is used when others use my project. You can _safely_ omit the version and Deno will grab the latest version instead. In my case, omitting the version gave me the following `Warning Implicitly using latest version for https://deno.land/std/http/server.ts`
 
-A full list can be found at [https://deno.land/std](https://deno.land/std), along with a more detailed explanation on the Standard library from [https://deno.land/manual@v1.8.3/standard_library](https://deno.land/manual@v1.8.3/standard_library).
+A full list can be found at [https://deno.land/std](https://deno.land/std), along with a more detailed explanation of the Standard library from [https://deno.land/manual/standard_library](https://deno.land/manual/standard_library).
 
 If you're looking for third-party modules (such as we'll be using to build a react app later), you'll be able to search for them via [https://deno.land/x](https://deno.land/x) in a similar way to using the [NPM](https://www.npmjs.com/search?q=react) repository
 
 ### No more NPM Packages/package.json = No more `node_modules`
 
-![Diagram explaining how the node_modules folder bares more gravity than the sun, neutron star or black holes](/assets/images/posts/node_modules-meme.png)
+![Illustration explaining how the node_modules folder has more gravity than our Sun, a neutron star and black hole](./images/node_modules-meme.png)
 
-Deno also aims to fix some of the main issues synonymous with its predecessor but can't be altered due to said faults being key to its architecture, hence the need for a clean slate. The elephant in the room being the NPM package dependencies, package.json and the hell they bring with them. Deno does away with all of this extra fat and opts for a much simpler way to import packages by allowing you to include them directly via the `require` syntax and the URL the package can be served from. For example, to use an external library for testing we can simply use the ES6 module syntax:
+Deno also aims to fix some of the main issues synonymous with its predecessor but can't be altered due to said faults being key to its architecture, hence the need for a clean slate. The elephant in the room being the NPM package dependencies, package.json and the hell they bring with them. Deno does away with all of this extra fat and opts for a much simpler way to import packages by allowing you to include them directly via a URL that a package is being served from. For example, to use an external library for testing we can simply use the ES6 module syntax:
 
 ```javascript
-// No need for `npm install`
-import { assertEquals } from "https://deno.land/std@0.92.0/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@0.92.0/testing/asserts.ts"; // No need for `npm install`
 
 assertEquals("hello", "hello");
 assertEquals("world", "world");
@@ -76,12 +77,13 @@ The beautify of this is that we don't need to "install" our application, as the 
 
 #### Okay, so how do you manage dependencies for big projects?
 
-If your project has a lot of dependencies, it may not make sense to add them to every file they are required in via the absolute URLs. This can be overcome by having a single file (`depts.ts` by convention) be the home of all the dependencies and export them as needed. For example, here is how the depts are managed in our `example-react` folder:
+If your project has a lot of dependencies, it may not make sense to add them to every file they are required in via the absolute URLs. This can be overcome by having a single file (`depts.ts` by convention) be the home of all the dependencies and export them as needed. For example, here is how the "depts" are managed in our `example-react` folder:
 
 ```javascript
-// file: example-react/deps.ts
+// example-react/deps.ts
 
 export * as ReactDOM from "https://jspm.dev/react-dom@17.0.0";
+
 import * as React from "https://jspm.dev/react@17.0.0";
 
 const { default: any, ...rest } = React;
@@ -92,12 +94,10 @@ export { rest as react };
 ```
 
 ```javascript
-// file: example-react/index.tsx
+// example-react/index.tsx
 
-// nice import react from the depts file
-import { React, react, ReactDOM } from "./deps.ts";
-// regular import for our component
-import App from "./App.tsx";
+import { React, react, ReactDOM } from "./deps.ts"; // importing react from the depts file
+import App from "./App.tsx"; // regular import for our component
 
 ReactDOM.render(
   <react.StrictMode>
@@ -107,7 +107,7 @@ ReactDOM.render(
 );
 ```
 
-**Note**: The downside to this is that unless the authors of your favourite NPM packages have made them available via some form of CDN or service, you may not be able to use them.
+**Note**: with Deno support, you may not be able to use them. It can be hit and miss using NPM packages/repos in your project, but one of the things it seems to boil down to in my experience is whether the packages use Node-specific APIs (`FS` et al), but some may work thanks to Deno's use of compatibility layers and Node polyfills (very experimental).
 
 ### No more callback hell
 
@@ -125,14 +125,16 @@ error: Uncaught PermissionDenied: read access to "/path/to/file", run again with
 
 This means unless you, the developer, run the command and let the script access your filesystem, any requests to do so will result in errors and potentially prevent malicious code from being executed. You can specify more such as allowing write access to the disk, network access, plugin use etc. Here are some examples:
 
-- `allow-env` allow environment access
-- `allow-hrtime` allow high-resolution time measurement
-- `allow-net=` allow network access
-- `allow-plugin` allow loading plugins
-- `allow-read=` allow file system read access
-- `allow-run` allow running subprocesses
-- `allow-write=` allow file system write access
-- `allow-all` allow all permissions (same as -A)
+| Flag           | Description                                              |
+| -------------- | -------------------------------------------------------- |
+| `allow-env`    | allow environment access                                 |
+| `allow-hrtime` | allow high-resolution time measurement                   |
+| `allow-net=`   | allow network access                                     |
+| `allow-plugin` | allow loading plugins                                    |
+| `allow-read=`  | allow file system read access                            |
+| `allow-run`    | allow running subprocesses                               |
+| `allow-write=` | allow file system write access                           |
+| `allow-all`    | allow all permissions (same as -A, known as "Node mode") |
 
 For a full list of permissions, you can control/specify, see Deno [Permissions List](https://deno.land/manual/getting_started/permissions#permissions-list)
 
@@ -144,7 +146,7 @@ For example, on my Mac, it was as simple as running `brew install deno`
 
 ## Setup
 
-For setting Deno up for use via shell/cmd and for help setting up your IDE, see [https://deno.land/manual@v1.8.3/getting_started/setup_your_environment](https://deno.land/manual@v1.8.3/getting_started/setup_your_environment)
+For setting Deno up for use via shell/cmd and for help setting up your IDE, see [https://deno.land/manual/getting_started/setup_your_environment](https://deno.land/manual/getting_started/setup_your_environment)
 
 For my setup in VSCode, I just needed to add the [VSCode Deno](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno) extension and include the following in my `.vscode/settings.json`:
 
@@ -225,7 +227,7 @@ And that's it for the create-react-app 🥳
 
 **Note**: Make sure you've `CD`'d into the `example-compile` folder to try these out
 
-**Note**: Up to now, all examples have been included in the repo but I haven't included the compiled curry-sums due to it's large size. Wanna see it? Make your own!
+**Note**: Up to now, all examples have been included in the repo but I haven't included the compiled curry-sums due to its large size. Wanna see it? Make your own!
 
 Essentially, `deno compile [--output <OUT>] <SRC>` creates a self-contained executable file based on your scripts.
 
@@ -235,23 +237,23 @@ How do we do that? In our case, running this should do it:
 
 ```bash
 # Compile into a single executable
-deno compile --unstable --output="./output/curry-sums" index.ts
+deno compile --unstable --output="compiled-curry-sums" index.ts
 
 # Run the executable we just made
-./output/curry-sums
+./compiled-curry-sums
 ```
 
-> Since the compile functionality is relatively new, the --unstable flag has to be set for the command to work.
+**Note** Since the compile functionality is relatively new, the --unstable flag has to be set for the command to work.
 
 And if we check inside the `output` folder we'll find out `curry-sums` file. To execute it, we can simply run `./output/curry-sums`, which should give us the same output as running just the index file (`deno run index.ts`) - the difference being that our `curry-sums` file is stand-alone and can be moved anywhere and will still work just fine!
 
-This is great for portability and for protecting the source code when sharing with others, but it does come at a cost... In our case, our file comes to a less than modest 77.80MB (running the compile with the --lite command will use a slimmed-down runtime-only binary, but still creates a ~55MB file)! While NodeJS also has compiling options similar to this, they are produce even bigger outputs than that of Deno (usually 70+MB).
+This is great for portability and for protecting the source code when sharing with others, but it does come at a cost... In our case, our file comes to a less than modest 77.80MB (running the compile with the --lite command will use a slimmed-down runtime-only binary, but still creates a ~55MB file)! While NodeJS also has compiling options similar to this, they are producing even bigger outputs than that of Deno (usually 70+MB).
 
 ## What else can Deno do?
 
 ```bash
-Tim.Bryan@AwesomeMachine example-react % deno --help
-deno 1.9.1
+Tim.Bryan@Potato example-deno % deno --help
+deno 1.11.1
 A secure JavaScript and TypeScript runtime
 
 Docs: https://deno.land/manual
@@ -294,7 +296,7 @@ OPTIONS:
 SUBCOMMANDS:
     bundle         Bundle module and dependencies into single file
     cache          Cache the dependencies
-    compile        Compile the script into a self contained executable
+    compile        UNSTABLE: Compile the script into a self contained executable
     completions    Generate shell completions
     coverage       Print coverage reports
     doc            Show documentation for a module
@@ -318,7 +320,7 @@ ENVIRONMENT VARIABLES:
                          (e.g. "abcde12345@deno.land;54321edcba@github.com")
     DENO_CERT            Load certificate authority from PEM encoded file
     DENO_DIR             Set the cache directory
-    DENO_INSTALL_ROOT    Set deno install output directory
+    DENO_INSTALL_ROOT    Set deno installs output directory
                          (defaults to $HOME/.deno/bin)
     DENO_WEBGPU_TRACE    Directory to use for wgpu traces
     HTTP_PROXY           Proxy address for HTTP requests
