@@ -29,7 +29,8 @@ a,
   @apply text-pink-700 dark:text-pink-300;
 }
 
-a:after {
+a:after,
+.dev-icon:after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -41,11 +42,13 @@ a:after {
 }
 
 a:hover,
-.button:hover {
+.button:hover
+.dev-icon:hover {
   @apply text-blue-600 dark:text-blue-400;
 }
 
-a:hover:after {
+a:hover:after,
+.dev-icon:hover:after {
   width: 100%;
   left: 0;
 }
@@ -91,7 +94,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.dev-icon {
   font-family: 'Space Mono', monospace;
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 
+import DevIcons from '../components/DevIcons';
 import { Main } from '../components/Main';
 import { Content } from '../content/Content';
 import { Meta } from '../layout/Meta';
@@ -22,53 +23,12 @@ const About = () => (
         technologies. I&apos;ve also had the chance to work with mobile apps
         from the development and DevOps/distribution.
       </p>
-      <p>
-        Proficient in:
-        <br />
-        {[
-          'HTML5',
-          'CSS3/SCSS',
-          'Javascript',
-          'React.js',
-          'NodeJS',
-          'GIT (CLI, GitLab & GitHub)',
-        ].map((item) => (
-          <code key={item}>{item}</code>
-        ))}
-        .
-      </p>
-      <p>
-        Comfortable with:
-        <br />
-        {[
-          'NextJS',
-          'Typescript',
-          'Redux',
-          'React Native',
-          'DenoJS',
-          'Docker',
-          'Debian Linux.',
-        ].map((item) => (
-          <code key={item}>{item}</code>
-        ))}
-      </p>
-      <p>
-        Exposure to:
-        <br />
-        {[
-          'SCORM1.2',
-          'Moodle',
-          'XML/XSL/XSLT',
-          'PHP',
-          'Python',
-          'C#',
-          'VBS',
-          'Bash/Batch',
-          'Adobe CC suite',
-        ].map((item) => (
-          <code key={item}>{item}</code>
-        ))}
-      </p>
+      <p>Proficient in:</p>
+      <DevIcons list="proficient" />
+      <p>Comfortable with:</p>
+      <DevIcons list="comfortable" />
+      <p>Have a working knowledge of:</p>
+      <DevIcons list="working-knowledge" />
       <p>
         I have experience in management and leadership where in addition to my
         existing software development duties, I have line managed a team of
