@@ -49,8 +49,8 @@ const Main = (props: IMainProps) => (
 
       <div className="text-center py-8 text-sm">
         © Copyright {new Date().getFullYear()}{' '}
-        <a href={AppConfig.url}>{AppConfig.title}</a>. Project base from the
-        awesome <span role="img" aria-label="Love"></span>{' '}
+        <Link href={AppConfig.url}>{AppConfig.title}</Link>. Project base from
+        the awesome <span role="img" aria-label="Love"></span>{' '}
         <a href="https://creativedesignsguru.com">CreativeDesignsGuru</a> ♥
         {/*
          * PLEASE READ THIS SECTION
