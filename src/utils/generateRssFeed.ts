@@ -1,5 +1,3 @@
-import fs from 'fs';
-
 import { Feed } from 'feed';
 
 import { AppConfig } from './AppConfig';
@@ -65,11 +63,5 @@ export default async function generateRssFeed() {
     });
   }
 
-  // eslint-disable-next-line no-console
-  console.log('Writing RSS XML & JSON feeds to disk');
-
-  // Save xml and json files for rss feeds
-  fs.mkdirSync('./public/rss', { recursive: true });
-  fs.writeFileSync('./public/rss/feed.xml', feed.rss2());
-  fs.writeFileSync('./public/rss/feed.json', feed.json1());
+  return { rss: feed.rss2(), json: feed.json1() };
 }
