@@ -8,6 +8,7 @@
     "export": "next export",
     "clean": "rm -rf .next dist",
     "lint": "next lint",
+    "lint-staged": "lint-staged",
     "fix": "eslint . --fix",
     "build-types": "tsc --noEmit --pretty",
     "prepare": "husky install"
