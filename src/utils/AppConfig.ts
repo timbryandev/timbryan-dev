@@ -1,12 +1,12 @@
 export const AppConfig = {
   author: '@TimBryanDev',
-  dateFormat: 'dd MMMM yyyy',
   contactFormUrl: 'https://formspree.io/f/meqrploz',
+  dateFormat: 'dd MMMM yyyy',
   description:
     'Software Engineer specialising in Full-Stack Javascript Web, Desktop & Mobile applications',
+  email: 'hi@timbryan.dev',
   locale: 'en-GB',
   pagination_size: 5,
-  site_name: 'TimBryan.Dev',
-  title: 'TimBryanDev',
+  siteName: 'TimBryan.Dev',
   url: 'https://timbryan.dev',
 };

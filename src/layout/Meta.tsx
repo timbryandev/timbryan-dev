@@ -54,7 +54,7 @@ const Meta = (props: IMetaProps) => {
           href={`${router.basePath}/favicon.ico`}
           key="favicon"
         />
-        <title>{`${props.title} | ${AppConfig.site_name}`}</title>
+        <title>{`${props.title} | ${AppConfig.siteName}`}</title>
         <meta
           name="description"
           content={
@@ -68,7 +68,7 @@ const Meta = (props: IMetaProps) => {
         )}
         <meta
           property="og:title"
-          content={`${props.title} | ${AppConfig.site_name}`}
+          content={`${props.title} | ${AppConfig.siteName}`}
           key="og:title"
         />
         <meta
@@ -81,7 +81,7 @@ const Meta = (props: IMetaProps) => {
         <meta property="og:locale" content={AppConfig.locale} key="og:locale" />
         <meta
           property="og:site_name"
-          content={AppConfig.site_name}
+          content={AppConfig.siteName}
           key="og:site_name"
         />
         {props.post && (
@@ -139,7 +139,7 @@ const Meta = (props: IMetaProps) => {
               },
               "name": "${AppConfig.author}"
             },
-            "headline": "${props.title} | ${AppConfig.site_name}",
+            "headline": "${props.title} | ${AppConfig.siteName}",
             "image": ["${AppConfig.url}${router.basePath}${props.post.image}"],
             "datePublished": "${new Date(props.post.posted).toISOString()}",
             "dateModified": "${new Date(props.post.updated).toISOString()}",
