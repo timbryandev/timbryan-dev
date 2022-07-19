@@ -60,7 +60,7 @@ export const SKILLS_WORKING_KNOWLEDGE = [
   ['XML/XSL/XSLT', FaQuestion, 'https://en.wikipedia.org/wiki/XML'],
   ['PHP', SiPhp, 'https://www.php.net/'],
   ['Python', FaPython, 'https://www.python.org/'],
-  ['C#', TbCSharp, 'https://www.w3schools.com/cs/index.php'],
+  ['CSharp', TbCSharp, 'https://www.w3schools.com/cs/index.php'],
   ['VBScript', FaQuestion, 'https://en.wikipedia.org/wiki/VBScript'],
   ['Bash/Batch', SiGnubash, 'https://www.gnu.org/software/bash/'],
   ['Adobe CC', SiAdobe, 'https://www.adobe.com/uk/creativecloud.html'],

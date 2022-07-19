@@ -6,12 +6,11 @@ interface IWrapperProps {
 }
 
 const DevIconWrapper = ({ children, url }: IWrapperProps) => {
-  const styles =
-    'relative dev-icon inline-flex flex-col items-center my-1 mx-4';
+  const styles = 'relative dev-icon inline-flex flex-col items-center m-4  ';
 
   return typeof url === 'string' ? (
-    <Link className={styles} href={url}>
-      <>{children}</>
+    <Link href={url}>
+      <a className={styles}>{children}</a>
     </Link>
   ) : (
     <span className={styles}>{children}</span>
