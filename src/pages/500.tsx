@@ -4,20 +4,20 @@ import { Main } from '../components/Main';
 import { Content } from '../content/Content';
 import { Meta } from '../layout/Meta';
 
-const confusedJohnGif =
-  require('../../public/assets/images/confused-john.gif').default;
+const itCrowedFireGif =
+  require('../../public/assets/images/it-crowed-fire.gif').default;
 
-const TITLE = '404 - Page not Found';
-const DESC = 'The page you were looking for could not be found';
+const TITLE = '500 - Server-side error occurred';
+const DESC = 'The server is having problems carrying out your request';
 
-const Custom404 = () => (
+const Custom500 = () => (
   <Main meta={<Meta title={TITLE} description={DESC} />}>
     <Content>
       <div className="flex flex-col items-center">
         <h2>ERROR: {TITLE}</h2>
         <h3>{DESC}</h3>
         <img
-          src={confusedJohnGif.src}
+          src={itCrowedFireGif.src}
           alt="funny animation GIF"
           style={{
             width: '100%',
@@ -26,7 +26,8 @@ const Custom404 = () => (
           }}
         />
         <p>
-          John can&apos;t seem to find what you&apos;re looking for either 😬
+          But don&apos;t worry, we&apos;ve got our best people working to
+          resolve this for you 😬
         </p>
         <p>
           Might be safest to head back <Link href="/">home</Link> and try again?
@@ -36,4 +37,4 @@ const Custom404 = () => (
   </Main>
 );
 
-export default Custom404;
+export default Custom500;
