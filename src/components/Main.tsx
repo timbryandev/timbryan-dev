@@ -17,7 +17,7 @@ const Main = (props: IMainProps) => (
     <div className="max-w-screen-md mx-auto">
       <div className="text-center pt-16 pb-8">
         <div className="font-semibold text-3xl text-gray-900 dark:text-gray-300">
-          {AppConfig.title}
+          {AppConfig.author}
         </div>
         <div className="text-xl">{AppConfig.description}</div>
       </div>
@@ -49,7 +49,7 @@ const Main = (props: IMainProps) => (
 
       <div className="text-center py-8 text-sm">
         © Copyright {new Date().getFullYear()}{' '}
-        <Link href={AppConfig.url}>{AppConfig.title}</Link>. Project base from
+        <Link href={AppConfig.url}>{AppConfig.author}</Link>. Project base from
         the awesome <span role="img" aria-label="Love"></span>{' '}
         <a href="https://creativedesignsguru.com">CreativeDesignsGuru</a> ♥
         {/*
