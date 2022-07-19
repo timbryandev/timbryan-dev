@@ -1,5 +1,6 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 
+import Image from 'next/image';
 import Link from 'next/link';
 
 import { AppConfig } from '../utils/AppConfig';
@@ -15,10 +16,20 @@ const Main = (props: IMainProps) => (
     {props.meta}
 
     <div className="max-w-screen-md mx-auto">
-      <header className="text-center pt-16 pb-8">
+      <header className="text-center pt-16 pb-8 m-auto max-w-md">
         <h1 className="font-semibold text-3xl text-gray-900 dark:text-gray-300">
           {AppConfig.author}
         </h1>
+        <div style={{ margin: 'auto', maxWidth: '180px' }}>
+          <Image
+            src="/assets/images/avatar.jpg"
+            className="rounded-full "
+            alt="Avatar photo of Tim smiling in a blue polo shirt against a blurred bubble background"
+            width="500"
+            height="500"
+            layout="intrinsic"
+          />
+        </div>
         <div className="text-xl">{AppConfig.description}</div>
       </header>
 
@@ -56,12 +67,6 @@ const Main = (props: IMainProps) => (
           <Link href={AppConfig.url}>{AppConfig.author}</Link>. Project base
           from the awesome <span role="img" aria-label="Love"></span>{' '}
           <a href="https://creativedesignsguru.com">CreativeDesignsGuru</a> ♥
-          {/*
-           * PLEASE READ THIS SECTION
-           * We'll really appreciate if you could have a link to our website
-           * The link doesn't need to appear on every pages, one link on one page is enough.
-           * Thank you for your support it'll mean a lot for us.
-           */}
         </p>
       </footer>
     </div>
