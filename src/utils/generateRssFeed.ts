@@ -4,10 +4,18 @@ import { Feed } from 'feed';
 
 import { AppConfig } from './AppConfig';
 import { getPublishedPosts } from './Content';
+import { markdownToHtml } from './Markdown';
 
 export default async function generateRssFeed() {
-  const posts = getPublishedPosts();
-  const siteURL = AppConfig.url;
+  const posts = getPublishedPosts([
+    'content',
+    'description',
+    'image',
+    'posted',
+    'status',
+    'title',
+    'updated',
+  ]);
   const date = new Date();
   const author = {
     name: AppConfig.author,
@@ -23,37 +31,42 @@ export default async function generateRssFeed() {
     author,
     copyright,
     description: AppConfig.description,
-    favicon: `${siteURL}/favicon.ico`,
+    favicon: `${AppConfig.url}/favicon.ico`,
     feedLinks: {
-      json: `${siteURL}/rss/feed.json`,
-      rss2: `${siteURL}/rss/feed.xml`,
+      json: `${AppConfig.url}/rss/feed.json`,
+      rss2: `${AppConfig.url}/rss/feed.xml`,
     },
     generator: 'Feed for Node.js',
-    id: siteURL,
-    image: `${siteURL}/assets/avatar.jpg`,
+    id: AppConfig.url,
+    image: `${AppConfig.url}/assets/avatar.jpg`,
     language: AppConfig.locale,
-    link: siteURL,
+    link: AppConfig.url,
     title: AppConfig.siteName,
     updated: date,
   });
 
   // Add each blog entry to the feed
-  posts.forEach((post) => {
+  // eslint-disable-next-line no-restricted-syntax
+  for await (const post of posts) {
+    const content = await markdownToHtml(post.content || '');
     feed.addItem({
       author: [author],
-      content: post.content,
+      content,
       contributor: [author],
       copyright,
       date: new Date(post.updated),
       description: post.description,
       guid: post.slug,
       id: post.slug,
-      image: post.image,
+      image: `${AppConfig.url}${post.image}`,
       link: post.slug,
       published: new Date(post.posted),
       title: post.title,
     });
-  });
+  }
+
+  // eslint-disable-next-line no-console
+  console.log('Writing RSS XML & JSON feeds to disk');
 
   // Save xml and json files for rss feeds
   fs.mkdirSync('./public/rss', { recursive: true });
