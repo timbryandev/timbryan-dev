@@ -4,6 +4,7 @@ import { ContactForm } from '../components/ContactForm';
 import { Main } from '../components/Main';
 import { Content } from '../content/Content';
 import { Meta } from '../layout/Meta';
+import { AppConfig } from '../utils/AppConfig';
 
 const Contact = () => {
   const [showEmail, setShowEmail] = useState(false);
@@ -27,7 +28,7 @@ const Contact = () => {
           </a>
           , using the contact form below, or email me via{' '}
           {showEmail ? (
-            <a href="mailto:hi@timbryan.dev">hi@timbryan.dev</a>
+            <a href={`mailto:${AppConfig.email}`}>{AppConfig.email}</a>
           ) : (
             <button className="button" onClick={() => setShowEmail(true)}>
               reveal email
