@@ -1,7 +1,7 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 type IContentProps = {
-  children: ReactNode;
+  children: ReactNode | ReactNode[];
 };
 
 const Content = (props: IContentProps) => (

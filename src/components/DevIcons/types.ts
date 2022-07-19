@@ -4,7 +4,7 @@ export interface IDevIconsProps {
   list: 'proficient' | 'comfortable' | 'working-knowledge';
 }
 
-export type IDevIconList = [string, IconType, string | undefined][];
+export type IDevIconList = [string, IconType, string][];
 
 export interface IDevIconProps {
   Icon: React.FunctionComponent;
