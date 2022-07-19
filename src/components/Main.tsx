@@ -1,5 +1,6 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 
+import Image from 'next/image';
 import Link from 'next/link';
 
 import { AppConfig } from '../utils/AppConfig';
@@ -15,9 +16,19 @@ const Main = (props: IMainProps) => (
     {props.meta}
 
     <div className="max-w-screen-md mx-auto">
-      <div className="text-center pt-16 pb-8">
+      <div className="text-center pt-16 pb-8 m-auto max-w-md">
         <div className="font-semibold text-3xl text-gray-900 dark:text-gray-300">
           {AppConfig.title}
+        </div>
+        <div style={{ margin: 'auto', maxWidth: '180px' }}>
+          <Image
+            src="/assets/images/avatar.jpg"
+            className="rounded-full "
+            alt="Avatar photo of Tim smiling in a blue polo shirt against a blurred bubble background"
+            width="500"
+            height="500"
+            layout="intrinsic"
+          />
         </div>
         <div className="text-xl">{AppConfig.description}</div>
       </div>
