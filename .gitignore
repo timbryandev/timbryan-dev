@@ -33,6 +33,3 @@ local
 
 # vercel
 .vercel
-
-# statically generated rss files
-public/rss
