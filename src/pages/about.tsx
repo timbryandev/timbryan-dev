@@ -2,12 +2,11 @@ import React from 'react';
 
 import DevIcons from '../components/DevIcons';
 import { Main } from '../components/Main';
-import { Content } from '../content/Content';
 import { Meta } from '../layout/Meta';
 
 const About = () => (
   <Main meta={<Meta title="About" description="Find out more about Tim" />}>
-    <Content>
+    <>
       <p>
         I&apos;m a perpetual learner with a genuine passion for technology,
         science and learning. I also enjoy puzzle-based games, playing the bass
@@ -71,7 +70,7 @@ const About = () => (
         </a>
         profile.
       </p>
-    </Content>
+    </>
   </Main>
 );
 
