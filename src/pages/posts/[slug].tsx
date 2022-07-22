@@ -2,6 +2,7 @@ import React from 'react';
 
 import { GetStaticPaths, GetStaticProps } from 'next';
 
+import ImageWithCredit from '../../components/ImageWithCredit';
 import { Main } from '../../components/Main';
 import PublishDate from '../../components/PublishDate';
 import { Content } from '../../content/Content';
@@ -14,13 +15,14 @@ type IPostUrl = {
 };
 
 type IPostProps = {
-  title: string;
-  description: string;
-  posted: string;
-  updated: string;
-  status: string;
-  image: string;
   content: string;
+  credit?: any; // TODO: We should use [string, string]
+  description: string;
+  image: string;
+  posted: string;
+  status: string;
+  title: string;
+  updated: string;
 };
 
 const DisplayPost = (props: IPostProps) => (
@@ -32,8 +34,8 @@ const DisplayPost = (props: IPostProps) => (
         post={{
           image: props.image,
           posted: props.posted,
-          updated: props.updated,
           status: props.status,
+          updated: props.updated,
         }}
       />
     }
@@ -45,7 +47,11 @@ const DisplayPost = (props: IPostProps) => (
       <PublishDate {...props} showUpdated={true} />
     </div>
 
-    <img src={props.image} className="mx-auto" alt="" />
+    <ImageWithCredit
+      image={props.image}
+      name={props.credit?.[0]}
+      source={props.credit?.[1]}
+    />
 
     <Content>
       <div
@@ -73,26 +79,28 @@ export const getStaticProps: GetStaticProps<IPostProps, IPostUrl> = async ({
   params,
 }) => {
   const post = getPostBySlug(params!.slug, [
-    'title',
-    'description',
-    'posted',
-    'updated',
-    'status',
-    'image',
     'content',
+    'credit',
+    'description',
+    'image',
+    'posted',
     'slug',
+    'status',
+    'title',
+    'updated',
   ]);
   const content = await markdownToHtml(post.content || '');
 
   return {
     props: {
-      title: post.title,
-      description: post.description,
-      posted: post.posted,
-      updated: post.updated ?? post.posted,
-      status: post.status,
-      image: post.image,
       content,
+      credit: post.credit ?? null,
+      description: post.description,
+      image: post.image,
+      posted: post.posted,
+      status: post.status,
+      title: post.title,
+      updated: post.updated ?? post.posted,
     },
   };
 };
