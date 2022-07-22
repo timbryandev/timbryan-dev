@@ -4,11 +4,12 @@ description: Don't pay for this premium feature when you can make it yourself.
 posted: "2022-01-06"
 updated: "2022-06-29"
 image: /assets/images/posts/charlesdeluvio-h6OLeuqZ6mg-unsplash.jpg
+credit:
+  [
+    charlesdeluvio,
+    https://unsplash.com/@charlesdeluvio?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText,
+  ]
 status: published
----
-
-Cover photo by [charlesdeluvio](https://unsplash.com/@charlesdeluvio?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText") on [Unsplash](https://unsplash.com/)
-
 ---
 
 Some websites & video streaming services have a feature that allows you to watch videos in Picture-in-Picture mode, but they lock this feature behind some kind of paywall or make it a perk of having a subscription.

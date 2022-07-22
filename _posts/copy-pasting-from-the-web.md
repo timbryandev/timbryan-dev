@@ -4,10 +4,13 @@ description: You never really know what is being added to your clipboard...
 posted: 2020-10-19'
 updated: "2021-03-19"
 image: /assets/images/posts/arget-zvHhKiVuR9M-unsplash.jpg
+credit:
+  [
+    Arget,
+    https://unsplash.com/@arget?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText,
+  ]
 status: published
 ---
-
-Cover photo by [Arget](https://unsplash.com/@arget?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText") on [Unsplash](https://unsplash.com/)
 
 Credit to [https://briantracy.xyz/writing/copy-paste-shell.html](https://briantracy.xyz/writing/copy-paste-shell.html) for bringing the topic/issue to my attention!
 
