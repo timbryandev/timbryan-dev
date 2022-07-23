@@ -5,6 +5,7 @@ import Link from 'next/link';
 
 import { AppConfig } from '../utils/AppConfig';
 import { Navbar } from './Navbar';
+import ThemeToggle from './Theme/ThemeToggle';
 
 type IMainProps = {
   meta: ReactNode;
@@ -12,10 +13,14 @@ type IMainProps = {
 };
 
 const Main = (props: IMainProps) => (
-  <div className="antialiased w-full text-gray-700 dark:text-gray-300 px-3 md:px-0">
+  <div className="antialiased w-full text-gray-700 dark:text-gray-300 p-0 md:p-5 ">
     {props.meta}
 
-    <div className="max-w-screen-md mx-auto">
+    <div className="max-w-screen-lg mx-auto p-5 bg-white dark:bg-black bg-opacity-40 dark:bg-opacity-40 backdrop-blur-lg rounded drop-shadow-lg">
+      <div className="absolute right-0 top-0 mr-4 mt-4 md:mr-6 md:mt-6 z-10">
+        <ThemeToggle />
+      </div>
+
       <header className="text-center pt-16 pb-8 m-auto max-w-md">
         <h1 className="font-semibold text-3xl text-gray-900 dark:text-gray-300">
           {AppConfig.author}
@@ -62,9 +67,15 @@ const Main = (props: IMainProps) => (
           RSS feeds: <Link href="/rss/feed.xml">XML</Link>,{' '}
           <Link href="/rss/feed.json">JSON</Link>
         </p>
+        <p>
+          Site background image by:{' '}
+          <a href="https://unsplash.com/@juanjodev02?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+            @juanjodev02
+          </a>
+        </p>
         <p className="text-center ">
           © Copyright {new Date().getFullYear()}{' '}
-          <Link href={AppConfig.url}>{AppConfig.author}</Link>. Project base
+          <Link href={AppConfig.url}>{AppConfig.author}</Link>. Base project
           from the awesome <span role="img" aria-label="Love"></span>{' '}
           <a href="https://creativedesignsguru.com">CreativeDesignsGuru</a> ♥
         </p>
