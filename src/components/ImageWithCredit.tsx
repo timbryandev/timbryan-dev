@@ -13,7 +13,7 @@ function ImageWithCredit(props: IImageWithCreditProps) {
     <div className="relative">
       {image}
       <span className="absolute bottom-0 right-0 left-0 text-right bg-black bg-opacity-50 text-gray-300 py-1 px-3">
-        Cover image:{' '}
+        Cover image by{' '}
         {props.source ? (
           <a href={props.source} className="text-pink-300">
             {props.name}
