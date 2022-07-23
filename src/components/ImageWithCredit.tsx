@@ -5,9 +5,7 @@ export interface IImageWithCreditProps {
 }
 
 function ImageWithCredit(props: IImageWithCreditProps) {
-  const image = (
-    <img src={props.image} className="mx-auto" alt="" loading="lazy" />
-  );
+  const image = <img src={props.image} className="mx-auto" alt="" />;
 
   if (props.name === undefined) return image;
 
@@ -15,7 +13,7 @@ function ImageWithCredit(props: IImageWithCreditProps) {
     <div className="relative">
       {image}
       <span className="absolute bottom-0 right-0 left-0 text-right bg-black bg-opacity-50 text-gray-300 py-1 px-3">
-        Cover image:{' '}
+        Cover image by{' '}
         {props.source ? (
           <a href={props.source} className="text-pink-300">
             {props.name}

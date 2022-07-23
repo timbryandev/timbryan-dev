@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 import { ContactForm } from '../components/ContactForm';
+import { Content } from '../components/Content';
 import { Main } from '../components/Main';
-import { Content } from '../content/Content';
 import { Meta } from '../layout/Meta';
 import { AppConfig } from '../utils/AppConfig';
 

@@ -6,7 +6,7 @@ import { ThemeContext } from './ThemeContext';
 
 const BUTTON_CLASSES = 'text-yellow-600 text-2xl ml-2';
 
-const Toggle = () => {
+const ThemeToggle = () => {
   const { theme, setTheme } = React.useContext(ThemeContext);
 
   return (
@@ -28,4 +28,4 @@ const Toggle = () => {
   );
 };
 
-export default Toggle;
+export default ThemeToggle;

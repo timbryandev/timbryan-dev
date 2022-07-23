@@ -17,9 +17,21 @@ body:before {
   top: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/assets/images/3px-tile.png');
+  background-image: url('/assets/images/juanjo-jaramillo-mZnx9429i94-unsplash_sm.jpg');
   z-index: -1;
-  @apply opacity-20 dark:opacity-100;
+  @apply invert dark:invert-0 bg-cover bg-center;
+}
+
+@media screen and (min-width: 640px) {
+  body:before {
+    background-image: url('/assets/images/juanjo-jaramillo-mZnx9429i94-unsplash_md.jpg');
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  body:before {
+    background-image: url('/assets/images/juanjo-jaramillo-mZnx9429i94-unsplash_lg.jpg');
+  }
 }
 
 a,
@@ -42,8 +54,7 @@ a:after,
 }
 
 a:hover,
-.button:hover
-.dev-icon:hover {
+.button:hover .dev-icon:hover {
   @apply text-blue-600 dark:text-blue-400;
 }
 
