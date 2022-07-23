@@ -2,10 +2,10 @@ import React from 'react';
 
 import { GetStaticPaths, GetStaticProps } from 'next';
 
+import { Content } from '../../components/Content';
 import ImageWithCredit from '../../components/ImageWithCredit';
 import { Main } from '../../components/Main';
 import PublishDate from '../../components/PublishDate';
-import { Content } from '../../content/Content';
 import { Meta } from '../../layout/Meta';
 import { getAllPosts, getPostBySlug } from '../../utils/Content';
 import { markdownToHtml } from '../../utils/Markdown';
