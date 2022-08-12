@@ -13,10 +13,10 @@ type IMainProps = {
 };
 
 const Main = (props: IMainProps) => (
-  <div className="antialiased w-full text-gray-700 dark:text-gray-300 p-0 md:p-5 ">
+  <div className="antialiased w-full text-gray-700 dark:text-gray-300 p-0 md:p-5 bg-white dark:bg-black bg-opacity-50 dark:bg-opacity-50 backdrop-blur-lg drop-shadow-lg">
     {props.meta}
 
-    <div className="max-w-screen-lg mx-auto p-5 bg-white dark:bg-black bg-opacity-60 dark:bg-opacity-50 backdrop-blur-lg rounded drop-shadow-lg">
+    <div className="max-w-screen-lg mx-auto p-5">
       <div className="absolute right-0 top-0 mr-4 mt-4 md:mr-6 md:mt-6 z-10">
         <ThemeToggle />
       </div>
