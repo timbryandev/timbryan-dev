@@ -1,6 +1,6 @@
 ---
-title: "Get stuck in with Tim & Deno"
-description: It's not the NodeJS killer, but it might go that way...
+title: Get stuck in with Tim & Deno
+description: Its not the NodeJS killer, but it might go that way...
 posted: "2021-04-27"
 updated: "2021-10-13"
 image: /assets/images/posts/deno-logo.png

@@ -1,5 +1,5 @@
 ---
-title: "Next.js blog Boilerplate Presentation"
+title: Next.js blog Boilerplate Presentation
 description: Everything you need to use this Nextjs Boilerplate template
 posted: "2020-06-01"
 image: /assets/images/posts/random-img.jpg

@@ -1,7 +1,7 @@
 ---
-title: "Beware copy/pasting code or commands from the internet"
+title: Beware copy/pasting code or commands from the internet
 description: You never really know what is being added to your clipboard...
-posted: 2020-10-19'
+posted: "2020-10-19"
 updated: "2021-03-19"
 image: /assets/images/posts/arget-zvHhKiVuR9M-unsplash.jpg
 credit:
