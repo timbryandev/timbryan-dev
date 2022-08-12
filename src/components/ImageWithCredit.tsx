@@ -5,7 +5,7 @@ export interface IImageWithCreditProps {
 }
 
 function ImageWithCredit(props: IImageWithCreditProps) {
-  const image = <img src={props.image} className="mx-auto" alt="" />;
+  const image = <img src={props.image} className="mx-auto w-screen" alt="" />;
 
   if (props.name === undefined) return image;
 
