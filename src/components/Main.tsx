@@ -58,7 +58,7 @@ const Main = (props: IMainProps) => (
 
       <hr />
 
-      <main className="text-xl py-5">{props.children}</main>
+      <main className="text-base py-5">{props.children}</main>
 
       <hr />
 
