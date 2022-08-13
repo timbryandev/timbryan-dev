@@ -8,7 +8,7 @@ credit:
     Lautaro Andreani,
     https://unsplash.com/@lautaroandreani?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText,
   ]
-status: draft
+status: published
 ---
 
 **TL: DR;** Blinding dumping content into `dangerouslySetInnerHTML` is exactly that - dangerous. Make sure you are sanitising any input you pass to dangerouslySetInnerHTML unless you have explicit control of the input.
