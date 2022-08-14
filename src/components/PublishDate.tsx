@@ -10,7 +10,7 @@ interface IPublishDateProps {
 
 function PublishDate({
   posted,
-  updated,
+  updated = posted,
   showUpdated = false,
 }: IPublishDateProps) {
   if (showUpdated && posted !== updated) {
