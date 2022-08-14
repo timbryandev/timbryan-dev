@@ -1,7 +1,8 @@
 ---
 title: Mitigate XSS exploits when using React's dangerouslySetInnerHTML
 description: With the great power of dangerouslySetInnerHTML, comes great responsibility
-posted: "2022-08-13"
+posted: "2022-08-14"
+updated: "2022-08-14"
 image: /assets/images/posts/lautaro-andreani-xkBaqlcqeb4-unsplash.jpg
 credit:
   [
