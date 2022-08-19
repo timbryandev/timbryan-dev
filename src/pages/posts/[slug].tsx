@@ -59,6 +59,10 @@ const DisplayPost = (props: IPostProps) => (
         dangerouslySetInnerHTML={{ __html: props.content }}
       />
     </Content>
+
+    <p className="pt-8 mt-16 text-center border-dashed border-t-2 font-bold border-gray-700 my-4 dark:border-gray-300">
+      That&apos;s all folks - thanks for reading!
+    </p>
   </Main>
 );
 

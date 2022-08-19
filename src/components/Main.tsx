@@ -62,7 +62,10 @@ const Main = (props: IMainProps) => (
 
       <hr />
 
-      <footer className="py-8 text-sm">
+      <footer className="py-8">
+        <p className="text-lg">
+          <a href="https://ko-fi.com/S6S5EHTC8">Buy Tim a coffee ☕</a>
+        </p>
         <p>
           RSS feeds: <Link href="/rss/feed.xml">XML</Link>,{' '}
           <Link href="/rss/feed.json">JSON</Link>
@@ -75,9 +78,10 @@ const Main = (props: IMainProps) => (
         </p>
         <p className="text-center ">
           © Copyright {new Date().getFullYear()}{' '}
-          <Link href={AppConfig.url}>{AppConfig.author}</Link>. Base project
-          from the awesome <span role="img" aria-label="Love"></span>{' '}
-          <a href="https://creativedesignsguru.com">CreativeDesignsGuru</a> ♥
+          <Link href={AppConfig.url}>{AppConfig.author}</Link>.<br />
+          Base project from the awesome{' '}
+          <span role="img" aria-label="Love"></span>{' '}
+          <a href="https://creativedesignsguru.com">CreativeDesignsGuru</a> ❤️
         </p>
       </footer>
     </div>
