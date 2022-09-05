@@ -4,6 +4,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Metrophobic&family=Space+Mono&display=swap');
 
+:root {
+  --animation-time: 0.2s;
+}
+
 body {
   font-family: 'Metrophobic', sans-serif;
   @apply break-words;
@@ -17,21 +21,9 @@ body:before {
   top: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/assets/images/juanjo-jaramillo-mZnx9429i94-unsplash_sm.jpg');
+  background-image: url('/assets/images/juanjo-jaramillo-mZnx9429i94-unsplash_blur.png');
   z-index: -1;
   @apply invert dark:invert-0 bg-cover bg-center;
-}
-
-@media screen and (min-width: 640px) {
-  body:before {
-    background-image: url('/assets/images/juanjo-jaramillo-mZnx9429i94-unsplash_md.jpg');
-  }
-}
-
-@media screen and (min-width: 1920px) {
-  body:before {
-    background-image: url('/assets/images/juanjo-jaramillo-mZnx9429i94-unsplash_lg.jpg');
-  }
 }
 
 a,
@@ -39,6 +31,7 @@ a,
   position: relative;
   text-decoration: none;
   @apply text-pink-700 dark:text-pink-300;
+  transition: color var(--animation-time) ease-in-out;
 }
 
 a:after,
@@ -49,7 +42,7 @@ a:after,
   left: 50%;
   width: 0;
   border-bottom: 1px solid currentColor;
-  transition: all 0.3s ease-in-out;
+  transition: var(--animation-time) ease-in-out;
   transition-property: left, width;
 }
 
@@ -68,7 +61,7 @@ a:hover:after,
   @apply bg-transparent font-semibold py-2 px-4 rounded;
   @apply border border-pink-700 dark:border-pink-300 hover:border-blue-600 hover:dark:border-blue-400;
 
-  transition: all 0.3s ease-in-out;
+  transition: var(--animation-time) ease-in-out;
   transition-property: color, border, background;
 }
 
@@ -145,5 +138,5 @@ hr {
 .disabled {
   opacity: 0.5;
   pointer-events: none;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity var(--animation-time) ease-in-out;
 }
