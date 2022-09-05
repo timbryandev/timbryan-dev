@@ -7,7 +7,7 @@ export interface IDevIconsProps {
 export type IDevIconList = [string, IconType, string][];
 
 export interface IDevIconProps {
-  Icon: React.FunctionComponent;
+  Icon: React.FunctionComponent<{ size: number }>;
   title: string;
   url?: string;
 }

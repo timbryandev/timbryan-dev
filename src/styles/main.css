@@ -8,6 +8,10 @@
   --animation-time: 0.2s;
 }
 
+html {
+  font-size: 18px;
+}
+
 body {
   font-family: 'Metrophobic', sans-serif;
   @apply break-words;

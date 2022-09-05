@@ -5,7 +5,7 @@ import { IDevIconProps } from './types';
 
 const DevIcon = ({ Icon, title, url }: IDevIconProps) => (
   <Wrapper url={url}>
-    <Icon />
+    <Icon size={50} />
     {title}
   </Wrapper>
 );
