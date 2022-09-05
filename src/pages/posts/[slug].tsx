@@ -50,7 +50,7 @@ const DisplayPost = (props: IPostProps) => (
     <ImageWithCredit
       image={props.image}
       name={props.credit?.[0]}
-      source={props.credit?.[1]}
+      link={props.credit?.[1]}
     />
 
     <Content>

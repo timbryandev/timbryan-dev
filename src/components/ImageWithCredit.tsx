@@ -1,7 +1,7 @@
 export interface IImageWithCreditProps {
   image: string;
   name?: string;
-  source?: string;
+  link?: string;
 }
 
 function ImageWithCredit(props: IImageWithCreditProps) {
@@ -14,8 +14,8 @@ function ImageWithCredit(props: IImageWithCreditProps) {
       {image}
       <span className="absolute bottom-0 right-0 left-0 text-right bg-black bg-opacity-50 text-gray-300 py-1 px-3">
         Cover image by{' '}
-        {props.source ? (
-          <a href={props.source} className="text-pink-300">
+        {props.link ? (
+          <a href={props.link} className="text-pink-300">
             {props.name}
           </a>
         ) : (
