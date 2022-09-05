@@ -27,10 +27,12 @@ body:before {
 }
 
 a,
-.button {
+.button,
+.dev-icon {
   position: relative;
   text-decoration: none;
   @apply text-pink-700 dark:text-pink-300;
+  @apply hover:text-blue-600 dark:hover:text-blue-400;
   transition: color var(--animation-time) ease-in-out;
 }
 
@@ -44,11 +46,6 @@ a:after,
   border-bottom: 1px solid currentColor;
   transition: var(--animation-time) ease-in-out;
   transition-property: left, width;
-}
-
-a:hover,
-.button:hover .dev-icon:hover {
-  @apply text-blue-600 dark:text-blue-400;
 }
 
 a:hover:after,
