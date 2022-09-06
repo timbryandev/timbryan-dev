@@ -34,6 +34,8 @@ const joke = `
 `;
 
 async function consoleBrand() {
+  if (typeof window === 'undefined') return;
+
   // eslint-disable-next-line no-console
   console.log(`
 (If you can't see the content correctly, try increasing the width of your console to more than 98 characters)
