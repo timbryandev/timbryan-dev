@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { AppConfig } from '../utils/AppConfig';
 import { validateEmail, validateMessage } from '../utils/Validate';
+import { ErrorAlert, SuccessAlert } from './Alerts';
 
 const ERROR = 'ERROR';
 const IDLE = 'IDLE';
@@ -11,7 +12,7 @@ const SUCCESS = 'SUCCESS';
 type Status = typeof ERROR | typeof IDLE | typeof SENDING | typeof SUCCESS;
 
 interface State {
-  error?: string | null;
+  error: string;
   email: string;
   message: string;
   name: string;
@@ -21,7 +22,7 @@ interface State {
 type UpdateState = Partial<State>;
 
 const INITIAL_STATE: State = {
-  error: null,
+  error: '',
   email: '',
   message: '',
   name: '',
@@ -45,7 +46,7 @@ export const ContactForm = (): JSX.Element => {
     event.preventDefault();
 
     // Reset the form to SENDING status
-    updateState({ status: SENDING, error: null });
+    updateState({ status: SENDING, error: '' });
 
     // Validate mandatory inputs
     if (!validateEmail(state.email)) {
@@ -95,13 +96,10 @@ export const ContactForm = (): JSX.Element => {
 
   if (state.status === SUCCESS) {
     return (
-      <div
-        className="bg-teal-100 border border-teal-400 text-teal-700 px-4 py-3 mt-5 rounded relative"
-        role="alert"
-      >
-        <p className="font-bold">Thank you for getting in touch!</p>
-        <p>I aim to respond to queries within 24 hours - so hold tight!</p>
-      </div>
+      <SuccessAlert
+        heading="Thank you for getting in touch!"
+        text="I aim to respond to queries within 24 hours - so hold tight"
+      />
     );
   }
 
@@ -157,13 +155,10 @@ export const ContactForm = (): JSX.Element => {
             {state.status === SENDING ? 'Sending' : 'Send'}
           </button>
           {state.status === ERROR && (
-            <div
-              className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 mt-5 rounded relative"
-              role="alert"
-            >
-              <p className="font-bold">Ooops, something isn&apos;t right!</p>
-              <p>{state.error}</p>
-            </div>
+            <ErrorAlert
+              heading="Ooops, something isn't right!"
+              text={state.error}
+            />
           )}
         </div>
       </fieldset>
