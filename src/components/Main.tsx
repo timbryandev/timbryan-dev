@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { AppConfig } from '../utils/AppConfig';
-import { Navbar } from './Navbar';
+import { NavBar } from './NavBar/NavBar';
 import ThemeToggle from './Theme/ThemeToggle';
 
 type IMainProps = {
@@ -21,7 +21,7 @@ const Main = (props: IMainProps) => (
         <ThemeToggle />
       </div>
 
-      <header className="text-center pt-16 pb-8 m-auto max-w-md">
+      <header className="text-center m-auto mt-8 bg-[#f8f6f5] dark:bg-[#090a0e] rounded-lg p-2 pb-5">
         <h1 className="font-semibold text-3xl text-gray-900 dark:text-gray-300">
           {AppConfig.author}
         </h1>
@@ -38,29 +38,15 @@ const Main = (props: IMainProps) => (
         <div className="text-xl">{AppConfig.description}</div>
       </header>
 
-      <Navbar>
-        <li className="mr-6">
-          <Link href="/">
-            <a>Posts</a>
-          </Link>
-        </li>
-        <li className="mr-6">
-          <Link href="/about/">
-            <a>About</a>
-          </Link>
-        </li>
-        <li className="mr-6">
-          <Link href="/contact/">
-            <a>Contact</a>
-          </Link>
-        </li>
-      </Navbar>
+      <NavBar items={AppConfig.siteLinks} />
 
       <hr />
 
       <main className="text-base py-5">{props.children}</main>
 
       <hr />
+
+      <NavBar items={AppConfig.siteLinks} />
 
       <footer className="py-8">
         <p className="text-lg">

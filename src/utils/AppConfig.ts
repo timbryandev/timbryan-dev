@@ -7,6 +7,11 @@ export const AppConfig = {
   email: 'hi@timbryan.dev',
   locale: 'en-GB',
   pagination_size: 5,
+  siteLinks: [
+    { link: '/', text: 'Posts' },
+    { link: '/about', text: 'About' },
+    { link: '/contact', text: 'Contact' },
+  ],
   siteName: 'TimBryan.Dev',
   url: 'https://timbryan.dev',
 };
