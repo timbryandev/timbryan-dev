@@ -35,6 +35,10 @@ export const ContactForm = (): JSX.Element => {
     setState((prev) => ({ ...prev, ...newState }));
   }
 
+  function setField(key: string, value: string) {
+    updateState({ [key]: String(value).trim() });
+  }
+
   const handleSubmitForm = async (
     event: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
@@ -108,7 +112,7 @@ export const ContactForm = (): JSX.Element => {
             type="email"
             required
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              updateState({ email: e.target.value })
+              setField('email', e.target.value)
             }
           />
         </div>
@@ -122,7 +126,7 @@ export const ContactForm = (): JSX.Element => {
             name="name"
             type="text"
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              updateState({ name: e.target.value })
+              setField('name', e.target.value)
             }
           />
         </div>
@@ -137,7 +141,7 @@ export const ContactForm = (): JSX.Element => {
             required
             rows={6}
             onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-              updateState({ message: e.target.value })
+              setField('message', e.target.value)
             }
           />
         </div>
