@@ -6,5 +6,5 @@ export function validateEmail(email: string) {
 }
 
 export function validateMessage(message: string) {
-  return String(message).length > 0;
+  return String(message).trim().length > 0;
 }

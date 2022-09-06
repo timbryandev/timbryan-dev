@@ -57,7 +57,7 @@ export const ContactForm = (): JSX.Element => {
       return;
     }
 
-    if (!validateMessage(state.email)) {
+    if (!validateMessage(state.message)) {
       updateState({
         status: ERROR,
         error: 'You must supply a message ',
@@ -92,6 +92,18 @@ export const ContactForm = (): JSX.Element => {
 
     updateState({ status: SUCCESS });
   };
+
+  if (state.status === SUCCESS) {
+    return (
+      <div
+        className="bg-teal-100 border border-teal-400 text-teal-700 px-4 py-3 mt-5 rounded relative"
+        role="alert"
+      >
+        <p className="font-bold">Thank you for getting in touch!</p>
+        <p>I aim to respond to queries within 24 hours - so hold tight!</p>
+      </div>
+    );
+  }
 
   return (
     <form className="contact-form" onSubmit={handleSubmitForm}>
@@ -141,17 +153,18 @@ export const ContactForm = (): JSX.Element => {
         </div>
 
         <div>
-          {state.status === SUCCESS ? (
-            <p>
-              Thank you for getting in touch. I aim to respond to queries within
-              24 hours - so hold tight!
-            </p>
-          ) : (
-            <button type="submit" className="button primary">
-              {state.status === SENDING ? 'Sending' : 'Send'}
-            </button>
+          <button type="submit" className="button primary">
+            {state.status === SENDING ? 'Sending' : 'Send'}
+          </button>
+          {state.status === ERROR && (
+            <div
+              className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 mt-5 rounded relative"
+              role="alert"
+            >
+              <p className="font-bold">Ooops, something isn&apos;t right!</p>
+              <p>{state.error}</p>
+            </div>
           )}
-          {state.status === ERROR && <p>{state.error}</p>}
         </div>
       </fieldset>
     </form>
