@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { AppConfig } from '../utils/AppConfig';
+import { validateEmail, validateMessage } from '../utils/Validate';
 
 const ERROR = 'ERROR';
 const IDLE = 'IDLE';
@@ -38,9 +39,12 @@ export const ContactForm = (): JSX.Element => {
     event: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
     event.preventDefault();
+
+    // Reset the form to SENDING status
     updateState({ status: SENDING, error: null });
 
-    if (state.email === '') {
+    // Validate mandatory inputs
+    if (!validateEmail(state.email)) {
       updateState({
         status: ERROR,
         error: 'You must supply a valid email address',
@@ -49,7 +53,7 @@ export const ContactForm = (): JSX.Element => {
       return;
     }
 
-    if (state.message === '') {
+    if (!validateMessage(state.email)) {
       updateState({
         status: ERROR,
         error: 'You must supply a message ',
@@ -58,6 +62,7 @@ export const ContactForm = (): JSX.Element => {
       return;
     }
 
+    // Do the submission
     const response = await fetch(AppConfig.contactFormUrl, {
       method: 'POST',
       headers: {
@@ -71,6 +76,7 @@ export const ContactForm = (): JSX.Element => {
       }),
     });
 
+    // If we encounter any errors, inform the user
     if (response.ok === false) {
       updateState({
         status: ERROR,
@@ -112,7 +118,6 @@ export const ContactForm = (): JSX.Element => {
           </label>
           <input
             className="form-input"
-            required
             id="name"
             name="name"
             type="text"
