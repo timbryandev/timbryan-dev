@@ -86,7 +86,7 @@ export const ContactForm = (): JSX.Element => {
   return (
     <form className="contact-form" onSubmit={handleSubmitForm}>
       <fieldset
-        disabled={state.status === ERROR}
+        disabled={state.status === SUCCESS}
         className="disabled:opacity-50"
       >
         <legend className="text-transparent">Contact Me</legend>
@@ -139,7 +139,10 @@ export const ContactForm = (): JSX.Element => {
 
         <div>
           {state.status === SUCCESS ? (
-            <p>Thanks!</p>
+            <p>
+              Thank you for getting in touch. I aim to respond to queries within
+              24 hours - so hold tight!
+            </p>
           ) : (
             <button type="submit" className="button primary">
               Submit
