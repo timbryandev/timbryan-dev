@@ -111,9 +111,7 @@ export const ContactForm = (): JSX.Element => {
             name="email"
             type="email"
             required
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setField('email', e.target.value)
-            }
+            onChange={(e) => setField('email', e.target.value)}
           />
         </div>
         <div className="mb-6">
@@ -125,9 +123,7 @@ export const ContactForm = (): JSX.Element => {
             id="name"
             name="name"
             type="text"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setField('name', e.target.value)
-            }
+            onChange={(e) => setField('name', e.target.value)}
           />
         </div>
         <div className="mb-6">
@@ -140,9 +136,7 @@ export const ContactForm = (): JSX.Element => {
             name="message"
             required
             rows={6}
-            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-              setField('message', e.target.value)
-            }
+            onChange={(e) => setField('message', e.target.value)}
           />
         </div>
 
