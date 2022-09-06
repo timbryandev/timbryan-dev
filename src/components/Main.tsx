@@ -21,22 +21,24 @@ const Main = (props: IMainProps) => (
         <ThemeToggle />
       </div>
 
-      <header className="text-center m-auto mt-8 bg-[#f8f6f5] dark:bg-[#090a0e] rounded-lg p-2 pb-5">
-        <h1 className="font-semibold text-3xl text-gray-900 dark:text-gray-300">
-          {AppConfig.author}
-        </h1>
-        <div style={{ margin: 'auto', maxWidth: '180px' }}>
-          <Image
-            src="/assets/images/avatar.jpg"
-            className="rounded-full "
-            alt="Avatar photo of Tim smiling in a blue polo shirt against a blurred bubble background"
-            width="500"
-            height="500"
-            layout="intrinsic"
-          />
-        </div>
-        <div className="text-xl">{AppConfig.description}</div>
-      </header>
+      <Link href="/">
+        <header className="text-center m-auto mt-8 bg-[#f8f6f5] dark:bg-[#090a0e] rounded-lg p-2 pb-5 cursor-pointer shadow hover:scale-105 transition-all">
+          <h1 className="font-semibold text-3xl text-gray-900 dark:text-gray-300">
+            {AppConfig.author}
+          </h1>
+          <div style={{ margin: 'auto', maxWidth: '180px' }}>
+            <Image
+              src="/assets/images/avatar.jpg"
+              className="rounded-full "
+              alt="Avatar photo of Tim smiling in a blue polo shirt against a blurred bubble background"
+              width="500"
+              height="500"
+              layout="intrinsic"
+            />
+          </div>
+          <div className="text-xl">{AppConfig.description}</div>
+        </header>
+      </Link>
 
       <NavBar items={AppConfig.siteLinks} />
 
