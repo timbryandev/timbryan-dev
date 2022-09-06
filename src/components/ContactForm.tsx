@@ -34,39 +34,53 @@ export const ContactForm = (): JSX.Element => {
     setState((prev) => ({ ...prev, ...newState }));
   }
 
-  const handleSubmitForm = (event: React.FormEvent<HTMLFormElement>): void => {
+  const handleSubmitForm = async (
+    event: React.FormEvent<HTMLFormElement>
+  ): Promise<void> => {
     event.preventDefault();
-
-    const xhr = new window.XMLHttpRequest();
     updateState({ status: SENDING, error: null });
 
-    if (state.email === '' || state.message === '') {
+    if (state.email === '') {
       updateState({
         status: ERROR,
-        error: 'You must supply a valid message and email address',
+        error: 'You must supply a valid email address',
       });
+
       return;
     }
 
-    const data = new window.FormData();
-    data.append('email', state.email);
-    data.append('message', state.message);
-    data.append('name', state.name);
+    if (state.message === '') {
+      updateState({
+        status: ERROR,
+        error: 'You must supply a message ',
+      });
 
-    xhr.open('POST', AppConfig.contactFormUrl);
-    xhr.setRequestHeader('Accept', 'application/json');
-    xhr.onreadystatechange = () => {
-      if (xhr.readyState !== window.XMLHttpRequest.DONE) return;
-      if (xhr.status === 200) {
-        updateState({ status: SUCCESS });
-      } else {
-        updateState({
-          status: ERROR,
-          error: 'There was a problem submitting this form - please try again.',
-        });
-      }
-    };
-    xhr.send(data);
+      return;
+    }
+
+    const response = await fetch(AppConfig.contactFormUrl, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: state.email,
+        message: state.message,
+        name: state.name,
+      }),
+    });
+
+    if (response.ok === false) {
+      updateState({
+        status: ERROR,
+        error: 'There was a problem submitting this form - please try again.',
+      });
+
+      return;
+    }
+
+    updateState({ status: SUCCESS });
   };
 
   return (
