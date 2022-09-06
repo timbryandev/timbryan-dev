@@ -1,46 +1,112 @@
 import React, { useState } from 'react';
 
 import { AppConfig } from '../utils/AppConfig';
+import { validateEmail, validateMessage } from '../utils/Validate';
+import { ErrorAlert, SuccessAlert } from './Alerts';
+
+const ERROR = 'ERROR';
+const IDLE = 'IDLE';
+const SENDING = 'SENDING';
+const SUCCESS = 'SUCCESS';
+
+type Status = typeof ERROR | typeof IDLE | typeof SENDING | typeof SUCCESS;
+
+interface State {
+  error: string;
+  email: string;
+  message: string;
+  name: string;
+  status: Status;
+}
+
+type UpdateState = Partial<State>;
+
+const INITIAL_STATE: State = {
+  error: '',
+  email: '',
+  message: '',
+  name: '',
+  status: IDLE,
+};
 
 export const ContactForm = (): JSX.Element => {
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [name, setName] = useState('');
-  const [status, setStatus] = useState('');
+  const [state, setState] = useState<State>(INITIAL_STATE);
 
-  const handleSubmitForm = (event: React.FormEvent<HTMLFormElement>): void => {
-    const xhr = new window.XMLHttpRequest();
-    setStatus('SENDING');
+  function updateState(newState: UpdateState) {
+    setState((prev) => ({ ...prev, ...newState }));
+  }
 
-    if (email === '' || message === '') {
-      setStatus('ERROR');
+  function setField(key: string, value: string) {
+    updateState({ [key]: String(value).trim() });
+  }
+
+  const handleSubmitForm = async (
+    event: React.FormEvent<HTMLFormElement>
+  ): Promise<void> => {
+    event.preventDefault();
+
+    // Reset the form to SENDING status
+    updateState({ status: SENDING, error: '' });
+
+    // Validate mandatory inputs
+    if (!validateEmail(state.email)) {
+      updateState({
+        status: ERROR,
+        error: 'You must supply a valid email address',
+      });
+
       return;
     }
 
-    event.preventDefault();
+    if (!validateMessage(state.message)) {
+      updateState({
+        status: ERROR,
+        error: 'You must supply a message ',
+      });
 
-    const data = new window.FormData();
-    data.append('email', email);
-    data.append('message', message);
-    data.append('name', name);
+      return;
+    }
 
-    xhr.open('POST', AppConfig.contactFormUrl);
-    xhr.setRequestHeader('Accept', 'application/json');
-    xhr.onreadystatechange = () => {
-      if (xhr.readyState !== window.XMLHttpRequest.DONE) return;
-      if (xhr.status === 200) {
-        setStatus('SUCCESS');
-      } else {
-        setStatus('ERROR');
-      }
-    };
-    xhr.send(data);
+    // Do the submission
+    const response = await fetch(AppConfig.contactFormUrl, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: state.email,
+        message: state.message,
+        name: state.name,
+      }),
+    });
+
+    // If we encounter any errors, inform the user
+    if (response.ok === false) {
+      updateState({
+        status: ERROR,
+        error: 'There was a problem submitting this form - please try again.',
+      });
+
+      return;
+    }
+
+    updateState({ status: SUCCESS });
   };
+
+  if (state.status === SUCCESS) {
+    return (
+      <SuccessAlert
+        heading="Thank you for getting in touch!"
+        text="I aim to respond to queries within 24 hours - so hold tight"
+      />
+    );
+  }
 
   return (
     <form className="contact-form" onSubmit={handleSubmitForm}>
       <fieldset
-        disabled={status !== '' && status !== 'ERROR'}
+        disabled={[SENDING, SUCCESS].includes(state.status)}
         className="disabled:opacity-50"
       >
         <legend className="text-transparent">Contact Me</legend>
@@ -55,9 +121,7 @@ export const ContactForm = (): JSX.Element => {
             name="email"
             type="email"
             required
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setEmail(e.target.value)
-            }
+            onChange={(e) => setField('email', e.target.value)}
           />
         </div>
         <div className="mb-6">
@@ -66,13 +130,10 @@ export const ContactForm = (): JSX.Element => {
           </label>
           <input
             className="form-input"
-            required
             id="name"
             name="name"
             type="text"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setName(e.target.value)
-            }
+            onChange={(e) => setField('name', e.target.value)}
           />
         </div>
         <div className="mb-6">
@@ -85,23 +146,19 @@ export const ContactForm = (): JSX.Element => {
             name="message"
             required
             rows={6}
-            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-              setMessage(e.target.value)
-            }
+            onChange={(e) => setField('message', e.target.value)}
           />
         </div>
 
         <div>
-          {status && <p>{status}</p>}
-          {status === 'SUCCESS' ? (
-            <p>Thanks!</p>
-          ) : (
-            <button type="submit" className="button primary">
-              Submit
-            </button>
-          )}
-          {status === 'ERROR' && (
-            <p>Ooops - something went wrong! Please try submitting again.</p>
+          <button type="submit" className="button primary">
+            {state.status === SENDING ? 'Sending' : 'Send'}
+          </button>
+          {state.status === ERROR && (
+            <ErrorAlert
+              heading="Ooops, something isn't right!"
+              text={state.error}
+            />
           )}
         </div>
       </fieldset>
