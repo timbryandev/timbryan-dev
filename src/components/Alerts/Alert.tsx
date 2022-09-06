@@ -1,19 +1,17 @@
 export interface AlertProps {
+  classes?: string[];
   color?: string;
   heading?: string;
   text?: string;
 }
 
 export default function Alert({
-  color = 'blue',
+  classes = [''],
   heading = '',
   text = '',
 }: AlertProps) {
   return (
-    <div
-      className={`bg-${color}-100 border border-${color}-400 text-${color}-700 px-4 py-3 mt-5 rounded relative`}
-      role="alert"
-    >
+    <div className={`alert ${classes.join(' ')}`} role="alert">
       {heading && <p className="font-bold">{heading}</p>}
       {text && <p>{text}</p>}
     </div>
