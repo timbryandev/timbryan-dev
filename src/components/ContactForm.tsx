@@ -92,7 +92,7 @@ export const ContactForm = (): JSX.Element => {
   return (
     <form className="contact-form" onSubmit={handleSubmitForm}>
       <fieldset
-        disabled={state.status === SUCCESS}
+        disabled={[SENDING, SUCCESS].includes(state.status)}
         className="disabled:opacity-50"
       >
         <legend className="text-transparent">Contact Me</legend>
