@@ -150,7 +150,7 @@ export const ContactForm = (): JSX.Element => {
             </p>
           ) : (
             <button type="submit" className="button primary">
-              Submit
+              {state.status === SENDING ? 'Sending' : 'Send'}
             </button>
           )}
           {state.status === ERROR && <p>{state.error}</p>}
