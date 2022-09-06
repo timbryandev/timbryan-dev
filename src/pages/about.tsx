@@ -68,7 +68,7 @@ const About = () => (
         For more info on Tim, you can find me and more info on my{' '}
         <a className="pointer" href="https://www.linkedin.com/in/timbryandev/">
           LinkedIn
-        </a>
+        </a>{' '}
         profile.
       </p>
     </Content>
