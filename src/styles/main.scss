@@ -1,3 +1,4 @@
+/* Global */
 @import url('https://fonts.googleapis.com/css2?family=Metrophobic&family=Space+Mono&display=swap');
 
 /*
@@ -34,7 +35,7 @@ html {
 
 body {
   font-family: 'Metrophobic', sans-serif;
-  @apply break-words;
+  // @apply break-words;
 }
 
 /*
@@ -179,3 +180,8 @@ hr {
 .alert.success {
   @apply bg-teal-100  border-teal-400 text-teal-700;
 } */
+
+
+/* Components */
+
+/* Pages */
