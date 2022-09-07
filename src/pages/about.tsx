@@ -1,5 +1,5 @@
 import { Content } from '../components/Content';
-import DevIcons from '../components/DevIcons';
+import { DevIcons } from '../components/DevIcons';
 import { Main } from '../components/Main';
 import { Meta } from '../layout/Meta';
 
