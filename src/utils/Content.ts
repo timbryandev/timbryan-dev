@@ -45,7 +45,7 @@ export function getAllPosts(fields: string[] = [], publishedOnly = false) {
   const posts = slugs
     .map((slug) => getPostBySlug(slug, fields))
     // sort posts by date in descending order
-    .sort((post1, post2) => (post1.updated > post2.updated ? -1 : 1));
+    .sort((post1, post2) => (post1.posted > post2.posted ? -1 : 1));
 
   if (publishedOnly) {
     return posts.filter((post) => post.status === 'published');
