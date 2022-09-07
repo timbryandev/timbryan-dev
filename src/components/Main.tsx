@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { AppConfig } from '../utils/AppConfig';
-import { NavBar } from './NavBar/NavBar';
+import { NavBar } from './NavBar';
 import ThemeToggle from './Theme/ThemeToggle';
 
 type IMainProps = {
