@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { GetStaticProps } from 'next';
 
 import { BlogGallery, IBlogGalleryProps } from '../components/BlogGallery';

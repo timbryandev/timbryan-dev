@@ -42,11 +42,7 @@ const Main = (props: IMainProps) => (
 
       <NavBar items={AppConfig.siteLinks} />
 
-      <hr />
-
       <main className="text-base py-5">{props.children}</main>
-
-      <hr />
 
       <NavBar items={AppConfig.siteLinks} />
 

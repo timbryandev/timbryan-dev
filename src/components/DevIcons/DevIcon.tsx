@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Wrapper from './DevIconWrapper';
 import { IDevIconProps } from './types';
 

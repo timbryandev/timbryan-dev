@@ -1,4 +1,11 @@
-import React from 'react';
+import {
+  createContext,
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useEffect,
+  useState,
+} from 'react';
 
 const DEFAULT_THEME = 'dark';
 
@@ -6,17 +13,17 @@ type ITheme = 'dark' | 'light' | string;
 
 interface IThemeProviderContext {
   theme: ITheme;
-  setTheme: React.Dispatch<React.SetStateAction<ITheme>>;
+  setTheme: Dispatch<SetStateAction<ITheme>>;
 }
 
-export const ThemeContext = React.createContext<IThemeProviderContext>({
+export const ThemeContext = createContext<IThemeProviderContext>({
   theme: DEFAULT_THEME,
   setTheme: () => {},
 });
 
 export interface IThemeProviderProps {
   initialTheme?: ITheme;
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 const getInitialTheme = (): ITheme => {
@@ -39,7 +46,7 @@ export const ThemeProvider = ({
   initialTheme,
   children,
 }: IThemeProviderProps) => {
-  const [theme, setTheme] = React.useState('');
+  const [theme, setTheme] = useState('');
 
   const rawSetTheme = (rawTheme: string) => {
     if (!rawTheme) return;
@@ -52,7 +59,7 @@ export const ThemeProvider = ({
     localStorage.setItem('color-theme', rawTheme);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (initialTheme) {
       setTheme(initialTheme);
       return;
@@ -60,7 +67,7 @@ export const ThemeProvider = ({
     setTheme(getInitialTheme());
   }, [initialTheme]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     rawSetTheme(theme);
   }, [theme]);
 

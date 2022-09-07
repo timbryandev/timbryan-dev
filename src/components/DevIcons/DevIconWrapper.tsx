@@ -1,7 +1,9 @@
+import { ReactNode } from 'react';
+
 import Link from 'next/link';
 
 interface IWrapperProps {
-  children: React.ReactNode | React.ReactNode[];
+  children: ReactNode | ReactNode[];
   url?: string;
 }
 

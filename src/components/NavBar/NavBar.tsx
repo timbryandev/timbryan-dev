@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { NavItem, NavItemProps } from './NavItem';
 
 export interface NavBarProps {
