@@ -1,1 +1,3 @@
-export { default as DevIcons } from './DevIcons';
+import DevIcons from './DevIcons';
+
+export default DevIcons;

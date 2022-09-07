@@ -6,7 +6,7 @@ const DevIcons = ({ list }: IDevIconsProps) => {
   const skillsList = SKILLS[list];
 
   return (
-    <div className="flex flex-wrap justify-center">
+    <div className="devicons">
       {skillsList.map(([title, icon, url]) => (
         <DevIcon key={title} Icon={icon} title={title} url={url} />
       ))}
