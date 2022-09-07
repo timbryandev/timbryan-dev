@@ -7,11 +7,13 @@
     "build-types": "tsc --noEmit --pretty",
     "clean": "rm -rf .next dist",
     "dev": "next dev",
-    "fix": "eslint . --fix",
-    "lint": "next lint",
+    "js:fix": "eslint . --fix",
+    "js:lint": "next lint",
     "lint-staged": "lint-staged",
     "prepare": "husky install",
-    "start": "next start"
+    "start": "next start",
+    "style:lint": "stylelint **/*.scss",
+    "style:fix": "stylelint **/*.scss --fix"
   },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.7.0",
@@ -28,6 +30,8 @@
     "remark-parse": "^10.0.1",
     "remark-rehype": "^10.1.0",
     "sass": "^1.54.8",
+    "stylelint-config-standard-scss": "^5.0.0",
+    "stylelint-scss": "^4.3.0",
     "unified": "^10.1.1"
   },
   "devDependencies": {
@@ -53,6 +57,7 @@
     "husky": "^7.0.4",
     "lint-staged": "^12.3.3",
     "prettier": "^2.5.1",
+    "stylelint-config-prettier-scss": "^0.0.1",
     "typescript": "^4.5.5"
   },
   "engines": {

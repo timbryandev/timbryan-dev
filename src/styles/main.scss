@@ -1,5 +1,10 @@
 /* Global */
-@import url('https://fonts.googleapis.com/css2?family=Metrophobic&family=Space+Mono&display=swap');
+@import 'https://fonts.googleapis.com/css2?family=Metrophobic&family=Space+Mono&display=swap';
+
+/* Components */
+@import '../components//NavBar/NavBar.scss';
+
+/* Pages */
 
 /*
   Theme options:
@@ -26,7 +31,14 @@
 */
 
 :root {
-  --animation-time: 0.2s;
+  --animation-duration: 0.2s;
+  --links: #be185d;
+  --links-hover: #3182ce;
+}
+
+.dark {
+  --links: #f9a8d4;
+  --links-hover: #63b3ed;
 }
 
 html {
@@ -34,8 +46,53 @@ html {
 }
 
 body {
-  font-family: 'Metrophobic', sans-serif;
+  font-family: Metrophobic, sans-serif;
+
   // @apply break-words;
+}
+
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+code,
+pre,
+.dev-icon {
+  font-family: 'Space Mono', monospace !important;
+}
+
+a,
+.dev-icon {
+  position: relative;
+  text-decoration: none;
+  transition: color var(--animation-duration) ease-in-out;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    border-bottom: .125rem solid currentcolor;
+    transition: var(--animation-duration) ease-in-out;
+    transition-property: left, width;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: var(--links-hover);
+
+    &::after {
+      width: 100%;
+      left: 0;
+    }
+  }
+
+
+
 }
 
 /*
@@ -52,39 +109,11 @@ body:before {
   @apply invert dark:invert-0 bg-cover bg-center;
 }
 
-a,
-.button,
-.dev-icon {
-  position: relative;
-  text-decoration: none;
-  @apply text-pink-700 dark:text-pink-300;
-  @apply hover:text-blue-600 dark:hover:text-blue-400;
-  transition: color var(--animation-time) ease-in-out;
-}
-
-a:after,
-.dev-icon:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  border-bottom: 1px solid currentColor;
-  transition: var(--animation-time) ease-in-out;
-  transition-property: left, width;
-}
-
-a:hover:after,
-.dev-icon:hover:after {
-  width: 100%;
-  left: 0;
-}
-
 .button {
   @apply bg-transparent font-semibold py-2 px-4 rounded;
   @apply border border-pink-700 dark:border-pink-300 hover:border-blue-600 hover:dark:border-blue-400;
 
-  transition: var(--animation-time) ease-in-out;
+  transition: var(--animation-duration) ease-in-out;
   transition-property: color, border, background;
 }
 
@@ -114,22 +143,7 @@ p {
 ul {
   @apply my-6;
 }
-*/
 
-a,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-code,
-pre,
-.dev-icon {
-  font-family: 'Space Mono', monospace !important;
-}
-
-/*
 h1,
 h2,
 h3,
@@ -165,7 +179,7 @@ hr {
 .disabled {
   opacity: 0.5;
   pointer-events: none;
-  transition: opacity var(--animation-time) ease-in-out;
+  transition: opacity var(--animation-duration) ease-in-out;
 }
 
 .alert {
@@ -179,9 +193,5 @@ hr {
 
 .alert.success {
   @apply bg-teal-100  border-teal-400 text-teal-700;
-} */
-
-
-/* Components */
-
-/* Pages */
+}
+*/
