@@ -1,8 +1,28 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import url('https://fonts.googleapis.com/css2?family=Metrophobic&family=Space+Mono&display=swap');
+
+/*
+  Theme options:
+  --background-body
+  --background
+  --background-alt
+  --selection
+  --text-main
+  --text-bright
+  --text-muted
+  --links
+  --focus
+  --border
+  --code
+  --animation-duration
+  --button-hover
+  --scrollbar-thumb
+  --scrollbar-thumb-hover
+  --form-placeholder
+  --form-text
+  --variable
+  --highlight
+  --select-arrow
+*/
 
 :root {
   --animation-time: 0.2s;
@@ -17,6 +37,7 @@ body {
   @apply break-words;
 }
 
+/*
 body:before {
   content: ' ';
   display: block;
@@ -92,6 +113,7 @@ p {
 ul {
   @apply my-6;
 }
+*/
 
 a,
 h1,
@@ -100,10 +122,13 @@ h3,
 h4,
 h5,
 h6,
+code,
+pre,
 .dev-icon {
-  font-family: 'Space Mono', monospace;
+  font-family: 'Space Mono', monospace !important;
 }
 
+/*
 h1,
 h2,
 h3,
@@ -153,4 +178,4 @@ hr {
 
 .alert.success {
   @apply bg-teal-100  border-teal-400 text-teal-700;
-}
+} */

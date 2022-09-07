@@ -2,6 +2,7 @@ import React from 'react';
 
 import { AppProps } from 'next/app';
 
+import '../styles/water.scss';
 import '../styles/main.css';
 import '../styles/prism-a11y-dark.css';
 
