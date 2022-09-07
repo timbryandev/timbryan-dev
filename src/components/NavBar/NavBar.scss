@@ -1,0 +1,14 @@
+.navbar {
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem 0;
+    font-size: 1.5rem;
+    list-style-type: none;
+  }
+
+  &__item {
+    margin-right: 2rem;
+  }
+}
