@@ -2,7 +2,7 @@ import { AppProps } from 'next/app';
 
 import '../styles/water.scss';
 import '../styles/main.scss';
-import '../styles/prism-a11y-dark.css';
+import '../styles/prism.scss';
 
 import { ThemeProvider } from '../components/Theme/ThemeContext';
 import consoleBrand from '../utils/ConsoleBrand';

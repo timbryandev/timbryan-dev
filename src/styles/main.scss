@@ -46,8 +46,16 @@
 }
 
 .dark {
-  --links: #f9a8d4;
+  --links: #a6e22e;
   --links-hover: #63b3ed;
+  --background-body: #1f1f1b;
+  --background: #0f0f0a;
+  --text-bright: #66d9ef;
+  --text-muted: #708090;
+  --code: #e6db74;
+  --button-base: var(--background);
+  --scrollbar-thumb: #d52563;
+  --scrollbar-thumb-hover: #f92672;
 }
 
 html {
@@ -111,7 +119,7 @@ a,
   transition: all var(--animation-duration) ease-in-out;
 
   &:hover {
-    transform: scale(105%);
+    transform: scale(101%);
   }
 
   &__image {
@@ -124,7 +132,6 @@ a,
     font-size: var(--text-lg);
   }
 }
-
 
 /*
 body:before {
@@ -226,4 +233,3 @@ hr {
   @apply bg-teal-100  border-teal-400 text-teal-700;
 }
 */
-
