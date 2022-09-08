@@ -16,6 +16,10 @@
   --text-main
   --text-bright
   --text-muted
+  --text-sm
+  --text-md
+  --text-lg
+  --text-xl
   --links
   --focus
   --border
@@ -35,6 +39,10 @@
   --animation-duration: 0.2s;
   --links: #be185d;
   --links-hover: #3182ce;
+  --text-sm: 0.75rem;
+  --text-md: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
 }
 
 .dark {
@@ -48,8 +56,7 @@ html {
 
 body {
   font-family: Metrophobic, sans-serif;
-
-  // @apply break-words;
+  word-break: break-word;
 }
 
 a,
@@ -92,6 +99,32 @@ a,
     }
   }
 }
+
+.hero {
+  padding: 1px 1rem 1.5rem;
+  margin: auto;
+  background-color: var(--background);
+  border-radius: 1rem;
+  box-shadow: 0 0 1px currentcolor;
+  cursor: pointer;
+  text-align: center;
+  transition: all var(--animation-duration) ease-in-out;
+
+  &:hover {
+    transform: scale(105%);
+  }
+
+  &__image {
+    margin: auto;
+    border-radius: 1rem;
+  }
+
+  &__text {
+    margin-top: 1rem;
+    font-size: var(--text-lg);
+  }
+}
+
 
 /*
 body:before {
@@ -193,3 +226,4 @@ hr {
   @apply bg-teal-100  border-teal-400 text-teal-700;
 }
 */
+
