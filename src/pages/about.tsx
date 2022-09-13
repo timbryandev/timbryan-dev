@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Content } from '../components/Content';
 import DevIcons from '../components/DevIcons';
 import { Main } from '../components/Main';

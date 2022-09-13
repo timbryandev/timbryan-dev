@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { FormEvent, useState } from 'react';
 
 import { AppConfig } from '../utils/AppConfig';
 import { validateEmail, validateMessage } from '../utils/Validate';
@@ -41,7 +41,7 @@ export const ContactForm = (): JSX.Element => {
   }
 
   const handleSubmitForm = async (
-    event: React.FormEvent<HTMLFormElement>
+    event: FormEvent<HTMLFormElement>
   ): Promise<void> => {
     event.preventDefault();
 

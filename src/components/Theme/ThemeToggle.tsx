@@ -1,4 +1,4 @@
-import React from 'react';
+import { useContext } from 'react';
 
 import { FaSun, FaMoon } from 'react-icons/fa';
 
@@ -7,7 +7,7 @@ import { ThemeContext } from './ThemeContext';
 const BUTTON_CLASSES = 'text-yellow-600 text-2xl ml-2';
 
 const ThemeToggle = () => {
-  const { theme, setTheme } = React.useContext(ThemeContext);
+  const { theme, setTheme } = useContext(ThemeContext);
 
   return (
     <button

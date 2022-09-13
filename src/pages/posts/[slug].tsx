@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 import { Content } from '../../components/Content';

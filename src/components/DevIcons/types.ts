@@ -1,3 +1,5 @@
+import { FunctionComponent } from 'react';
+
 import { IconType } from 'react-icons';
 
 export interface IDevIconsProps {
@@ -7,7 +9,7 @@ export interface IDevIconsProps {
 export type IDevIconList = [string, IconType, string][];
 
 export interface IDevIconProps {
-  Icon: React.FunctionComponent<{ size: number }>;
+  Icon: FunctionComponent<{ size: number }>;
   title: string;
   url?: string;
 }

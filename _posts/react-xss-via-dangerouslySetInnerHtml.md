@@ -1,6 +1,6 @@
 ---
-title: Mitigate XSS exploits when using React's dangerouslySetInnerHTML
-description: With the great power of dangerouslySetInnerHTML, comes great responsibility
+title: Mitigate XSS exploits when using React's dangerously​SetInnerHTML
+description: With the great power of dangerously​SetInnerHTML, comes great responsibility
 posted: "2022-08-14"
 updated: "2022-08-14"
 image: /assets/images/posts/lautaro-andreani-xkBaqlcqeb4-unsplash.jpg
@@ -12,9 +12,9 @@ credit:
 status: published
 ---
 
-**TL: DR;** Blinding dumping content into `dangerouslySetInnerHTML` is exactly that - dangerous. Make sure you are sanitising any input you pass to dangerouslySetInnerHTML unless you have explicit control of the input.
+**TL: DR;** Blinding dumping content into `dangerously​SetInnerHTML` is exactly that - dangerous. Make sure you are sanitising any input you pass to dangerously​SetInnerHTML unless you have explicit control of the input.
 
-The following component serves as a simple example of mitigating the risk of an XSS attack via dangerouslySetInnerHTML:
+The following component serves as a simple example of mitigating the risk of an XSS attack via dangerously​SetInnerHTML:
 
 ```jsx title="DangerousHtml.jsx"
 //https://github.com/cure53/DOMPurify
@@ -35,7 +35,7 @@ const DangerousHtml = ({ innerHTML, tag }) => {
 export default DangerousHtml;
 ```
 
-By using our bespoke `DangerousHtml` component, we can dramatically reduce the risk of an XSS exploit as we're sanitising our input before it gets to the actual `dangerouslySetInnerHTML` prop
+By using our bespoke `DangerousHtml` component, we can dramatically reduce the risk of an XSS exploit as we're sanitising our input before it gets to the actual `dangerously​SetInnerHTML` prop
 
 `DOMPurify` is highly configurable too, so it might be the case that you want to have multiple components like our example to handle specific use cases or allow some of the below examples explicitly.
 
@@ -47,7 +47,7 @@ XSS is possible as React will not strip out the script tag which points to a mal
 
 We really shouldn't be passing iFrames in this way either. Rather, we should pass the URL and any other "safe" attributes as a props and render it ourselves in an iFrame tag to retain control of it's rendering ability's and source, or have a dedicated iFrame component.
 
-For example, consider rhe following malicious markup that we've received from an API request. If we blindly set it via _dangerouslySetInnerHTML_, we'll give the user this output:
+For example, consider rhe following malicious markup that we've received from an API request. If we blindly set it via _dangerously​SetInnerHTML_, we'll give the user this output:
 
 ```jsx
 // Bad markup going in

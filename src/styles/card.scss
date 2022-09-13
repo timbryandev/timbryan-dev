@@ -1,0 +1,17 @@
+.card {
+  // stylelint-disable-next-line
+  @extend .hero;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 2rem !important;
+
+  &__wrapper {
+    padding: 0;
+  }
+
+  &__date {
+    text-align: right;
+  }
+}

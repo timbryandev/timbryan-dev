@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Link from 'next/link';
 
 export interface NavItemProps {
@@ -8,20 +6,22 @@ export interface NavItemProps {
   newWindow?: boolean;
 }
 
-export const NavItem = ({
+export default function NavItem({
   link,
   text = link,
   newWindow = false,
-}: NavItemProps) => (
-  <li className="mr-6">
-    <Link href={link} passHref>
-      {newWindow ? (
-        <a target="_blank" rel="noopener noreferrer">
-          {text}
-        </a>
-      ) : (
-        <a>{text}</a>
-      )}
-    </Link>
-  </li>
-);
+}: NavItemProps) {
+  return (
+    <li className="navbar__item">
+      <Link href={link} passHref>
+        {newWindow ? (
+          <a target="_blank" rel="noopener noreferrer">
+            {text}
+          </a>
+        ) : (
+          <a>{text}</a>
+        )}
+      </Link>
+    </li>
+  );
+}

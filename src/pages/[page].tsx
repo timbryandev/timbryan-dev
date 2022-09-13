@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 import { BlogGallery, IBlogGalleryProps } from '../components/BlogGallery';
@@ -42,7 +40,7 @@ export const getStaticProps: GetStaticProps<
   IBlogGalleryProps,
   IPageUrl
 > = async ({ params }) => {
-  const posts = getAllPosts(['title', 'updated', 'slug']);
+  const posts = getAllPosts(['title', 'posted', 'slug']);
 
   const pages = convertTo2D(posts, AppConfig.pagination_size);
   const currentPage = Number(params!.page.replace('page', ''));
