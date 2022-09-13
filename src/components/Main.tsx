@@ -56,12 +56,6 @@ const Main = (props: IMainProps) => (
           <MdRssFeed /> RSS feeds: <Link href="/rss/feed.xml">XML</Link>,{' '}
           <Link href="/rss/feed.json">JSON</Link>
         </p>
-        <p>
-          Site background image by:{' '}
-          <a href="https://unsplash.com/@juanjodev02?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
-            @juanjodev02
-          </a>
-        </p>
         <p>&nbsp;</p>
         <p className="text-center ">
           © Copyright {new Date().getFullYear()}{' '}
