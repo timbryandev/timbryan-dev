@@ -5,14 +5,17 @@ export interface IImageWithCreditProps {
 }
 
 function ImageWithCredit(props: IImageWithCreditProps) {
-  const image = <img src={props.image} className="mx-auto w-screen" alt="" />;
+  const image = (
+    <img src={props.image} className="image-credit__image" alt="" />
+  );
 
+  // If there is no credit, then just return the image tag
   if (props.name === undefined) return image;
 
   return (
-    <div className="relative">
+    <div className="image-credit">
       {image}
-      <span className="absolute bottom-0 right-0 left-0 text-right bg-black bg-opacity-50 text-gray-300 py-1 px-3">
+      <span className="image-credit__credit">
         Cover image by{' '}
         {props.link ? (
           <a href={props.link} className="link">

@@ -27,6 +27,7 @@
 */
 
 :root {
+  --black: #0f0f0a;
   --blue: #377480;
   --green: #405712;
   --grey-dark: slategray;
@@ -63,7 +64,7 @@
   --purple: #ae81ff;
   --yellow: #e6db74;
   --background-body: #1f1f1b;
-  --background: #0f0f0a;
+  --background: var(--black);
   --links: var(--green);
   --links-hover: var(--pink);
 }
