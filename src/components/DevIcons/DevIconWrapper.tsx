@@ -10,7 +10,7 @@ interface IWrapperProps {
 const DevIconWrapper = ({ children, url }: IWrapperProps) => {
   return typeof url === 'string' ? (
     <Link href={url}>
-      <a className="devicons__wrapper">{children}</a>
+      <a className="devicons__wrapper link">{children}</a>
     </Link>
   ) : (
     <span className="devicons__wrapper">{children}</span>
