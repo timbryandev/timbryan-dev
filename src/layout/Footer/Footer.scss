@@ -1,6 +1,10 @@
 .footer {
   padding: 2rem 0;
 
+  a {
+    display: inline-block;
+  }
+
   &__copyright {
     text-align: center;
   }
@@ -22,7 +26,11 @@
     }
   }
 
-  &__list-item::before {
-    content: '> ';
+  &__list-item {
+    padding-bottom: 1rem;
+
+    &::before {
+      content: '> ';
+    }
   }
 }
