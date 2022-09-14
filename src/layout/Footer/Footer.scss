@@ -1,0 +1,28 @@
+.footer {
+  padding: 2rem 0;
+
+  &__copyright {
+    text-align: center;
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  &__list {
+    width: 100%;
+    padding: 0 0 0 20px;
+    margin: 0;
+    list-style-type: none;
+
+    @media (min-width: 500px) {
+      width: auto;
+    }
+  }
+
+  &__list-item::before {
+    content: '> ';
+  }
+}
