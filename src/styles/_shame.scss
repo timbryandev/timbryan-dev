@@ -28,18 +28,3 @@ code {
   pointer-events: none;
   transition: opacity var(--animation);
 }
-
-/*
-.alert {
-  @apply border  px-4 py-3 mt-5 rounded relative;
-  @apply bg-blue-100  border-blue-400 text-blue-700;
-}
-
-.alert.error {
-  @apply bg-red-100  border-red-400 text-red-700;
-}
-
-.alert.success {
-  @apply bg-teal-100  border-teal-400 text-teal-700;
-}
-*/

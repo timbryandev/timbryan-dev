@@ -98,7 +98,7 @@ export const ContactForm = (): JSX.Element => {
     return (
       <SuccessAlert
         heading="Thank you for getting in touch!"
-        text="I aim to respond to queries within 24 hours - so hold tight"
+        text="I aim to respond to messages within 24 hours - so hold tight!"
       />
     );
   }
