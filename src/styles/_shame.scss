@@ -1,4 +1,3 @@
-a,
 h1,
 h2,
 h3,
@@ -9,33 +8,6 @@ code,
 pre,
 .dev-icon {
   font-family: 'Space Mono', monospace !important;
-}
-
-.link {
-  position: relative;
-  text-decoration: none;
-  transition: color var(--animation-duration) ease-in-out;
-
-  &::after {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    border-bottom: 0.125rem solid currentcolor;
-    content: '';
-    transition: var(--animation-duration) ease-in-out;
-    transition-property: left, width;
-  }
-
-  &:hover {
-    color: var(--links-hover);
-    text-decoration: none;
-
-    &::after {
-      left: 0;
-      width: 100%;
-    }
-  }
 }
 
 /*
