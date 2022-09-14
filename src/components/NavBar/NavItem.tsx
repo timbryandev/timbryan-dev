@@ -15,11 +15,11 @@ export default function NavItem({
     <li className="navbar__item">
       <Link href={link} passHref>
         {newWindow ? (
-          <a target="_blank" rel="noopener noreferrer">
+          <a className="link" target="_blank" rel="noopener noreferrer">
             {text}
           </a>
         ) : (
-          <a>{text}</a>
+          <a className="link">{text}</a>
         )}
       </Link>
     </li>

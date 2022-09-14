@@ -16,7 +16,7 @@ const BlogGallery = (props: IBlogGalleryProps) => (
       {props.posts.map((post) => (
         <li key={post.slug} className="card">
           <Link href="/posts/[slug]" as={`/posts/${post.slug}`}>
-            <a>
+            <a className="link">
               <h2>{post.title}</h2>
               <div className="card__date">
                 <PublishDate

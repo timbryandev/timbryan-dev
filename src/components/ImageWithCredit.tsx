@@ -15,7 +15,7 @@ function ImageWithCredit(props: IImageWithCreditProps) {
       <span className="absolute bottom-0 right-0 left-0 text-right bg-black bg-opacity-50 text-gray-300 py-1 px-3">
         Cover image by{' '}
         {props.link ? (
-          <a href={props.link} className="text-pink-300">
+          <a href={props.link} className="link">
             {props.name}
           </a>
         ) : (

@@ -20,15 +20,14 @@ const Contact = () => {
       <Content>
         <p>
           The easiest ways to get in touch would be to find me on{' '}
-          <a
-            className="pointer"
-            href="https://www.linkedin.com/in/timbryandev/"
-          >
+          <a className="link" href="https://www.linkedin.com/in/timbryandev/">
             LinkedIn
           </a>
           , using the contact form below, or email me via{' '}
           {showEmail ? (
-            <a href={`mailto:${AppConfig.email}`}>{AppConfig.email}</a>
+            <a href={`mailto:${AppConfig.email}`} className="link">
+              {AppConfig.email}
+            </a>
           ) : (
             <button className="button" onClick={() => setShowEmail(true)}>
               reveal email

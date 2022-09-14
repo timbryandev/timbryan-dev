@@ -64,7 +64,7 @@ const About = () => (
       </ul>
       <p>
         For more info on Tim, you can find me and more info on my{' '}
-        <a className="pointer" href="https://www.linkedin.com/in/timbryandev/">
+        <a className="link" href="https://www.linkedin.com/in/timbryandev/">
           LinkedIn
         </a>{' '}
         profile.

@@ -1,0 +1,60 @@
+
+/*
+  Theme options from Water.cdd:
+  --background-body
+  --background
+  --background-alt
+  --selection
+  --text-main
+  --text-bright
+  --text-muted
+  --text-sm
+  --text-md
+  --text-lg
+  --text-xl
+  --links
+  --focus
+  --border
+  --code
+  --animation-duration
+  --button-hover
+  --scrollbar-thumb
+  --scrollbar-thumb-hover
+  --form-placeholder
+  --form-text
+  --variable
+  --highlight
+  --select-arrow
+*/
+
+:root {
+  --animation-duration: 0.2s;
+  --links: #be185d;
+  --links-hover: #3182ce;
+  --text-sm: 0.75rem;
+  --text-md: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+}
+
+.dark {
+  --links: #a6e22e;
+  --links-hover: #f92672;
+  --background-body: #1f1f1b;
+  --background: #0f0f0a;
+  --text-bright: #66d9ef;
+  --text-muted: #708090;
+  --code: #e6db74;
+  --button-base: var(--background);
+  --scrollbar-thumb: #d52563;
+  --scrollbar-thumb-hover: #f92672;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  font-family: Metrophobic, sans-serif;
+  word-break: break-word;
+}

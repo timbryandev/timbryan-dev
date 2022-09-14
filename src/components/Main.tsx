@@ -48,7 +48,7 @@ const Main = (props: IMainProps) => (
 
       <footer className="py-8">
         <p className="text-lg">
-          <a href="https://ko-fi.com/S6S5EHTC8">
+          <a href="https://ko-fi.com/S6S5EHTC8" className="link">
             <BiCoffeeTogo /> Buy Tim a coffee
           </a>
         </p>
@@ -64,7 +64,10 @@ const Main = (props: IMainProps) => (
         <p>
           Base project from the awesome{' '}
           <span role="img" aria-label="Love"></span>{' '}
-          <a href="https://creativedesignsguru.com">CreativeDesignsGuru</a> ❤️
+          <a className="link" href="https://creativedesignsguru.com">
+            CreativeDesignsGuru
+          </a>{' '}
+          ❤️
         </p>
       </footer>
     </div>
