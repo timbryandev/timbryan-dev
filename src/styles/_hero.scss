@@ -6,7 +6,7 @@
   box-shadow: 0 0 1px currentcolor;
   cursor: pointer;
   text-align: center;
-  transition: all var(--animation-duration) ease-in-out;
+  transition: all var(--animation);
 
   &:hover {
     transform: scale(101%);

@@ -11,6 +11,10 @@
     padding: 0;
   }
 
+  .dark &__title {
+    color: var(--grey-light);
+  }
+
   &__date {
     text-align: right;
   }
