@@ -2,9 +2,8 @@ import { ReactNode } from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { BiCoffeeTogo } from 'react-icons/bi';
-import { MdRssFeed } from 'react-icons/md';
 
+import Footer from '../layout/Footer';
 import { AppConfig } from '../utils/AppConfig';
 import { NavBar } from './NavBar';
 import ThemeToggle from './Theme/ThemeToggle';
@@ -46,30 +45,7 @@ const Main = (props: IMainProps) => (
 
       <NavBar items={AppConfig.siteLinks} />
 
-      <footer className="py-8">
-        <p className="text-lg">
-          <a href="https://ko-fi.com/S6S5EHTC8" className="link">
-            <BiCoffeeTogo /> Buy Tim a coffee
-          </a>
-        </p>
-        <p>
-          <MdRssFeed /> RSS feeds: <Link href="/rss/feed.xml">XML</Link>,{' '}
-          <Link href="/rss/feed.json">JSON</Link>
-        </p>
-        <p>&nbsp;</p>
-        <p className="text-center ">
-          © Copyright {new Date().getFullYear()}{' '}
-          <Link href={AppConfig.url}>{AppConfig.author}</Link>.
-        </p>
-        <p>
-          Base project from the awesome{' '}
-          <span role="img" aria-label="Love"></span>{' '}
-          <a className="link" href="https://creativedesignsguru.com">
-            CreativeDesignsGuru
-          </a>{' '}
-          ❤️
-        </p>
-      </footer>
+      <Footer />
     </div>
   </div>
 );
