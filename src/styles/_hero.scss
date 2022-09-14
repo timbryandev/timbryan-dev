@@ -1,0 +1,24 @@
+.hero {
+  padding: 1px 1rem 1.5rem;
+  margin: auto;
+  background-color: var(--background);
+  border-radius: 1rem;
+  box-shadow: 0 0 1px currentcolor;
+  cursor: pointer;
+  text-align: center;
+  transition: all var(--animation-duration) ease-in-out;
+
+  &:hover {
+    transform: scale(101%);
+  }
+
+  &__image {
+    margin: auto;
+    border-radius: 1rem;
+  }
+
+  &__text {
+    margin-top: 1rem;
+    font-size: var(--text-lg);
+  }
+}
