@@ -2,9 +2,8 @@ import { ReactNode } from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { BiCoffeeTogo } from 'react-icons/bi';
-import { MdRssFeed } from 'react-icons/md';
 
+import Footer from '../layout/Footer';
 import { AppConfig } from '../utils/AppConfig';
 import { NavBar } from './NavBar';
 import ThemeToggle from './Theme/ThemeToggle';
@@ -19,7 +18,10 @@ const Main = (props: IMainProps) => (
     {props.meta}
 
     <div className="max-w-screen-lg mx-auto p-5">
-      <div className="absolute right-0 top-0 mr-4 mt-4 md:mr-6 md:mt-6 z-10">
+      <div
+        className="absolute right-0 top-0 mr-4 mt-4 md:mr-6 md:mt-6 z-10"
+        style={{ textAlign: 'right' }}
+      >
         <ThemeToggle />
       </div>
 
@@ -46,27 +48,7 @@ const Main = (props: IMainProps) => (
 
       <NavBar items={AppConfig.siteLinks} />
 
-      <footer className="py-8">
-        <p className="text-lg">
-          <a href="https://ko-fi.com/S6S5EHTC8">
-            <BiCoffeeTogo /> Buy Tim a coffee
-          </a>
-        </p>
-        <p>
-          <MdRssFeed /> RSS feeds: <Link href="/rss/feed.xml">XML</Link>,{' '}
-          <Link href="/rss/feed.json">JSON</Link>
-        </p>
-        <p>&nbsp;</p>
-        <p className="text-center ">
-          © Copyright {new Date().getFullYear()}{' '}
-          <Link href={AppConfig.url}>{AppConfig.author}</Link>.
-        </p>
-        <p>
-          Base project from the awesome{' '}
-          <span role="img" aria-label="Love"></span>{' '}
-          <a href="https://creativedesignsguru.com">CreativeDesignsGuru</a> ❤️
-        </p>
-      </footer>
+      <Footer />
     </div>
   </div>
 );

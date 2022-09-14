@@ -1,0 +1,19 @@
+.image-credit {
+  position: relative;
+
+  &__image {
+    width: 100%;
+    margin: auto;
+  }
+
+  &__credit {
+    position: absolute;
+    right: 0;
+    bottom: 5px;
+    left: 0;
+    padding: 1rem;
+    background-color: rgb(15 15 10 / 90%);
+    color: white;
+    text-align: right;
+  }
+}

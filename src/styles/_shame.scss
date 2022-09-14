@@ -1,0 +1,30 @@
+:root {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+code,
+pre,
+.dev-icon {
+  font-family: 'Space Mono', monospace !important;
+}
+
+button {
+  box-shadow: 0 0 1px currentcolor;
+}
+
+code {
+  background: var(--grey-light);
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  transition: opacity var(--animation);
+}

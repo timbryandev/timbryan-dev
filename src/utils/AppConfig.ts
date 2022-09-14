@@ -11,16 +11,6 @@ export const AppConfig = {
     { link: '/', text: 'Posts' },
     { link: '/about', text: 'About' },
     { link: '/contact', text: 'Contact' },
-    {
-      link: 'https://github.com/timbryandev/',
-      text: 'GitHub',
-      newWindow: true,
-    },
-    {
-      link: 'https://www.linkedin.com/in/timbryandev/',
-      text: 'Linkedin',
-      newWindow: true,
-    },
   ],
   siteName: 'TimBryan.Dev',
   url: 'https://timbryan.dev',

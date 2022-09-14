@@ -11,8 +11,8 @@ export default function Alert({
   text = '',
 }: AlertProps) {
   return (
-    <div className={`alert ${classes.join(' ')}`} role="alert">
-      {heading && <p className="font-bold">{heading}</p>}
+    <div className={`alert alert--${classes.join(' ')}`} role="alert">
+      {heading && <p className="alert__heading">{heading}</p>}
       {text && <p>{text}</p>}
     </div>
   );

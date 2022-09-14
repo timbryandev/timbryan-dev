@@ -16,8 +16,8 @@ const BlogGallery = (props: IBlogGalleryProps) => (
       {props.posts.map((post) => (
         <li key={post.slug} className="card">
           <Link href="/posts/[slug]" as={`/posts/${post.slug}`}>
-            <a>
-              <h2>{post.title}</h2>
+            <a style={{ textDecoration: 'none' }}>
+              <h2 className="card__title">{post.title}</h2>
               <div className="card__date">
                 <PublishDate
                   posted={post.posted}

@@ -1,0 +1,79 @@
+/*
+  Theme options from Water.css:
+  --background-body
+  --background
+  --background-alt
+  --selection
+  --text-main
+  --text-bright
+  --text-muted
+  --text-sm
+  --text-md
+  --text-lg
+  --text-xl
+  --links
+  --focus
+  --border
+  --code
+  --animation-duration
+  --button-hover
+  --scrollbar-thumb
+  --scrollbar-thumb-hover
+  --form-placeholder
+  --form-text
+  --variable
+  --highlight
+  --select-arrow
+*/
+
+:root {
+  --black: #0f0f0a;
+  --blue: #377480;
+  --green: #405712;
+  --grey-dark: slategray;
+  --grey-light: #6c6c69;
+  --orange: #fd971f;
+  --pink: #df2467;
+  --pink-dark: #d52563;
+  --purple: #ae81ff;
+  --yellow: #fff37f;
+  --animation-duration: 0.2s;
+  --animation: var(--animation-duration) ease-in-out;
+  --button-base: var(--background);
+  --code: var(--yellow);
+  --links: var(--pink);
+  --links-hover: var(--blue);
+  --scrollbar-thumb: var(--pink-dark);
+  --scrollbar-thumb-hover: var(--pink);
+  --text-bright: var(--blue);
+  --text-lg: 1.25rem;
+  --text-md: 1rem;
+  --text-muted: var(--grey-dark);
+  --text-sm: 0.75rem;
+  --text-xl: 1.5rem;
+}
+
+.dark {
+  --blue: #66d9ef;
+  --green: #a6e22e;
+  --grey-dark: slategray;
+  --grey-light: #f8f8f2;
+  --orange: #fd971f;
+  --pink: #ff2976;
+  --pink-dark: #d52563;
+  --purple: #ae81ff;
+  --yellow: #e6db74;
+  --background-body: #1f1f1b;
+  --background: var(--black);
+  --links: var(--green);
+  --links-hover: var(--pink);
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  font-family: Metrophobic, sans-serif;
+  word-break: break-word;
+}
