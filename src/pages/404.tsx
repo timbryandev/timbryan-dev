@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
-import { Content } from '../components/Content';
-import { Main } from '../components/Main';
+import { Content } from '../layout/Content';
+import { Main } from '../layout/Main';
 import { Meta } from '../layout/Meta';
 
 const confusedJohnGif =

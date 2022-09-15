@@ -1,9 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import { Content } from '../../components/Content';
 import ImageWithCredit from '../../components/ImageWithCredit';
-import { Main } from '../../components/Main';
 import PublishDate from '../../components/PublishDate';
+import { Content } from '../../layout/Content';
+import { Main } from '../../layout/Main';
 import { Meta } from '../../layout/Meta';
 import { getAllPosts, getPostBySlug } from '../../utils/Content';
 import { markdownToHtml } from '../../utils/Markdown';

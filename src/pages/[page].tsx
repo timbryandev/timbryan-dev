@@ -1,8 +1,8 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 import { BlogGallery, IBlogGalleryProps } from '../components/BlogGallery';
-import { Main } from '../components/Main';
 import { IPaginationProps } from '../components/Pagination';
+import { Main } from '../layout/Main';
 import { Meta } from '../layout/Meta';
 import { AppConfig } from '../utils/AppConfig';
 import { getAllPosts } from '../utils/Content';

@@ -3,10 +3,10 @@ import { ReactNode } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import Footer from '../layout/Footer';
+import { NavBar } from '../components/NavBar';
+import ThemeToggle from '../components/Theme/ThemeToggle';
 import { AppConfig } from '../utils/AppConfig';
-import { NavBar } from './NavBar';
-import ThemeToggle from './Theme/ThemeToggle';
+import Footer from './Footer';
 
 type IMainProps = {
   meta: ReactNode;
