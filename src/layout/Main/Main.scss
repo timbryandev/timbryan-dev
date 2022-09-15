@@ -1,0 +1,11 @@
+.l-main {
+  padding-top: 3rem;
+
+  &__toggle-theme {
+    position: fixed;
+    z-index: 1;
+    top: 1rem;
+    right: 1rem;
+    text-align: right;
+  }
+}

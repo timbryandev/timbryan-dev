@@ -14,11 +14,12 @@
 @import '../components/NavBar/NavBar';
 @import '../components/Pagination/Pagination';
 
-/* Pages */
-@import './pages/slug';
-
 /* Layout */
 @import '../layout/Footer/Footer';
+@import '../layout/Main/Main';
+
+/* Pages */
+@import './pages/slug';
 
 /* Utils */
 @import './link';
