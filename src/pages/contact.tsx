@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { ContactForm } from '../components/ContactForm';
+import ContactForm from '../components/ContactForm';
 import { Content } from '../components/Content';
 import { Main } from '../components/Main';
 import { Meta } from '../layout/Meta';
