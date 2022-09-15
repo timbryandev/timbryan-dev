@@ -46,7 +46,7 @@ const Main = (props: IMainProps) => (
 
       <main className="text-base py-5">{props.children}</main>
 
-      <NavBar items={AppConfig.siteLinks} />
+      {/* <NavBar items={AppConfig.siteLinks} /> */}
 
       <Footer />
     </div>

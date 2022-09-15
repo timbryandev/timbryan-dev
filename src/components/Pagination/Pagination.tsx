@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { convertUrlToLinkHref } from '../utils/Pagination';
+import { convertUrlToLinkHref } from '../../utils/Pagination';
 
 export type IPaginationProps = {
   previous?: string;
@@ -8,7 +8,7 @@ export type IPaginationProps = {
 };
 
 const Pagination = (props: IPaginationProps) => (
-  <div className="text-sm flex justify-between">
+  <div className="pagination">
     {props.previous && (
       <div>
         <Link href={convertUrlToLinkHref(props.previous)} as={props.previous}>
