@@ -9,17 +9,20 @@ const ThemeToggle = () => {
 
   return (
     <button
+      className="toggle-theme"
       onClick={() => {
         setTheme(theme === 'light' ? 'dark' : 'light');
       }}
     >
       <FaSun
         title="Turn the lights on"
-        className={`${theme === 'light' ? 'disabled' : ''}`}
-      />
+        className={`${theme === 'light' ? '' : 'disabled'}`}
+        color="var(--yellow-dark)"
+      />{' '}
       <FaMoon
         title="Turn the lights off"
-        className={`${theme === 'dark' ? 'disabled' : ''}`}
+        className={`${theme === 'dark' ? '' : 'disabled'}`}
+        color="var(--orange)"
       />
     </button>
   );
