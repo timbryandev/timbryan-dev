@@ -15,15 +15,15 @@ function PublishDate({
 }: IPublishDateProps) {
   if (showUpdated && posted !== updated) {
     return (
-      <span className="text-right">
+      <>
         Published: {format(new Date(posted), AppConfig.dateFormat)}
         <br />
         Updated: {format(new Date(updated), AppConfig.dateFormat)}
-      </span>
+      </>
     );
   }
 
-  return <span>{format(new Date(posted), AppConfig.dateFormat)}</span>;
+  return <>Published: {format(new Date(posted), AppConfig.dateFormat)}</>;
 }
 
 export default PublishDate;

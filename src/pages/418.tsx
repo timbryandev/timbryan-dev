@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
-import { Content } from '../components/Content';
-import { Main } from '../components/Main';
+import { Content } from '../layout/Content';
+import { Main } from '../layout/Main';
 import { Meta } from '../layout/Meta';
 
 const brewteafulGif =
@@ -13,17 +13,13 @@ const DESC = 'I am a tea pot';
 const Custom418 = () => (
   <Main meta={<Meta title={TITLE} description={DESC} />}>
     <Content>
-      <div className="flex flex-col items-center">
+      <div className="p-error">
         <h2>ERROR: {TITLE}</h2>
         <h3>{DESC}</h3>
         <img
           src={brewteafulGif.src}
           alt="funny animation GIF"
-          style={{
-            width: '100%',
-            maxWidth: '300px',
-            height: 'auto',
-          }}
+          className="p-error__image"
         />
         <p>What did you expect? 😂</p>
         <p>

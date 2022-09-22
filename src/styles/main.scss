@@ -8,15 +8,24 @@
 
 /* Components */
 @import '../components/Alerts/Alerts';
+@import '../components/ContactForm/ContactForm';
 @import '../components/DevIcons/DevIcons';
 @import '../components/ImageWithCredit/ImageWithCredits';
 @import '../components/NavBar/NavBar';
+@import '../components/Pagination/Pagination';
 
 /* Layout */
 @import '../layout/Footer/Footer';
+@import '../layout/Header/Header';
+@import '../layout/Main/Main';
+
+/* Pages */
+@import './pages/error';
+@import './pages/slug';
 
 /* Utils */
 @import './link';
+@import './list';
 
 /* Shame */
 @import './shame';

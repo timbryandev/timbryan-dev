@@ -1,9 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import { Content } from '../../components/Content';
 import ImageWithCredit from '../../components/ImageWithCredit';
-import { Main } from '../../components/Main';
 import PublishDate from '../../components/PublishDate';
+import { Content } from '../../layout/Content';
+import { Main } from '../../layout/Main';
 import { Meta } from '../../layout/Meta';
 import { getAllPosts, getPostBySlug } from '../../utils/Content';
 import { markdownToHtml } from '../../utils/Markdown';
@@ -23,7 +23,7 @@ type IPostProps = {
   updated: string;
 };
 
-const DisplayPost = (props: IPostProps) => (
+const Post = (props: IPostProps) => (
   <Main
     meta={
       <Meta
@@ -38,29 +38,29 @@ const DisplayPost = (props: IPostProps) => (
       />
     }
   >
-    <h1 className="text-center font-bold text-3xl text-gray-900 dark:text-gray-300">
-      {props.title}
-    </h1>
-    <div className="text-center mb-8 underline">
-      <PublishDate {...props} showUpdated={true} />
-    </div>
+    <div className="post">
+      <h1 className="post__title">{props.title}</h1>
+      <p className="post__date">
+        <PublishDate {...props} showUpdated={true} />
+      </p>
 
-    <ImageWithCredit
-      image={props.image}
-      name={props.credit?.[0]}
-      link={props.credit?.[1]}
-    />
-
-    <Content>
-      <div
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: props.content }}
+      <ImageWithCredit
+        image={props.image}
+        name={props.credit?.[0]}
+        link={props.credit?.[1]}
       />
-    </Content>
 
-    <p className="pt-8 mt-16 text-center border-dashed border-t-2 font-bold border-gray-700 my-4 dark:border-gray-300">
-      That&apos;s all folks - thanks for reading!
-    </p>
+      <Content>
+        <div
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: props.content }}
+        />
+      </Content>
+
+      <footer className="post__footer">
+        <p>That&apos;s all folks - thanks for reading!</p>
+      </footer>
+    </div>
   </Main>
 );
 
@@ -107,4 +107,4 @@ export const getStaticProps: GetStaticProps<IPostProps, IPostUrl> = async ({
   };
 };
 
-export default DisplayPost;
+export default Post;

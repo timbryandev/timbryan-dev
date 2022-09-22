@@ -1,6 +1,6 @@
-import { Content } from '../components/Content';
 import DevIcons from '../components/DevIcons';
-import { Main } from '../components/Main';
+import { Content } from '../layout/Content';
+import { Main } from '../layout/Main';
 import { Meta } from '../layout/Meta';
 
 const About = () => (
@@ -39,25 +39,25 @@ const About = () => (
         Some of the work I am most proud of during my time as a developer would
         include;
       </p>
-      <ul className="list list-disc ml-4">
-        <li className="mb-2">
+      <ul className="list">
+        <li className="list__item list__item--star">
           Scientific calculator for use within digital assessments.
         </li>
-        <li className="mb-2">
+        <li className="list__item list__item--star">
           Producing the &quot;Spreadsheet&quot;, &quot;Slides&quot;, and
           &quot;Word Processor&quot; question types, where attempt data can be
           stored and retrieved from Moodle/LMS.
         </li>
-        <li className="mb-2">
+        <li className="list__item list__item--star">
           Developing an assessment authoring platform with online and offline
           delivery, reporting and attempt management, and import/export/backup
           facilities.
         </li>
-        <li className="mb-2">
+        <li className="list__item list__item--star">
           Basic CMS-powered mobile apps via react-native, including deployments
           to Google and Apple app stores.
         </li>
-        <li className="mb-2">
+        <li className="list__item list__item--star">
           React/NextJS/React-Native integrations into Drupal for clients such as
           Jaguar Land Rover
         </li>

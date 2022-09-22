@@ -9,11 +9,11 @@ import { AppConfig } from '../../utils/AppConfig';
 const Footer = () => (
   <footer className="footer">
     <section className="footer__links">
-      <ul className="footer__list">
+      <ul className="list">
         <h3>
           <TbSocial /> Socials
         </h3>
-        <li className="footer__list-item">
+        <li className="list__item">
           <a
             href="https://ko-fi.com/S6S5EHTC8"
             className="link"
@@ -23,7 +23,7 @@ const Footer = () => (
             <BiCoffeeTogo /> Buy Tim a coffee
           </a>
         </li>
-        <li className="footer__list-item">
+        <li className="list__item">
           <a
             href="https://github.com/timbryandev/"
             className="link"
@@ -33,7 +33,7 @@ const Footer = () => (
             <FaGithub /> GitHub
           </a>
         </li>
-        <li className="footer__list-item">
+        <li className="list__item">
           <a
             href="https://www.linkedin.com/in/timbryandev/'"
             className="link"
@@ -44,15 +44,19 @@ const Footer = () => (
           </a>
         </li>
       </ul>
-      <ul className="footer__list">
+      <ul className="list">
         <h3>
           <MdRssFeed /> Feeds
         </h3>
-        <li className="footer__list-item">
-          <Link href="/rss/feed.xml">XML</Link>
+        <li className="list__item">
+          <Link href="/rss/feed.xml">
+            <a className="link">{'<…>'}XML</a>
+          </Link>
         </li>
-        <li className="footer__list-item">
-          <Link href="/rss/feed.json">JSON</Link>
+        <li className="list__item">
+          <Link href="/rss/feed.json">
+            <a className="link">{'{…}'}JSON</a>
+          </Link>
         </li>
       </ul>
     </section>

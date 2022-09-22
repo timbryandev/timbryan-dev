@@ -6,7 +6,7 @@ export const AppConfig = {
     'Software Engineer specialising in Full-Stack Javascript Web, Desktop & Mobile applications',
   email: 'hi@timbryan.dev',
   locale: 'en-GB',
-  pagination_size: 5,
+  pagination_size: 6,
   siteLinks: [
     { link: '/', text: 'Posts' },
     { link: '/about', text: 'About' },

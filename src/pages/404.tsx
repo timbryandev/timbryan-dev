@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
-import { Content } from '../components/Content';
-import { Main } from '../components/Main';
+import { Content } from '../layout/Content';
+import { Main } from '../layout/Main';
 import { Meta } from '../layout/Meta';
 
 const confusedJohnGif =
@@ -13,17 +13,13 @@ const DESC = 'The page you were looking for could not be found';
 const Custom404 = () => (
   <Main meta={<Meta title={TITLE} description={DESC} />}>
     <Content>
-      <div className="flex flex-col items-center">
+      <div className="p-error">
         <h2>ERROR: {TITLE}</h2>
         <h3>{DESC}</h3>
         <img
           src={confusedJohnGif.src}
           alt="funny animation GIF"
-          style={{
-            width: '100%',
-            maxWidth: '300px',
-            height: 'auto',
-          }}
+          className="p-error__image"
         />
         <p>
           John can&apos;t seem to find what you&apos;re looking for either 😬

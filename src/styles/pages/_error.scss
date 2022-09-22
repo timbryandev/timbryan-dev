@@ -1,0 +1,12 @@
+.p-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 2rem;
+
+  &__image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
+}

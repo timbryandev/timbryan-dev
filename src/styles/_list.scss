@@ -1,0 +1,38 @@
+.list {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+
+  @media (min-width: 500px) {
+    width: auto;
+  }
+
+  &__item {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    padding-bottom: 1rem;
+
+    &::before {
+      margin-right: 0.25rem;
+      content: '>';
+    }
+
+    &--box::before {
+      content: '\2610';
+    }
+
+    &--check::before {
+      content: '\2611';
+    }
+
+    &--cross::before {
+      content: '\2612';
+    }
+
+    &--star::before {
+      content: '\2606';
+    }
+  }
+}

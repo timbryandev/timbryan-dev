@@ -1,8 +1,8 @@
 import { FormEvent, useState } from 'react';
 
-import { AppConfig } from '../utils/AppConfig';
-import { validateEmail, validateMessage } from '../utils/Validate';
-import { ErrorAlert, SuccessAlert } from './Alerts';
+import { AppConfig } from '../../utils/AppConfig';
+import { validateEmail, validateMessage } from '../../utils/Validate';
+import { ErrorAlert, SuccessAlert } from '../Alerts';
 
 const ERROR = 'ERROR';
 const IDLE = 'IDLE';
@@ -29,7 +29,7 @@ const INITIAL_STATE: State = {
   status: IDLE,
 };
 
-export const ContactForm = (): JSX.Element => {
+const ContactForm = (): JSX.Element => {
   const [state, setState] = useState<State>(INITIAL_STATE);
 
   function updateState(newState: UpdateState) {
@@ -105,17 +105,14 @@ export const ContactForm = (): JSX.Element => {
 
   return (
     <form className="contact-form" onSubmit={handleSubmitForm}>
-      <fieldset
-        disabled={[SENDING, SUCCESS].includes(state.status)}
-        className="disabled:opacity-50"
-      >
-        <legend className="text-transparent">Contact Me</legend>
-        <div className="mb-6">
-          <label htmlFor="email" className="form-label">
-            Your email
+      <fieldset disabled={[SENDING, SUCCESS].includes(state.status)}>
+        <legend>Contact Me</legend>
+        <section className="contact-form__group">
+          <label htmlFor="email" className="contact-form__label">
+            Email
           </label>
           <input
-            className="form-input"
+            className="contact-form__input"
             placeholder="hello@example.com"
             id="email"
             name="email"
@@ -123,35 +120,35 @@ export const ContactForm = (): JSX.Element => {
             required
             onChange={(e) => setField('email', e.target.value)}
           />
-        </div>
-        <div className="mb-6">
-          <label htmlFor="name" className="form-label">
-            Your name
+        </section>
+        <section className="contact-form__group">
+          <label htmlFor="name" className="contact-form__label">
+            Name
           </label>
           <input
-            className="form-input"
+            className="contact-form__input"
             id="name"
             name="name"
             type="text"
             onChange={(e) => setField('name', e.target.value)}
           />
-        </div>
-        <div className="mb-6">
-          <label htmlFor="message" className="form-label">
-            Your message
+        </section>
+        <section className="contact-form__group">
+          <label htmlFor="message" className="contact-form__label">
+            Message
           </label>
           <textarea
-            className="form-input"
+            className="contact-form__input"
             id="message"
             name="message"
             required
             rows={6}
             onChange={(e) => setField('message', e.target.value)}
           />
-        </div>
+        </section>
 
-        <div>
-          <button type="submit" className="button primary">
+        <section>
+          <button type="submit">
             {state.status === SENDING ? 'Sending' : 'Send'}
           </button>
           {state.status === ERROR && (
@@ -160,8 +157,10 @@ export const ContactForm = (): JSX.Element => {
               text={state.error}
             />
           )}
-        </div>
+        </section>
       </fieldset>
     </form>
   );
 };
+
+export default ContactForm;
