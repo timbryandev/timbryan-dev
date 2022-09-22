@@ -57,7 +57,7 @@
 .dark {
   --blue: #66d9ef;
   --green: #a6e22e;
-  --grey-dark: slategray;
+  --grey-dark: #a9b1ba;
   --grey-light: #f8f8f2;
   --orange: #fd971f;
   --pink: #ff2976;
@@ -68,6 +68,7 @@
   --background: var(--black);
   --links: var(--green);
   --links-hover: var(--pink);
+  --text-muted: var(--grey-dark);
 }
 
 html {
