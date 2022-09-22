@@ -36,12 +36,31 @@
   --pink: #df2467;
   --pink-dark: #d52563;
   --purple: #ae81ff;
+  --white: #fdfde2;
   --yellow: #fff37f;
   --yellow-dark: #c0b01c;
   --animation-duration: 0.2s;
   --animation: var(--animation-duration) ease-in-out;
-  --button-base: var(--background);
   --code: var(--yellow);
+  --border: var(--text-main);
+  --button-base: var(--background);
+  --background-transparent: rgb(255 255 255 / 50%);
+  --background: var(--white);
+  --gradient: linear-gradient(
+    to right top,
+    #ff2976,
+    #eb5bc0,
+    #b889f3,
+    #78aaff,
+    #4cc2ff,
+    #00cefc,
+    #00d9f0,
+    #00e2de,
+    #00e6c2,
+    #3be89a,
+    #73e76a,
+    #a6e22e
+  );
   --links: var(--pink);
   --links-hover: var(--blue);
   --scrollbar-thumb: var(--pink-dark);
@@ -64,8 +83,24 @@
   --pink-dark: #d52563;
   --purple: #ae81ff;
   --yellow: #e6db74;
-  --background-body: #1f1f1b;
   --background: var(--black);
+  --background-body: #1f1f1b;
+  --background-transparent: rgb(0 0 0 / 60%);
+  --gradient: linear-gradient(
+    to right top,
+    #df2467,
+    #bf4299,
+    #8b5eb4,
+    #4e6eb6,
+    #1d75a4,
+    #007594,
+    #007381,
+    #1a706e,
+    #146c5b,
+    #216644,
+    #315f2c,
+    #405712
+  );
   --links: var(--green);
   --links-hover: var(--pink);
   --text-muted: var(--grey-dark);
@@ -76,6 +111,12 @@ html {
 }
 
 body {
+  overflow: auto;
+  height: 100vh;
+  background-attachment: fixed;
+  background-image: var(--gradient);
+  background-position: center;
+  background-repeat: no-repeat;
   font-family: Metrophobic, sans-serif;
   word-break: break-word;
 }
