@@ -14,23 +14,4 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
   }
-
-  &__list {
-    width: 100%;
-    padding: 0 0 0 20px;
-    margin: 0;
-    list-style-type: none;
-
-    @media (min-width: 500px) {
-      width: auto;
-    }
-  }
-
-  &__list-item {
-    padding-bottom: 1rem;
-
-    &::before {
-      content: '> ';
-    }
-  }
 }
