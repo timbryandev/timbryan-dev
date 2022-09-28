@@ -36,16 +36,17 @@
   --pink: #df2467;
   --pink-dark: #d52563;
   --purple: #ae81ff;
-  --white: #fdfde2;
+  --white: #effdf9;
   --yellow: #fff37f;
   --yellow-dark: #c0b01c;
   --animation-duration: 0.2s;
   --animation: var(--animation-duration) ease-in-out;
   --code: var(--yellow);
   --border: var(--text-main);
-  --button-base: var(--background);
-  --background-transparent: rgb(255 255 255 / 70%);
   --background: var(--white);
+  --background-transparent: rgb(255 255 255 / 70%);
+  --button-base: var(--background);
+  --button-hover: var(--background);
   --gradient: linear-gradient(
     to right top,
     #ff2976,
@@ -91,10 +92,6 @@
   --text-muted: var(--grey-dark);
 }
 
-html {
-  font-size: 18px;
-}
-
 body {
   overflow: auto;
   height: 100vh;
@@ -103,6 +100,8 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   font-family: Metrophobic, sans-serif;
+  font-size: 1.25em;
+  line-height: 1.75;
   word-break: break-word;
 
   &::after {
