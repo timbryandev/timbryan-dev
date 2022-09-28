@@ -1,25 +1,25 @@
 .alert {
   position: relative;
   padding: 1rem 2rem;
-  border: 2px solid #60a5fa;
   margin-top: 1rem;
-  background-color: #dbeafe;
-  border-radius: 1rem;
   color: #1d4ed8;
+  background-color: #dbeafe;
+  border: 2px solid #60a5fa;
+  border-radius: 1rem;
 
   &__heading {
     font-weight: bold;
   }
 
   &--error {
-    border: 2px solid #f87171;
-    background-color: #fee2e2;
     color: #b91c1c;
+    background-color: #fee2e2;
+    border: 2px solid #f87171;
   }
 
   &--success {
-    border: 2px solid #34d399;
-    background-color: #d1fae5;
     color: #047857;
+    background-color: #d1fae5;
+    border: 2px solid #34d399;
   }
 }

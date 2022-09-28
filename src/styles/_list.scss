@@ -15,8 +15,8 @@
     padding-bottom: 1rem;
 
     &::before {
-      margin-right: 0.25rem;
       content: '>';
+      margin-right: 0.25rem;
     }
 
     &--box::before {

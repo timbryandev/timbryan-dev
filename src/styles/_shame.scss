@@ -32,6 +32,6 @@ main {
 
 .disabled {
   opacity: 0.5;
-  pointer-events: none;
   transition: opacity var(--animation);
+  pointer-events: none;
 }

@@ -4,10 +4,10 @@
   justify-content: center;
 
   &__wrapper {
-    position: relative;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
     margin: 2rem;
   }
 }

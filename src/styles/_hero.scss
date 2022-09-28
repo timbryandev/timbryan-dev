@@ -1,12 +1,12 @@
 .hero {
   padding: 1px 1rem 1.5rem;
   margin: auto;
+  text-align: center;
   background-color: var(--background-transparent);
   border-radius: 1rem;
   box-shadow: 0 0 1px currentcolor;
-  cursor: pointer;
-  text-align: center;
   transition: all var(--animation);
+  cursor: pointer;
 
   &:hover {
     transform: scale(101%);

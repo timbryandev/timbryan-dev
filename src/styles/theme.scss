@@ -93,25 +93,25 @@
 }
 
 body {
-  overflow: auto;
   height: 100vh;
-  background-attachment: fixed;
-  background-image: var(--gradient);
-  background-position: center;
-  background-repeat: no-repeat;
+  overflow: auto;
   font-family: Metrophobic, sans-serif;
   font-size: 1.25em;
   line-height: 1.75;
   word-break: break-word;
+  background-attachment: fixed;
+  background-image: var(--gradient);
+  background-position: center;
+  background-repeat: no-repeat;
 
   &::after {
+    content: '';
     position: fixed;
-    z-index: -1;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+    z-index: -1;
     background-color: var(--background-transparent);
-    content: '';
   }
 }
