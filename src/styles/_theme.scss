@@ -44,7 +44,7 @@
   --code: var(--yellow);
   --border: var(--text-main);
   --button-base: var(--background);
-  --background-transparent: rgb(255 255 255 / 50%);
+  --background-transparent: rgb(255 255 255 / 70%);
   --background: var(--white);
   --gradient: linear-gradient(
     to right top,
@@ -85,22 +85,7 @@
   --yellow: #e6db74;
   --background: var(--black);
   --background-body: #1f1f1b;
-  --background-transparent: rgb(0 0 0 / 60%);
-  --gradient: linear-gradient(
-    to right top,
-    #df2467,
-    #bf4299,
-    #8b5eb4,
-    #4e6eb6,
-    #1d75a4,
-    #007594,
-    #007381,
-    #1a706e,
-    #146c5b,
-    #216644,
-    #315f2c,
-    #405712
-  );
+  --background-transparent: rgb(0 0 0 / 70%);
   --links: var(--green);
   --links-hover: var(--pink);
   --text-muted: var(--grey-dark);
@@ -119,4 +104,15 @@ body {
   background-repeat: no-repeat;
   font-family: Metrophobic, sans-serif;
   word-break: break-word;
+
+  &::after {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--background-transparent);
+    content: '';
+  }
 }
