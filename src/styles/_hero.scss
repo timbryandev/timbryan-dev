@@ -1,4 +1,6 @@
-.hero {
+$hero: hero;
+
+.#{$hero} {
   padding: 1px 1rem 1.5rem;
   margin: auto;
   text-align: center;
@@ -7,6 +9,15 @@
   box-shadow: 0 0 1px currentcolor;
   transition: all var(--animation);
   cursor: pointer;
+
+  &--gradient {
+    color: var(--black);
+    background: var(--gradient);
+
+    .#{$hero}__title {
+      color: var(--black);
+    }
+  }
 
   &:hover {
     transform: scale(101%);

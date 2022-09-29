@@ -1,5 +1,5 @@
 export const AppConfig = {
-  author: '@TimBryanDev',
+  author: 'Tim Bryan',
   contactFormUrl: 'https://formspree.io/f/meqrploz',
   dateFormat: 'dd MMMM yyyy',
   description:
@@ -13,5 +13,6 @@ export const AppConfig = {
     { link: '/contact', text: 'Contact' },
   ],
   siteName: 'TimBryan.Dev',
+  socialName: 'TimBryanDev',
   url: 'https://timbryan.dev',
 };

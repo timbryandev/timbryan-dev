@@ -8,8 +8,8 @@ import { AppConfig } from '../../utils/AppConfig';
 function Header() {
   return (
     <Link href="/">
-      <header className="header hero">
-        <h1 className="hero__title">{AppConfig.author}</h1>
+      <header className="header hero hero--gradient">
+        <h1 className="hero__title">{AppConfig.siteName}</h1>
 
         <Image
           src="/assets/images/avatar.jpg"
