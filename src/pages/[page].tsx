@@ -5,7 +5,7 @@ import { BlogGallery, IBlogGalleryProps } from '../components/BlogGallery';
 import { IPaginationProps } from '../components/Pagination/Pagination';
 import { Main } from '../layout/Main';
 import { Meta } from '../layout/Meta';
-import { getAllPosts } from '../utils/content';
+import { getAllPosts } from '../utils/contentt';
 import { convertTo2D } from '../utils/pagination';
 
 type IPageUrl = {

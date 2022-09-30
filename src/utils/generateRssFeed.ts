@@ -1,7 +1,7 @@
 import { Feed } from 'feed';
 
 import { AppConfig } from '../AppConfig';
-import { getPublishedPosts } from './content';
+import { getPublishedPosts } from './contentt';
 import { markdownToHtml } from './markdown';
 
 export default async function generateRssFeed() {

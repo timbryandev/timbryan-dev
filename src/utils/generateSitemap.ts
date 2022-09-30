@@ -1,5 +1,5 @@
 import { AppConfig } from '../AppConfig';
-import { getPublishedPosts } from './content';
+import { getPublishedPosts } from './contentt';
 
 const locTag = (url: string) => `<loc>${url}</loc>`;
 

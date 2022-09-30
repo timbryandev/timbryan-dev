@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import type { PostItems } from '../utils/content';
+import type { PostItems } from '../utils/contentt';
 import type { IPaginationProps } from './Pagination';
 import { Pagination } from './Pagination';
 import PublishDate from './PublishDate';

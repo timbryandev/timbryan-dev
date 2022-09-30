@@ -4,10 +4,15 @@ import { join } from 'path';
 import matter from 'gray-matter';
 
 const postsDirectory = join(process.cwd(), '_posts');
+// const pagesDirectory = join(process.cwd(), 'pages');
 
 export type PostItems = {
   [key: string]: string;
 };
+
+// export function getPageSlugs() {
+//   return fs.readdirSync(pagesDirectory);
+// }
 
 export function getPostSlugs() {
   return fs.readdirSync(postsDirectory);
@@ -53,6 +58,13 @@ export function getAllPosts(fields: string[] = [], publishedOnly = false) {
 
   return posts;
 }
+
+// export function getPages() {
+//   const slugs = getPageSlugs();
+//   const pages = slugs.filter(Boolean);
+//   console.log({ pages });
+//   return pages;
+// }
 
 export function getPublishedPosts(fields: string[] = []) {
   return getAllPosts([...fields, 'status'], true);

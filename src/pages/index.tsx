@@ -5,7 +5,7 @@ import { BlogGallery, IBlogGalleryProps } from '../components/BlogGallery';
 import { IPaginationProps } from '../components/Pagination/Pagination';
 import { Main } from '../layout/Main';
 import { Meta } from '../layout/Meta';
-import { getPublishedPosts } from '../utils/content';
+import { getPublishedPosts } from '../utils/contentt';
 
 const Index = (props: IBlogGalleryProps) => (
   <Main meta={<Meta title="Posts" description={AppConfig.description} />}>
