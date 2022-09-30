@@ -1,4 +1,4 @@
-import PublishDate from '../PublishDate';
+import PublishDate from './PublishDate';
 
 export interface PostHeaderProps {
   creditLink?: string;
@@ -11,11 +11,11 @@ export interface PostHeaderProps {
 
 const Credit = ({ name, link }: { name?: string; link?: string }) => {
   if (!name) {
-    return <p></p>;
+    return <></>;
   }
 
   return (
-    <p className="post-header__credit">
+    <>
       Cover image by{' '}
       {link ? (
         <a href={link} className="link">
@@ -24,7 +24,7 @@ const Credit = ({ name, link }: { name?: string; link?: string }) => {
       ) : (
         name
       )}
-    </p>
+    </>
   );
 };
 
@@ -37,11 +37,20 @@ function PostHeader({
   updated,
 }: PostHeaderProps) {
   return (
-    <div className="post-header" style={{ backgroundImage: `url('${image}')` }}>
-      <div className="post-header__content">
-        <Credit name={creditName} link={creditLink} />
-        <h1 className="post-header__title">{title}</h1>
-        <p className="post-header__date">
+    <div
+      className="post__header"
+      style={{ backgroundImage: `url('${image}')` }}
+    >
+      <div className="post__header__content">
+        <p className="post__credit">
+          <span>
+            <Credit name={creditName} link={creditLink} />
+          </span>
+
+          <span>(Hover to reveal)</span>
+        </p>
+        <h1 className="post__title">{title}</h1>
+        <p className="post__date">
           <PublishDate posted={posted} updated={updated} showUpdated={true} />
         </p>
       </div>
