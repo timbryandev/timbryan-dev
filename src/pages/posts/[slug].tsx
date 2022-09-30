@@ -6,7 +6,7 @@ import { Content } from '../../layout/Content';
 import { Main } from '../../layout/Main';
 import { Meta } from '../../layout/Meta';
 import { getAllPosts, getPostBySlug } from '../../utils/content';
-import { markdownToHtml } from '../../utils/mMarkdown';
+import { markdownToHtml } from '../../utils/markdown';
 
 type IPostUrl = {
   slug: string;

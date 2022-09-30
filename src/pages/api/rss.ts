@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import generateRSS from '../../utils/gGenerateRssFeed';
+import generateRSS from '../../utils/generateRssFeed';
 
 const RSS = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
