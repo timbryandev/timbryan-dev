@@ -1,5 +1,5 @@
 import { AppConfig } from '../AppConfig';
-import { getPublishedPosts } from './content';
+import { getPages, getPublishedPosts } from './content';
 
 const locTag = (url: string) => `<loc>${url}</loc>`;
 
@@ -17,19 +17,7 @@ const urlTag = (url: string, date: string, priority: number) =>
 export default async function generateSitemap() {
   const postUrlPath = `${AppConfig.url}/post/`;
 
-  // TODO: This should be grabbed from the filesystem
-  const pages = [
-    {
-      slug: '/about',
-      updated: new Date().toISOString().split('T')[0],
-      depth: 1,
-    },
-    {
-      slug: '/contact',
-      updated: new Date().toISOString().split('T')[0],
-      depth: 1,
-    },
-  ];
+  const pages = getPages();
 
   const posts = getPublishedPosts(['slug', 'updated']);
 

@@ -3,23 +3,26 @@ import { join } from 'path';
 
 import matter from 'gray-matter';
 
+import removeFileExtension from './removeFileExtension';
+
 const postsDirectory = join(process.cwd(), '_posts');
-// const pagesDirectory = join(process.cwd(), 'pages');
+const pagesDirectory = join(process.cwd(), 'src/pages');
 
 export type PostItems = {
   [key: string]: string;
 };
 
-// export function getPageSlugs() {
-//   return fs.readdirSync(pagesDirectory);
-// }
+export function getPagePaths() {
+  console.log('scanning: ', pagesDirectory);
+  return fs.readdirSync(pagesDirectory);
+}
 
 export function getPostSlugs() {
   return fs.readdirSync(postsDirectory);
 }
 
 export function getPostBySlug(slug: string, fields: string[] = []) {
-  const realSlug = slug.replace(/\.md$/, '');
+  const realSlug = removeFileExtension(slug);
   const fullPath = join(postsDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
@@ -59,12 +62,24 @@ export function getAllPosts(fields: string[] = [], publishedOnly = false) {
   return posts;
 }
 
-// export function getPages() {
-//   const slugs = getPageSlugs();
-//   const pages = slugs.filter(Boolean);
-//   console.log({ pages });
-//   return pages;
-// }
+export function getPages() {
+  const isPrivateFile = (path: string) => path.match(/^([[\d_])/) !== null;
+  const isPrivateFolder = (path: string) => ['api', 'posts'].includes(path);
+
+  const isPublic = (path: string) =>
+    !isPrivateFile(path) && !isPrivateFolder(path);
+
+  const createPageObject = (path: string) => ({
+    slug: `/${removeFileExtension(path)}`,
+    updated: new Date().toISOString().split('T')[0],
+    depth: 1,
+  });
+
+  const paths = getPagePaths();
+  const pages = paths.filter(isPublic).map(createPageObject);
+
+  return pages;
+}
 
 export function getPublishedPosts(fields: string[] = []) {
   return getAllPosts([...fields, 'status'], true);
