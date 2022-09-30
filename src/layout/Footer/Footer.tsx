@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { BiCoffeeTogo } from 'react-icons/bi';
+import { BiCode, BiCodeCurly, BiCoffeeTogo, BiSitemap } from 'react-icons/bi';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { MdRssFeed } from 'react-icons/md';
 import { TbSocial } from 'react-icons/tb';
@@ -49,13 +49,24 @@ const Footer = () => (
           <MdRssFeed /> Feeds
         </h3>
         <li className="list__item">
+          <Link href="/sitemap.xml">
+            <a className="link">
+              <BiSitemap /> Sitemap
+            </a>
+          </Link>
+        </li>
+        <li className="list__item">
           <Link href="/rss/feed.xml">
-            <a className="link">{'<…>'}XML</a>
+            <a className="link">
+              <BiCode /> RSS <small>(XML)</small>
+            </a>
           </Link>
         </li>
         <li className="list__item">
           <Link href="/rss/feed.json">
-            <a className="link">{'{…}'}JSON</a>
+            <a className="link">
+              <BiCodeCurly /> RSS <small>(JSON)</small>
+            </a>
           </Link>
         </li>
       </ul>
