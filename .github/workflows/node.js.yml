@@ -31,4 +31,4 @@ jobs:
     - run: npm run build-types
     - run: npm run js:lint
     - run: npm run style:lint
-    # - run: npm test
+    - run: npm test

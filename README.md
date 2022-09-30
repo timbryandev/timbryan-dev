@@ -1,8 +1,8 @@
 # TimBryan.dev Portfolio(WIP) + Blog
 
-![Production](https://github.com/timbryandev/timbryan-dev/actions/workflows/node.js.yml/badge.svg?branch=production)
+Production: ![Production](https://github.com/timbryandev/timbryan-dev/actions/workflows/node.js.yml/badge.svg?branch=production)
 
-![Staging](https://github.com/timbryandev/timbryan-dev/actions/workflows/node.js.yml/badge.svg?branch=staging)
+Preview: ![Staging](https://github.com/timbryandev/timbryan-dev/actions/workflows/node.js.yml/badge.svg?branch=preview)
 
 <p align="center">
   <a href="https://timbryan.dev/">
@@ -20,6 +20,7 @@ Blog feature:
 - 🎈 Syntax Highlighting with Prism.js
 - ⬇️ Markdown Blog posts and page content
 - 💯 Maximize lighthouse score
+- 🃏 Test Driven Development with [Jest](https://jestjs.io/)
 - 🎉 Type checking [TypeScript](https://www.typescriptlang.org)
 - 🛠 Styled with [SCSS](https://sass-lang.com)
 - 🛠 Code Formatter with [Prettier](https://prettier.io)
