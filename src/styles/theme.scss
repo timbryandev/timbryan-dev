@@ -45,6 +45,7 @@
   --border: var(--text-main);
   --background: var(--white);
   --background-transparent: rgb(255 255 255 / 75%);
+  --box-shadow-pop: 0 0 5px var(--blue);
   --button-base: var(--background);
   --button-hover: var(--background);
   --gradient: linear-gradient(
@@ -105,7 +106,7 @@ body {
   background-repeat: no-repeat;
 
   &::after {
-    content: '';
+    content: "";
     position: fixed;
     top: 0;
     right: 0;

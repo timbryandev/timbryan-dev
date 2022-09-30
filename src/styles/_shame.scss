@@ -13,11 +13,13 @@ h6,
 code,
 pre,
 .dev-icon {
-  font-family: 'Space Mono', monospace !important;
+  font-family: "Space Mono", monospace !important;
 }
 
-button {
-  box-shadow: 0 0 1px currentcolor;
+button,
+input,
+textarea {
+  box-shadow: var(--box-shadow-pop);
 }
 
 code {

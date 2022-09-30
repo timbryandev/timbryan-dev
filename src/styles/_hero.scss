@@ -6,7 +6,7 @@ $hero: hero;
   text-align: center;
   background-color: var(--background-transparent);
   border-radius: 1rem;
-  box-shadow: 0 0 1px currentcolor;
+  box-shadow: var(--box-shadow-pop);
   transition: all var(--animation);
   cursor: pointer;
 
