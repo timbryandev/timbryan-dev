@@ -14,9 +14,7 @@ Blog feature:
 
 - 🔥 [Next.js](https://nextjs.org) for Static Site Generator
 - 🎈 Syntax Highlighting with Prism.js
-- 🤖 SEO metadata and Open Graph tags
-- ⚙️ JSON-LD for richer indexing
-- ⬇️ Markdown
+- ⬇️ Markdown Blog posts and page content
 - 💯 Maximize lighthouse score
 - 🎉 Type checking [TypeScript](https://www.typescriptlang.org)
 - 🛠 Styled with [SCSS](https://sass-lang.com)
@@ -24,6 +22,7 @@ Blog feature:
 - 🛠 Code Linter with [ESLint](https://eslint.org)
 - 🧹 Style Linter with [Stylelint](https://stylelint.io)
 - 🦊 SEO metadata, [JSON-LD](https://developers.google.com/search/docs/guides/intro-structured-data) and [Open Graph](https://ogp.me/) tags with [Next SEO](https://github.com/garmeeh/next-seo)
+- 🛠 Dynamically generated sitemap
 - 🛠 [Husky](https://typicode.github.io/husky/#/) and [lint-staged](https://github.com/okonet/lint-staged) for pre-commit and pre-push linting, testing and build validation
 
 Built-in feature from Next.js:
@@ -55,14 +54,14 @@ Open <http://localhost:3000> with your favourite browser to see your project.
 
 ```text
 .
-├── _posts            # Your blog posts
+├── _posts            # Blog posts
 ├── public            # Static files
 │   ├── assets
 │   │   └── images
-│   │       └── posts # Images used in your blog posts
+│   │       └── posts # Images used your blog posts
 └── src
     ├── pages         # Next.js pages
-    └── styles        # Your blog CSS files
+    └── styles        # SCSS files
 ```
 
 ## Deploy to production
@@ -76,7 +75,7 @@ npm run start
 
 The generated HTML and CSS files are minified (built-in feature from Next js).
 
-Now, the project is ready to be deployed. All generated files are located at `dist` folder, which you can deploy with any hosting service.
+Now, the project is ready to be deployed. All generated files are located at `dist` folder, which can deploy with any hosting service (I'm currently using Vercel).
 
 ## Contributions
 
