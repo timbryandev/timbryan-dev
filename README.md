@@ -1,5 +1,9 @@
 # TimBryan.dev Portfolio(WIP) + Blog
 
+![Production](https://github.com/timbryandev/timbryan-dev/actions/workflows/node.js.yml/badge.svg?branch=production)
+
+![Staging](https://github.com/timbryandev/timbryan-dev/actions/workflows/node.js.yml/badge.svg?branch=staging)
+
 <p align="center">
   <a href="https://timbryan.dev/">
     <img src="public/android-chrome-192x192.png?raw=true" alt="" />
