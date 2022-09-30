@@ -26,6 +26,10 @@ module.exports = withBundleAnalyzer({
         source: '/rss/feed.json',
         destination: '/api/rss?format=json',
       },
+      {
+        source: '/sitemap.xml',
+        destination: '/api/sitemap',
+      },
     ];
   },
 });
