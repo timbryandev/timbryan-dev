@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { MdRssFeed } from 'react-icons/md';
 import { TbSocial } from 'react-icons/tb';
 
-import { AppConfig } from '../../utils/AppConfig';
+import { AppConfig } from '../../AppConfig';
 
 const Footer = () => (
   <footer className="footer">

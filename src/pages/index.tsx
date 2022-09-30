@@ -1,11 +1,11 @@
 import { GetStaticProps } from 'next';
 
+import { AppConfig } from '../AppConfig';
 import { BlogGallery, IBlogGalleryProps } from '../components/BlogGallery';
 import { IPaginationProps } from '../components/Pagination/Pagination';
 import { Main } from '../layout/Main';
 import { Meta } from '../layout/Meta';
-import { AppConfig } from '../utils/AppConfig';
-import { getPublishedPosts } from '../utils/Content';
+import { getPublishedPosts } from '../utils/content';
 
 const Index = (props: IBlogGalleryProps) => (
   <Main meta={<Meta title="Posts" description={AppConfig.description} />}>

@@ -1,12 +1,12 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 
+import { AppConfig } from '../AppConfig';
 import { BlogGallery, IBlogGalleryProps } from '../components/BlogGallery';
 import { IPaginationProps } from '../components/Pagination/Pagination';
 import { Main } from '../layout/Main';
 import { Meta } from '../layout/Meta';
-import { AppConfig } from '../utils/AppConfig';
-import { getAllPosts } from '../utils/Content';
-import { convertTo2D } from '../utils/Pagination';
+import { getAllPosts } from '../utils/content';
+import { convertTo2D } from '../utils/pagination';
 
 type IPageUrl = {
   page: string;

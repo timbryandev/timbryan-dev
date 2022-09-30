@@ -5,7 +5,7 @@ import '../styles/main.scss';
 import '../styles/prism.scss';
 
 import { ThemeProvider } from '../components/Theme/ThemeContext';
-import consoleBrand from '../utils/ConsoleBrand';
+import consoleBrand from '../utils/consoleBrand';
 
 let hasSeenBrand = false;
 

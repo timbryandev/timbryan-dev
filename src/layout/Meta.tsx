@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-import { AppConfig } from '../utils/AppConfig';
-import { addTrailingSlash } from '../utils/Url';
+import { AppConfig } from '../AppConfig';
+import { addTrailingSlash } from '../utils/urlHelpers';
 
 type IMetaProps = {
   title: string;

@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
+import { AppConfig } from '../AppConfig';
 import ContactForm from '../components/ContactForm';
 import { Content } from '../layout/Content';
 import { Main } from '../layout/Main';
 import { Meta } from '../layout/Meta';
-import { AppConfig } from '../utils/AppConfig';
 
 const Contact = () => {
   const [showEmail, setShowEmail] = useState(false);

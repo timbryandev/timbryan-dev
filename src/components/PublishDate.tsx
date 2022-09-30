@@ -1,6 +1,6 @@
 import { format } from 'date-fns';
 
-import { AppConfig } from '../utils/AppConfig';
+import { AppConfig } from '../AppConfig';
 
 interface IPublishDateProps {
   posted: string;

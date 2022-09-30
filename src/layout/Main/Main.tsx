@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 
+import { AppConfig } from '../../AppConfig';
 import { NavBar } from '../../components/NavBar';
 import ThemeToggle from '../../components/Theme/ThemeToggle';
-import { AppConfig } from '../../utils/AppConfig';
 import Footer from '../Footer';
 import Header from '../Header';
 
