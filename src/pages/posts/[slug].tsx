@@ -5,7 +5,7 @@ import PublishDate from '../../components/PublishDate';
 import { Content } from '../../layout/Content';
 import { Main } from '../../layout/Main';
 import { Meta } from '../../layout/Meta';
-import { getAllPosts, getPostBySlug } from '../../utils/contentt';
+import { getAllPosts, getPostBySlug } from '../../utils/content';
 import { markdownToHtml } from '../../utils/markdown';
 
 type IPostUrl = {
