@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { convertUrlToLinkHref } from '../../utils/pagination';
+import { convertUrlToLinkHref } from '../../utils/pPagination';
 
 export type IPaginationProps = {
   previous?: string;

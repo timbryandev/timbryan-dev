@@ -6,7 +6,7 @@ import { IPaginationProps } from '../components/Pagination/Pagination';
 import { Main } from '../layout/Main';
 import { Meta } from '../layout/Meta';
 import { getAllPosts } from '../utils/content';
-import { convertTo2D } from '../utils/pagination';
+import { convertTo2D } from '../utils/pPagination';
 
 type IPageUrl = {
   page: string;

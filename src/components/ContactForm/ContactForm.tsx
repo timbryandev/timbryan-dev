@@ -1,7 +1,7 @@
 import { FormEvent, useState } from 'react';
 
 import { AppConfig } from '../../AppConfig';
-import { validateEmail, validateMessage } from '../../utils/validate';
+import { validateEmail, validateMessage } from '../../utils/vValidate';
 import { ErrorAlert, SuccessAlert } from '../Alerts';
 
 const ERROR = 'ERROR';
