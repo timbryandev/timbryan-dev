@@ -1,31 +1,31 @@
 /* Global */
-@import 'https://fonts.googleapis.com/css2?family=Metrophobic&family=Space+Mono&display=swap';
-@import './theme';
+@import "https://fonts.googleapis.com/css2?family=Metrophobic&family=Space+Mono&display=swap";
+@import "./theme";
 
 /* Blocks */
-@import './card';
-@import './hero';
+@import "./card";
+@import "./hero";
 
 /* Components */
-@import '../components/Alerts/Alerts';
-@import '../components/ContactForm/ContactForm';
-@import '../components/DevIcons/DevIcons';
-@import '../components/ImageWithCredit/ImageWithCredits';
-@import '../components/NavBar/NavBar';
-@import '../components/Pagination/Pagination';
+@import "../components/Alerts/Alerts";
+@import "../components/ContactForm/ContactForm";
+@import "../components/DevIcons/DevIcons";
+@import "../components/PostHeader/PostHeader";
+@import "../components/NavBar/NavBar";
+@import "../components/Pagination/Pagination";
 
 /* Layout */
-@import '../layout/Footer/Footer';
-@import '../layout/Header/Header';
-@import '../layout/Main/Main';
+@import "../layout/Footer/Footer";
+@import "../layout/Header/Header";
+@import "../layout/Main/Main";
 
 /* Pages */
-@import './pages/error';
-@import './pages/slug';
+@import "./pages/error";
+@import "./pages/slug";
 
 /* Utils */
-@import './link';
-@import './list';
+@import "./link";
+@import "./list";
 
 /* Shame */
-@import './shame';
+@import "./shame";

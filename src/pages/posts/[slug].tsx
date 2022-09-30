@@ -1,7 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import ImageWithCredit from '../../components/ImageWithCredit';
-import PublishDate from '../../components/PublishDate';
+import PostHeader from '../../components/PostHeader';
 import { Content } from '../../layout/Content';
 import { Main } from '../../layout/Main';
 import { Meta } from '../../layout/Meta';
@@ -39,15 +38,10 @@ const Post = (props: IPostProps) => (
     }
   >
     <div className="post">
-      <h1 className="post__title">{props.title}</h1>
-      <p className="post__date">
-        <PublishDate {...props} showUpdated={true} />
-      </p>
-
-      <ImageWithCredit
-        image={props.image}
-        name={props.credit?.[0]}
-        link={props.credit?.[1]}
+      <PostHeader
+        {...props}
+        creditName={props.credit?.[0]}
+        creditLink={props.credit?.[1]}
       />
 
       <Content>
