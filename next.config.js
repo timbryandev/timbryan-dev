@@ -4,6 +4,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 const baseUrl = '';
+const { POSTHOG_API_HOST, POSTHOG_API_KEY } = process.env;
 
 module.exports = withBundleAnalyzer({
   poweredByHeader: false,
@@ -11,6 +12,8 @@ module.exports = withBundleAnalyzer({
   basePath: baseUrl,
   env: {
     baseUrl,
+    POSTHOG_API_HOST,
+    POSTHOG_API_KEY,
   },
   // The starter code load resources from `public` folder with `router.basePath` in React components.
   // So, the source code is "basePath-ready".
