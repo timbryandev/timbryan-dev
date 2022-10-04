@@ -46,7 +46,7 @@ export default async function generateRssFeed() {
   // Add each blog entry to the feed
   // eslint-disable-next-line no-restricted-syntax
   for await (const post of posts) {
-    const content = await markdownToHtml(post.content || '');
+    const content = await markdownToHtml(post.content ?? '');
 
     feed.addItem({
       author: [author],

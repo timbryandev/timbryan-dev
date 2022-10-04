@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { AppConfig } from '../AppConfig';
 import { addTrailingSlash } from '../utils/urlHelpers';
 
-type IMetaProps = {
+interface IMetaProps {
   title: string;
   description: string;
   canonical?: string;
@@ -14,7 +14,7 @@ type IMetaProps = {
     updated: string;
     status: string;
   };
-};
+}
 
 const Meta = (props: IMetaProps) => {
   const router = useRouter();
@@ -55,13 +55,11 @@ const Meta = (props: IMetaProps) => {
         <title>{`${props.title} | ${AppConfig.siteName}`}</title>
         <meta
           name="description"
-          content={
-            props.description ? props.description : AppConfig.description
-          }
+          content={props.description ?? AppConfig.description}
           key="description"
         />
         <meta name="author" content={AppConfig.author} key="author" />
-        {props.canonical && (
+        {typeof props.canonical === 'string' && (
           <link rel="canonical" href={props.canonical} key="canonical" />
         )}
         <meta
@@ -71,9 +69,7 @@ const Meta = (props: IMetaProps) => {
         />
         <meta
           property="og:description"
-          content={
-            props.description ? props.description : AppConfig.description
-          }
+          content={props.description ?? AppConfig.description}
           key="og:description"
         />
         <meta property="og:locale" content={AppConfig.locale} key="og:locale" />
@@ -82,7 +78,7 @@ const Meta = (props: IMetaProps) => {
           content={AppConfig.siteName}
           key="og:site_name"
         />
-        {props.post && (
+        {props.post != null && (
           <>
             <meta property="og:type" content="article" key="og:type" />
             <meta
@@ -116,9 +112,7 @@ const Meta = (props: IMetaProps) => {
               dangerouslySetInnerHTML={{
                 __html: `
           {
-            "description": "${
-              props.description ? props.description : AppConfig.description
-            }",
+            "description": "${props.description ?? AppConfig.description}",
             "author": {
               "@type": "Person",
               "name": "${AppConfig.author}"

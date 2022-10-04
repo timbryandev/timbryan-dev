@@ -27,10 +27,13 @@ export interface IThemeProviderProps {
 }
 
 const getInitialTheme = (): ITheme => {
-  if (typeof window !== 'undefined' && window.localStorage) {
+  if (
+    typeof window !== 'undefined' &&
+    typeof window.localStorage !== 'undefined'
+  ) {
     const storedPrefs = window.localStorage.getItem('color-theme');
     if (typeof storedPrefs === 'string') {
-      return storedPrefs as ITheme;
+      return storedPrefs;
     }
 
     const userMedia = window.matchMedia('(prefers-color-scheme: dark)');
@@ -48,8 +51,9 @@ export const ThemeProvider = ({
 }: IThemeProviderProps) => {
   const [theme, setTheme] = useState('');
 
-  const rawSetTheme = (rawTheme: string) => {
-    if (!rawTheme) return;
+  const rawSetTheme = (rawTheme?: string) => {
+    if (typeof rawTheme !== 'string') return;
+
     const root = window.document.documentElement;
     const isDark = rawTheme === 'dark';
 
@@ -60,7 +64,7 @@ export const ThemeProvider = ({
   };
 
   useEffect(() => {
-    if (initialTheme) {
+    if (typeof initialTheme === 'string') {
       setTheme(initialTheme);
       return;
     }

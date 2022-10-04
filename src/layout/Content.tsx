@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 
-type IContentProps = {
+interface IContentProps {
   children: ReactNode | ReactNode[];
-};
+}
 
 const Content = (props: IContentProps) => (
   <div className="content">{props.children}</div>

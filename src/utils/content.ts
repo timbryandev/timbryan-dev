@@ -8,9 +8,9 @@ import removeFileExtension from './removeFileExtension';
 const postsDirectory = join(process.cwd(), '_posts');
 const pagesDirectory = join(process.cwd(), 'src/pages');
 
-export type PostItems = {
+export interface PostItems {
   [key: string]: string;
-};
+}
 
 export function getPagePaths() {
   console.log('scanning: ', pagesDirectory);
@@ -40,7 +40,7 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
       return;
     }
 
-    if (data[field]) {
+    if (data[field] !== undefined) {
       items[field] = data[field];
     }
   });

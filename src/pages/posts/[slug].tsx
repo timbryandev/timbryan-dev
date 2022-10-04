@@ -7,11 +7,11 @@ import { Meta } from '../../layout/Meta';
 import { getAllPosts, getPostBySlug } from '../../utils/content';
 import { markdownToHtml } from '../../utils/markdown';
 
-type IPostUrl = {
+interface IPostUrl {
   slug: string;
-};
+}
 
-type IPostProps = {
+interface IPostProps {
   content: string;
   credit?: any; // TODO: We should use [string, string]
   description: string;
@@ -20,7 +20,7 @@ type IPostProps = {
   status: string;
   title: string;
   updated: string;
-};
+}
 
 const Post = (props: IPostProps) => (
   <Main
@@ -74,6 +74,8 @@ export const getStaticPaths: GetStaticPaths<IPostUrl> = async () => {
 export const getStaticProps: GetStaticProps<IPostProps, IPostUrl> = async ({
   params,
 }) => {
+  // We know params!.page will always exist
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const post = getPostBySlug(params!.slug, [
     'content',
     'credit',
@@ -85,7 +87,7 @@ export const getStaticProps: GetStaticProps<IPostProps, IPostUrl> = async ({
     'title',
     'updated',
   ]);
-  const content = await markdownToHtml(post.content || '');
+  const content = await markdownToHtml(post.content ?? '');
 
   return {
     props: {

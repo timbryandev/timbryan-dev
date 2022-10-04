@@ -8,9 +8,9 @@ import { Meta } from '../layout/Meta';
 import { getAllPosts } from '../utils/content';
 import { convertTo2D } from '../utils/pagination';
 
-type IPageUrl = {
+interface IPageUrl {
   page: string;
-};
+}
 
 const PaginatePosts = (props: IBlogGalleryProps) => (
   <Main meta={<Meta title="Posts" description="View posts from Tim" />}>
@@ -43,6 +43,8 @@ export const getStaticProps: GetStaticProps<
   const posts = getAllPosts(['title', 'posted', 'slug']);
 
   const pages = convertTo2D(posts, AppConfig.pagination_size);
+  // We know params!.page will always exist
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const currentPage = Number(params!.page.replace('page', ''));
   const currentInd = currentPage - 1;
 

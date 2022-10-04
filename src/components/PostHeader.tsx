@@ -10,14 +10,14 @@ export interface PostHeaderProps {
 }
 
 const Credit = ({ name, link }: { name?: string; link?: string }) => {
-  if (!name) {
+  if (name === undefined) {
     return <></>;
   }
 
   return (
     <>
       Cover image by{' '}
-      {link ? (
+      {typeof link === 'string' ? (
         <a href={link} className="link">
           {name}
         </a>

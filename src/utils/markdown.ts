@@ -1,5 +1,5 @@
 // TODO: @mapbox/rehype-prism does not have typescript definition
-// @ts-ignore
+// @ts-expect-error
 import rehypePrism from '@mapbox/rehype-prism';
 import html from 'rehype-stringify';
 import gfm from 'remark-gfm';
@@ -15,5 +15,5 @@ export async function markdownToHtml(markdown: string) {
     .use(rehypePrism)
     .use(html)
     .process(markdown);
-  return result.toString().replace(/@@baseUrl@@/g, process.env.baseUrl || '');
+  return result.toString().replace(/@@baseUrl@@/g, process.env.baseUrl ?? '');
 }

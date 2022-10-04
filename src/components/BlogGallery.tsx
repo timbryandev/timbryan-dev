@@ -5,12 +5,12 @@ import type { IPaginationProps } from './Pagination';
 import { Pagination } from './Pagination';
 import PublishDate from './PublishDate';
 
-export type IBlogGalleryProps = {
+export interface IBlogGalleryProps {
   posts: PostItems[];
   pagination: IPaginationProps;
-};
+}
 
-const BlogGallery = (props: IBlogGalleryProps) => (
+const BlogGallery = (props: IBlogGalleryProps): JSX.Element => (
   <>
     <p>If I have anything of interest to say, you&apos;ll find it here:</p>
     <ul className="card__wrapper">

@@ -82,7 +82,7 @@ const ContactForm = (): JSX.Element => {
     });
 
     // If we encounter any errors, inform the user
-    if (response.ok === false) {
+    if (!response.ok) {
       updateState({
         status: ERROR,
         error: 'There was a problem submitting this form - please try again.',
@@ -104,7 +104,17 @@ const ContactForm = (): JSX.Element => {
   }
 
   return (
-    <form className="contact-form" onSubmit={handleSubmitForm}>
+    <form
+      className="contact-form"
+      onSubmit={(evt): void => {
+        handleSubmitForm(evt).catch((error) =>
+          updateState({
+            status: ERROR,
+            error,
+          })
+        );
+      }}
+    >
       <fieldset disabled={[SENDING, SUCCESS].includes(state.status)}>
         <legend>Contact Me</legend>
         <section className="contact-form__group">
