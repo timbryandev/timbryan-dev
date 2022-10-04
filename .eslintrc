@@ -1,7 +1,7 @@
 {
   // Configuration for JavaScript files
   "extends": [
-    "airbnb-base",
+    "standard-with-typescript",
     "next/core-web-vitals",
     "plugin:prettier/recommended"
   ],
@@ -19,7 +19,7 @@
       "files": ["**/*.ts", "**/*.tsx"],
       "plugins": ["@typescript-eslint", "unused-imports"],
       "extends": [
-        "airbnb-typescript",
+        "standard-with-typescript",
         "next/core-web-vitals",
         "plugin:prettier/recommended"
       ],
