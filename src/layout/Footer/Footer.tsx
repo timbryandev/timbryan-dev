@@ -1,6 +1,18 @@
 import Link from 'next/link';
-import { BiCode, BiCodeCurly, BiCoffeeTogo, BiSitemap } from 'react-icons/bi';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import {
+  BiCode,
+  BiCodeCurly,
+  BiCoffeeTogo,
+  BiSitemap,
+  BiGitBranch,
+} from 'react-icons/bi';
+import {
+  FaGithub,
+  FaLinkedin,
+  FaNpm,
+  FaGithubAlt,
+  FaGamepad,
+} from 'react-icons/fa';
 import { MdRssFeed } from 'react-icons/md';
 import { TbSocial } from 'react-icons/tb';
 
@@ -68,6 +80,80 @@ const Footer = (): JSX.Element => (
               <BiCodeCurly /> RSS <small>(JSON)</small>
             </a>
           </Link>
+        </li>
+      </ul>
+    </section>
+    <section className="footer__links">
+      <ul className="list">
+        <h3>
+          <BiGitBranch /> Notable Work
+        </h3>
+        <li className="list__item list__item--star">
+          <a
+            className="link"
+            href="https://github.com/timbryandev/timbryan-dev"
+          >
+            <FaGithubAlt /> TimBryan.dev
+          </a>
+        </li>
+        <li className="list__item list__item--star">
+          <p>
+            <a className="link" href="https://get-five.timbryan.dev">
+              <FaGamepad /> Get-Five
+            </a>
+          </p>
+          <p>
+            <a className="link" href="https://github.com/timbryandev/get-five">
+              <FaGithubAlt /> Get-Five
+            </a>
+          </p>
+        </li>
+        <li className="list__item list__item--star">
+          <p>
+            <a
+              className="link"
+              href="https://www.npmjs.com/package/@timbryandev/uuidv4"
+            >
+              <FaNpm /> uuidV4
+            </a>
+          </p>
+          <p>
+            <a className="link" href="https://github.com/timbryandev/uuidv4">
+              <FaGithubAlt /> uuidV4
+            </a>
+          </p>
+        </li>
+      </ul>
+      <ul className="list">
+        <h3 className="u-hide-on-mobile" style={{ opacity: 0 }}>
+          <BiGitBranch /> Notable Work
+        </h3>
+        <li className="list__item list__item--star">
+          <p>
+            <a
+              className="link"
+              href="https://github.com/timbryandev/template-scorm1.2-primer"
+            >
+              <FaGithubAlt /> SCORM 1.2 Template
+            </a>
+          </p>
+        </li>
+        <li className="list__item list__item--star">
+          <p>
+            <a className="link" href="https://github.com/timbryandev/wort">
+              <FaGithubAlt /> WORT - WORd Transformer
+            </a>
+          </p>
+        </li>
+        <li className="list__item list__item--star">
+          <p>
+            <a
+              className="link"
+              href="https://github.com/timbryandev/7zip-batch-zip"
+            >
+              <FaGithubAlt /> 7zip Batch Zip
+            </a>
+          </p>
         </li>
       </ul>
     </section>

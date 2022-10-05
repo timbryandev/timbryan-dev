@@ -1,5 +1,6 @@
 .footer {
   padding: 2rem 0;
+  font-size: 1rem;
 
   a {
     display: inline-block;
@@ -9,9 +10,23 @@
     text-align: center;
   }
 
-  &__links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+  .u-hide-on-mobile {
+    display: none;
+  }
+
+  @media screen and (min-width: 580px) {
+    &__links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .list {
+      width: 45%;
+    }
+
+    .u-hide-on-mobile {
+      display: block;
+    }
   }
 }
