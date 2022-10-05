@@ -11,6 +11,7 @@ export const AppConfig = {
     { link: '/', text: 'Posts' },
     { link: '/about', text: 'About' },
     { link: '/contact', text: 'Contact' },
+    { link: 'https://get-five.timbryan.dev', text: 'Get-Five' },
   ],
   siteName: 'TimBryan.Dev',
   socialName: 'TimBryanDev',
