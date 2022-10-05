@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 import brewteafulGif from '../../public/assets/images/brewteaful.gif';
@@ -14,10 +15,12 @@ const Custom418 = (): JSX.Element => (
       <div className="p-error">
         <h2>ERROR: {TITLE}</h2>
         <h3>{DESC}</h3>
-        <img
+        <Image
           src={brewteafulGif.src}
           alt="funny animation GIF"
           className="p-error__image"
+          height={brewteafulGif.height}
+          width={brewteafulGif.width}
         />
         <p>What did you expect? 😂</p>
         <p>

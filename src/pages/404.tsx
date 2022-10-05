@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 import confusedJohnGif from '../../public/assets/images/confused-john.gif';
@@ -14,10 +15,12 @@ const Custom404 = (): JSX.Element => (
       <div className="p-error">
         <h2>ERROR: {TITLE}</h2>
         <h3>{DESC}</h3>
-        <img
+        <Image
           src={confusedJohnGif.src}
           alt="funny animation GIF"
           className="p-error__image"
+          height={confusedJohnGif.height}
+          width={confusedJohnGif.width}
         />
         <p>
           John can&apos;t seem to find what you&apos;re looking for either 😬
