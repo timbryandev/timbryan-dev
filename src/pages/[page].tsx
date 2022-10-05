@@ -1,3 +1,5 @@
+import { ParsedUrlQuery } from 'querystring';
+
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 import { AppConfig } from '../AppConfig';
@@ -8,7 +10,7 @@ import { Meta } from '../layout/Meta';
 import { getAllPosts } from '../utils/content';
 import { convertTo2D } from '../utils/pagination';
 
-interface IPageUrl {
+interface IPageUrl extends ParsedUrlQuery {
   page: string;
 }
 

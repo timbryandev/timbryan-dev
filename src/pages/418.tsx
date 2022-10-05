@@ -1,11 +1,9 @@
 import Link from 'next/link';
 
+import brewteafulGif from '../../public/assets/images/brewteaful.gif';
 import { Content } from '../layout/Content';
 import { Main } from '../layout/Main';
 import { Meta } from '../layout/Meta';
-
-const brewteafulGif =
-  require('../../public/assets/images/brewteaful.gif').default;
 
 const TITLE = "418 - I'm a teapot";
 const DESC = 'I am a tea pot';

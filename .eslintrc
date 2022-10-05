@@ -68,5 +68,6 @@
         ]
       }
     }
-  ]
+  ],
+  "ignorePatterns": ["next-env.d.ts"]
 }

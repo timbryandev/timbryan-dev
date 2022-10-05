@@ -1,3 +1,5 @@
+import { ParsedUrlQuery } from 'querystring';
+
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 import PostHeader from '../../components/PostHeader';
@@ -7,7 +9,7 @@ import { Meta } from '../../layout/Meta';
 import { getAllPosts, getPostBySlug } from '../../utils/content';
 import { markdownToHtml } from '../../utils/markdown';
 
-interface IPostUrl {
+interface IPostUrl extends ParsedUrlQuery {
   slug: string;
 }
 

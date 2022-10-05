@@ -1,11 +1,9 @@
 import Link from 'next/link';
 
+import confusedJohnGif from '../../public/assets/images/confused-john.gif';
 import { Content } from '../layout/Content';
 import { Main } from '../layout/Main';
 import { Meta } from '../layout/Meta';
-
-const confusedJohnGif =
-  require('../../public/assets/images/confused-john.gif').default;
 
 const TITLE = '404 - Page not Found';
 const DESC = 'The page you were looking for could not be found';

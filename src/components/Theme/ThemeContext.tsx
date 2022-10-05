@@ -49,11 +49,9 @@ export const ThemeProvider = ({
   initialTheme,
   children,
 }: IThemeProviderProps) => {
-  const [theme, setTheme] = useState('');
+  const [theme, setTheme] = useState(DEFAULT_THEME);
 
-  const rawSetTheme = (rawTheme?: string) => {
-    if (typeof rawTheme !== 'string') return;
-
+  const rawSetTheme = (rawTheme: string) => {
     const root = window.document.documentElement;
     const isDark = rawTheme === 'dark';
 

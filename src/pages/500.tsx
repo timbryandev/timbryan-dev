@@ -1,11 +1,9 @@
 import Link from 'next/link';
 
+import itCrowedFireGif from '../../public/assets/images/it-crowed-fire.gif';
 import { Content } from '../layout/Content';
 import { Main } from '../layout/Main';
 import { Meta } from '../layout/Meta';
-
-const itCrowedFireGif =
-  require('../../public/assets/images/it-crowed-fire.gif').default;
 
 const TITLE = '500 - Server-side error occurred';
 const DESC = 'The server is having problems carrying out your request';
