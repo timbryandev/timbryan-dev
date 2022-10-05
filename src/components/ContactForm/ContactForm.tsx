@@ -32,11 +32,11 @@ const INITIAL_STATE: State = {
 const ContactForm = (): JSX.Element => {
   const [state, setState] = useState<State>(INITIAL_STATE);
 
-  function updateState(newState: UpdateState) {
+  function updateState(newState: UpdateState): void {
     setState((prev) => ({ ...prev, ...newState }));
   }
 
-  function setField(key: string, value: string) {
+  function setField(key: string, value: string): void {
     updateState({ [key]: String(value).trim() });
   }
 
@@ -82,7 +82,7 @@ const ContactForm = (): JSX.Element => {
     });
 
     // If we encounter any errors, inform the user
-    if (response.ok === false) {
+    if (!response.ok) {
       updateState({
         status: ERROR,
         error: 'There was a problem submitting this form - please try again.',
@@ -104,7 +104,17 @@ const ContactForm = (): JSX.Element => {
   }
 
   return (
-    <form className="contact-form" onSubmit={handleSubmitForm}>
+    <form
+      className="contact-form"
+      onSubmit={(evt): void => {
+        handleSubmitForm(evt).catch((error) =>
+          updateState({
+            status: ERROR,
+            error,
+          })
+        );
+      }}
+    >
       <fieldset disabled={[SENDING, SUCCESS].includes(state.status)}>
         <legend>Contact Me</legend>
         <section className="contact-form__group">

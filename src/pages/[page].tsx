@@ -1,3 +1,5 @@
+import { ParsedUrlQuery } from 'querystring';
+
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 import { AppConfig } from '../AppConfig';
@@ -8,11 +10,11 @@ import { Meta } from '../layout/Meta';
 import { getAllPosts } from '../utils/content';
 import { convertTo2D } from '../utils/pagination';
 
-type IPageUrl = {
+interface IPageUrl extends ParsedUrlQuery {
   page: string;
-};
+}
 
-const PaginatePosts = (props: IBlogGalleryProps) => (
+const PaginatePosts = (props: IBlogGalleryProps): JSX.Element => (
   <Main meta={<Meta title="Posts" description="View posts from Tim" />}>
     <BlogGallery posts={props.posts} pagination={props.pagination} />
   </Main>
@@ -43,6 +45,8 @@ export const getStaticProps: GetStaticProps<
   const posts = getAllPosts(['title', 'posted', 'slug']);
 
   const pages = convertTo2D(posts, AppConfig.pagination_size);
+  // We know params!.page will always exist
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const currentPage = Number(params!.page.replace('page', ''));
   const currentInd = currentPage - 1;
 

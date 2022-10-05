@@ -2,7 +2,10 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 import generateSitemap from '../../utils/generateSitemap';
 
-const SiteMap = async (_req: NextApiRequest, res: NextApiResponse) => {
+const SiteMap = async (
+  _req: NextApiRequest,
+  res: NextApiResponse
+): Promise<void> => {
   try {
     const sitemap = await generateSitemap();
 

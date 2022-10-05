@@ -6,12 +6,12 @@ import ThemeToggle from '../../components/Theme/ThemeToggle';
 import Footer from '../Footer';
 import Header from '../Header';
 
-type IMainProps = {
+interface IMainProps {
   meta: ReactNode;
   children: ReactNode;
-};
+}
 
-const Main = (props: IMainProps) => (
+const Main = (props: IMainProps): JSX.Element => (
   <div className="l-main">
     {props.meta}
 

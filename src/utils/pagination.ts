@@ -1,4 +1,4 @@
-export function convertTo2D<T>(arr: T[], size: number) {
+export function convertTo2D<T>(arr: T[], size: number): T[][] {
   const res: T[][] = [];
 
   arr.forEach((elt, ind) => {
@@ -12,7 +12,7 @@ export function convertTo2D<T>(arr: T[], size: number) {
   return res;
 }
 
-export function convertUrlToLinkHref(url: string) {
+export function convertUrlToLinkHref(url: string): string {
   if (url === '/') {
     return '/';
   }

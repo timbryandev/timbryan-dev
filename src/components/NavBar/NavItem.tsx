@@ -10,7 +10,7 @@ export default function NavItem({
   link,
   text = link,
   newWindow = false,
-}: NavItemProps) {
+}: NavItemProps): JSX.Element {
   return (
     <li className="navbar__item">
       <Link href={link} passHref>

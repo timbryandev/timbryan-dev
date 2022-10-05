@@ -1,10 +1,10 @@
 import { ReactNode } from 'react';
 
-type IContentProps = {
+interface IContentProps {
   children: ReactNode | ReactNode[];
-};
+}
 
-const Content = (props: IContentProps) => (
+const Content = (props: IContentProps): JSX.Element => (
   <div className="content">{props.children}</div>
 );
 

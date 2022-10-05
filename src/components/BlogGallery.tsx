@@ -1,16 +1,16 @@
 import Link from 'next/link';
 
-import type { PostItems } from '../utils/content';
+import type { PostItem } from '../utils/content';
 import type { IPaginationProps } from './Pagination';
 import { Pagination } from './Pagination';
 import PublishDate from './PublishDate';
 
-export type IBlogGalleryProps = {
-  posts: PostItems[];
+export interface IBlogGalleryProps {
+  posts: PostItem[];
   pagination: IPaginationProps;
-};
+}
 
-const BlogGallery = (props: IBlogGalleryProps) => (
+const BlogGallery = (props: IBlogGalleryProps): JSX.Element => (
   <>
     <p>If I have anything of interest to say, you&apos;ll find it here:</p>
     <ul className="card__wrapper">

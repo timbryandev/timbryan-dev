@@ -4,7 +4,7 @@ import { AppConfig } from '../AppConfig';
 
 // Need to create a custom _document because i18n support is not compatible with `next export`.
 class MyDocument extends Document {
-  render() {
+  render(): JSX.Element {
     return (
       <Html lang={AppConfig.locale}>
         <Head />

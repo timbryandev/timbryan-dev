@@ -7,7 +7,7 @@ import { Main } from '../layout/Main';
 import { Meta } from '../layout/Meta';
 import { getPublishedPosts } from '../utils/content';
 
-const Index = (props: IBlogGalleryProps) => (
+const Index = (props: IBlogGalleryProps): JSX.Element => (
   <Main meta={<Meta title="Posts" description={AppConfig.description} />}>
     <BlogGallery posts={props.posts} pagination={props.pagination} />
   </Main>

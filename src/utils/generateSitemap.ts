@@ -1,34 +1,35 @@
 import { AppConfig } from '../AppConfig';
 import { getPages, getPublishedPosts } from './content';
 
-const locTag = (url: string) => `<loc>${url}</loc>`;
+const locTag = (url: string): string => `<loc>${url}</loc>`;
 
-const lastmodTag = (date: string) => `<lastmod>${date}</lastmod>`;
+const lastmodTag = (date: string): string => `<lastmod>${date}</lastmod>`;
 
-const priorityTag = (priority: number) => `<priority>${priority}</priority>`;
+const priorityTag = (priority: number): string =>
+  `<priority>${priority}</priority>`;
 
-const urlTag = (url: string, date: string, priority: number) =>
+const urlTag = (url: string, date: string, priority: number): string =>
   `<url>
   ${locTag(url)}
   ${lastmodTag(date)}
   ${priorityTag(priority)}
   </url>`;
 
-export default async function generateSitemap() {
+export default async function generateSitemap(): Promise<string> {
   const postUrlPath = `${AppConfig.url}/post/`;
 
   const pages = getPages();
 
   const posts = getPublishedPosts(['slug', 'updated']);
 
-  const createRootEntry = () =>
+  const createRootEntry = (): string =>
     urlTag(AppConfig.url, new Date().toISOString().split('T')[0], 1);
 
-  const createSubEntry = (slug: string, date: string, level: number) =>
+  const createSubEntry = (slug: string, date: string, level: number): string =>
     urlTag(slug, date, 1 - level / 10);
 
   // Add each blog entry to the feed
-  const pageUrls = pages.map(({ slug, updated, depth }) =>
+  const pageUrls = pages.map(({ slug, updated, depth }): string =>
     createSubEntry(AppConfig.url + slug, updated, depth)
   );
 

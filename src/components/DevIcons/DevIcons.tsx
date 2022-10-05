@@ -2,7 +2,7 @@ import DevIcon from './DevIcon';
 import { SKILLS } from './Skills';
 import { IDevIconsProps } from './types';
 
-const DevIcons = ({ list }: IDevIconsProps) => {
+const DevIcons = ({ list }: IDevIconsProps): JSX.Element => {
   const skillsList = SKILLS[list];
 
   return (

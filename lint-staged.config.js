@@ -1,6 +1,6 @@
 module.exports = {
   // Type check TypeScript files
-  '**/*.ts?(x)': () => 'tsc --noEmit',
+  '**/*.ts?(x)': () => 'tsc --noEmit --pretty',
 
   // Lint then format our styles
   '**/*.(scss)': ['stylelint --fix'],

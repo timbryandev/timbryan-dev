@@ -2,7 +2,10 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 import generateRSS from '../../utils/generateRssFeed';
 
-const RSS = async (req: NextApiRequest, res: NextApiResponse) => {
+const RSS = async (
+  req: NextApiRequest,
+  res: NextApiResponse
+): Promise<void> => {
   try {
     const feed = await generateRSS();
 
