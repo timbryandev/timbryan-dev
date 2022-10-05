@@ -4,7 +4,7 @@ import { FaSun, FaMoon } from 'react-icons/fa';
 
 import { ThemeContext } from './ThemeContext';
 
-const ThemeToggle = () => {
+const ThemeToggle = (): JSX.Element => {
   const { theme, setTheme } = useContext(ThemeContext);
 
   return (

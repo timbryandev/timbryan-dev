@@ -7,7 +7,7 @@ export interface IPaginationProps {
   next?: string;
 }
 
-const Pagination = (props: IPaginationProps) => (
+const Pagination = (props: IPaginationProps): JSX.Element => (
   <div className="pagination">
     {typeof props.previous === 'string' && (
       <div>

@@ -32,11 +32,11 @@ const INITIAL_STATE: State = {
 const ContactForm = (): JSX.Element => {
   const [state, setState] = useState<State>(INITIAL_STATE);
 
-  function updateState(newState: UpdateState) {
+  function updateState(newState: UpdateState): void {
     setState((prev) => ({ ...prev, ...newState }));
   }
 
-  function setField(key: string, value: string) {
+  function setField(key: string, value: string): void {
     updateState({ [key]: String(value).trim() });
   }
 

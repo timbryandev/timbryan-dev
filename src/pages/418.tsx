@@ -8,7 +8,7 @@ import { Meta } from '../layout/Meta';
 const TITLE = "418 - I'm a teapot";
 const DESC = 'I am a tea pot';
 
-const Custom418 = () => (
+const Custom418 = (): JSX.Element => (
   <Main meta={<Meta title={TITLE} description={DESC} />}>
     <Content>
       <div className="p-error">

@@ -1,4 +1,7 @@
-export default function CloseButton({ color = 'blue', onClose = () => {} }) {
+export default function CloseButton({
+  color = 'blue',
+  onClose = () => {},
+}): JSX.Element {
   return (
     <button className="close-button" onClick={onClose}>
       <svg

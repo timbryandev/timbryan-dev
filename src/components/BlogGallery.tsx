@@ -1,12 +1,12 @@
 import Link from 'next/link';
 
-import type { PostItems } from '../utils/content';
+import type { PostItem } from '../utils/content';
 import type { IPaginationProps } from './Pagination';
 import { Pagination } from './Pagination';
 import PublishDate from './PublishDate';
 
 export interface IBlogGalleryProps {
-  posts: PostItems[];
+  posts: PostItem[];
   pagination: IPaginationProps;
 }
 

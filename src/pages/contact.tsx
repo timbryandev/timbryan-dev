@@ -6,7 +6,7 @@ import { Content } from '../layout/Content';
 import { Main } from '../layout/Main';
 import { Meta } from '../layout/Meta';
 
-const Contact = () => {
+const Contact = (): JSX.Element => {
   const [showEmail, setShowEmail] = useState(false);
   return (
     <Main

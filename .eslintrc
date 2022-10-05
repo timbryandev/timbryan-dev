@@ -25,47 +25,6 @@
       ],
       "parserOptions": {
         "project": "./tsconfig.json"
-      },
-      "rules": {
-        "prettier/prettier": [
-          "error",
-          {
-            "singleQuote": true
-          }
-        ],
-        "jsx-a11y/anchor-is-valid": "off", // Next.js use their own internal link system
-        // "react/require-default-props": "off", // Allow non-defined react props as undefined
-        // "react/jsx-props-no-spreading": "off", // _app.tsx uses spread operator and also, react-hook-form
-        "@next/next/no-img-element": "off", // Not using next/image because it isn't supported with SSG mode
-        "import/order": [
-          "error",
-          {
-            "groups": ["builtin", "external", "internal"],
-            "pathGroups": [
-              {
-                "pattern": "react",
-                "group": "external",
-                "position": "before"
-              }
-            ],
-            "pathGroupsExcludedImportTypes": ["react"],
-            "newlines-between": "always",
-            "alphabetize": {
-              "order": "asc",
-              "caseInsensitive": true
-            }
-          }
-        ],
-        "@typescript-eslint/comma-dangle": "off", // Avoid conflict rule between Eslint and Prettier
-        "import/prefer-default-export": "off", // Named export is easier to refactor automatically
-        "class-methods-use-this": "off", // _document.tsx use render method without `this` keyword
-        "@typescript-eslint/no-unused-vars": "off",
-        "@typescript-eslint/explicit-function-return-type": "warn",
-        "unused-imports/no-unused-imports": "error",
-        "unused-imports/no-unused-vars": [
-          "error",
-          { "argsIgnorePattern": "^_" }
-        ]
       }
     }
   ],

@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 import { AppConfig } from '../../AppConfig';
 
-function Header() {
+function Header(): JSX.Element {
   return (
     <Link href="/">
       <header className="header hero hero--gradient">

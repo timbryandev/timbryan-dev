@@ -8,25 +8,31 @@ import removeFileExtension from './removeFileExtension';
 const postsDirectory = join(process.cwd(), '_posts');
 const pagesDirectory = join(process.cwd(), 'src/pages');
 
-export interface PostItems {
+export interface PageItem {
+  slug: string;
+  updated: string;
+  depth: number;
+}
+
+export interface PostItem {
   [key: string]: string;
 }
 
-export function getPagePaths() {
+export function getPagePaths(): string[] {
   console.log('scanning: ', pagesDirectory);
   return fs.readdirSync(pagesDirectory);
 }
 
-export function getPostSlugs() {
+export function getPostSlugs(): string[] {
   return fs.readdirSync(postsDirectory);
 }
 
-export function getPostBySlug(slug: string, fields: string[] = []) {
+export function getPostBySlug(slug: string, fields: string[] = []): PostItem {
   const realSlug = removeFileExtension(slug);
   const fullPath = join(postsDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
-  const items: PostItems = {};
+  const items: PostItem = {};
 
   // Ensure only the minimal needed data is exposed
   fields.forEach((field) => {
@@ -48,7 +54,10 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
   return items;
 }
 
-export function getAllPosts(fields: string[] = [], publishedOnly = false) {
+export function getAllPosts(
+  fields: string[] = [],
+  publishedOnly = false
+): PostItem[] {
   const slugs = getPostSlugs();
   const posts = slugs
     .map((slug) => getPostBySlug(slug, fields))
@@ -62,14 +71,17 @@ export function getAllPosts(fields: string[] = [], publishedOnly = false) {
   return posts;
 }
 
-export function getPages() {
-  const isPrivateFile = (path: string) => path.match(/^([[\d_])/) !== null;
-  const isPrivateFolder = (path: string) => ['api', 'posts'].includes(path);
+export function getPages(): PageItem[] {
+  const isPrivateFile = (path: string): boolean =>
+    path.match(/^([[\d_])/) !== null;
 
-  const isPublic = (path: string) =>
+  const isPrivateFolder = (path: string): boolean =>
+    ['api', 'posts'].includes(path);
+
+  const isPublic = (path: string): boolean =>
     !isPrivateFile(path) && !isPrivateFolder(path);
 
-  const createPageObject = (path: string) => ({
+  const createPageObject = (path: string): PageItem => ({
     slug: `/${removeFileExtension(path)}`,
     updated: new Date().toISOString().split('T')[0],
     depth: 1,
@@ -81,6 +93,6 @@ export function getPages() {
   return pages;
 }
 
-export function getPublishedPosts(fields: string[] = []) {
+export function getPublishedPosts(fields: string[] = []): PostItem[] {
   return getAllPosts([...fields, 'status'], true);
 }

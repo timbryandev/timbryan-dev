@@ -4,7 +4,10 @@ import { AppConfig } from '../AppConfig';
 import { getPublishedPosts } from './content';
 import { markdownToHtml } from './markdown';
 
-export default async function generateRssFeed() {
+export default async function generateRssFeed(): Promise<{
+  json: string;
+  rss: string;
+}> {
   const posts = getPublishedPosts([
     'content',
     'description',

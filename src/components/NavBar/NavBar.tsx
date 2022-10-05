@@ -4,7 +4,7 @@ export interface NavBarProps {
   items: NavItemProps[];
 }
 
-export default function NavBar({ items }: NavBarProps) {
+export default function NavBar({ items }: NavBarProps): JSX.Element {
   return (
     <nav className="navbar">
       <ul className="navbar__list">

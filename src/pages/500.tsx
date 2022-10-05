@@ -8,7 +8,7 @@ import { Meta } from '../layout/Meta';
 const TITLE = '500 - Server-side error occurred';
 const DESC = 'The server is having problems carrying out your request';
 
-const Custom500 = () => (
+const Custom500 = (): JSX.Element => (
   <Main meta={<Meta title={TITLE} description={DESC} />}>
     <Content>
       <div className="p-error">

@@ -8,7 +8,7 @@ import { Meta } from '../layout/Meta';
 const TITLE = '404 - Page not Found';
 const DESC = 'The page you were looking for could not be found';
 
-const Custom404 = () => (
+const Custom404 = (): JSX.Element => (
   <Main meta={<Meta title={TITLE} description={DESC} />}>
     <Content>
       <div className="p-error">

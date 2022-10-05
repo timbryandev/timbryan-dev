@@ -9,7 +9,13 @@ export interface PostHeaderProps {
   updated: string;
 }
 
-const Credit = ({ name, link }: { name?: string; link?: string }) => {
+const Credit = ({
+  name,
+  link,
+}: {
+  name?: string;
+  link?: string;
+}): JSX.Element => {
   if (name === undefined) {
     return <></>;
   }
@@ -35,7 +41,7 @@ function PostHeader({
   posted,
   title,
   updated,
-}: PostHeaderProps) {
+}: PostHeaderProps): JSX.Element {
   return (
     <div
       className="post__header"

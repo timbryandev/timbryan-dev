@@ -14,7 +14,7 @@ interface IPageUrl extends ParsedUrlQuery {
   page: string;
 }
 
-const PaginatePosts = (props: IBlogGalleryProps) => (
+const PaginatePosts = (props: IBlogGalleryProps): JSX.Element => (
   <Main meta={<Meta title="Posts" description="View posts from Tim" />}>
     <BlogGallery posts={props.posts} pagination={props.pagination} />
   </Main>

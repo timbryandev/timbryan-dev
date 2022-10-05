@@ -6,7 +6,7 @@ import { TbSocial } from 'react-icons/tb';
 
 import { AppConfig } from '../../AppConfig';
 
-const Footer = () => (
+const Footer = (): JSX.Element => (
   <footer className="footer">
     <section className="footer__links">
       <ul className="list">

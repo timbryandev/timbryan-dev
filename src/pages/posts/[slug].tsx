@@ -24,7 +24,7 @@ interface IPostProps {
   updated: string;
 }
 
-const Post = (props: IPostProps) => (
+const Post = (props: IPostProps): JSX.Element => (
   <Main
     meta={
       <Meta

@@ -16,7 +16,7 @@ interface IMetaProps {
   };
 }
 
-const Meta = (props: IMetaProps) => {
+const Meta = (props: IMetaProps): JSX.Element => {
   const router = useRouter();
 
   return (

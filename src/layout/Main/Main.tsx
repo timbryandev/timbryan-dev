@@ -11,7 +11,7 @@ interface IMainProps {
   children: ReactNode;
 }
 
-const Main = (props: IMainProps) => (
+const Main = (props: IMainProps): JSX.Element => (
   <div className="l-main">
     {props.meta}
 

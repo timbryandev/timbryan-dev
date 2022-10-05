@@ -33,7 +33,7 @@ const joke = `
 </joke>
 `;
 
-async function consoleBrand() {
+async function consoleBrand(): Promise<void> {
   if (typeof window === 'undefined') return;
 
   // eslint-disable-next-line no-console

@@ -3,7 +3,7 @@ import { Content } from '../layout/Content';
 import { Main } from '../layout/Main';
 import { Meta } from '../layout/Meta';
 
-const About = () => (
+const About = (): JSX.Element => (
   <Main meta={<Meta title="About" description="Find out more about Tim" />}>
     <Content>
       <p>

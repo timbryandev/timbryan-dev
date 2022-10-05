@@ -48,10 +48,10 @@ const getInitialTheme = (): ITheme => {
 export const ThemeProvider = ({
   initialTheme,
   children,
-}: IThemeProviderProps) => {
+}: IThemeProviderProps): JSX.Element => {
   const [theme, setTheme] = useState(DEFAULT_THEME);
 
-  const rawSetTheme = (rawTheme: string) => {
+  const rawSetTheme = (rawTheme: string): void => {
     const root = window.document.documentElement;
     const isDark = rawTheme === 'dark';
 

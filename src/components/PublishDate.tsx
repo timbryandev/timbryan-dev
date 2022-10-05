@@ -12,7 +12,7 @@ function PublishDate({
   posted,
   updated = posted,
   showUpdated = false,
-}: IPublishDateProps) {
+}: IPublishDateProps): JSX.Element {
   if (showUpdated && posted !== updated) {
     return (
       <>
