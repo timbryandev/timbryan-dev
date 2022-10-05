@@ -49,7 +49,7 @@ export const ThemeProvider = ({
   initialTheme,
   children,
 }: IThemeProviderProps): JSX.Element => {
-  const [theme, setTheme] = useState(DEFAULT_THEME);
+  const [theme, setTheme] = useState(getInitialTheme());
 
   const rawSetTheme = (rawTheme: string): void => {
     const root = window.document.documentElement;
