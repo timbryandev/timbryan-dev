@@ -1,5 +1,6 @@
 import PublishDate from './PublishDate';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
+import useEventListener from '../hooks/useEventListener';
 
 export interface PostHeaderProps {
   creditLink?: string;
@@ -47,6 +48,7 @@ function PostHeader({
   const contentRef = useRef<HTMLDivElement | null>(null);
 
   const revealOnHover = ({ type }: MouseEvent | TouchEvent): void => {
+    console.log('revealOHover');
     const content = contentRef.current;
 
     if (content === null) return;
@@ -61,23 +63,10 @@ function PostHeader({
     content.style.opacity = '';
   };
 
-  useEffect(() => {
-    const wrapper = wrapperRef.current;
-    const content = contentRef.current;
-    if (wrapper === null || content === null) return;
-
-    wrapper.addEventListener('mouseover', revealOnHover, false);
-    wrapper.addEventListener('mouseleave', revealOnHover, false);
-    wrapper.addEventListener('touchstart', revealOnHover, false);
-    wrapper.addEventListener('touchend', revealOnHover, false);
-
-    return () => {
-      wrapper.removeEventListener('mouseover', revealOnHover, false);
-      wrapper.removeEventListener('mouseleave', revealOnHover, false);
-      wrapper.removeEventListener('touchstart', revealOnHover, false);
-      wrapper.removeEventListener('touchend', revealOnHover, false);
-    };
-  }, []);
+  useEventListener('mouseover', revealOnHover, wrapperRef);
+  useEventListener('mouseleave', revealOnHover, wrapperRef);
+  useEventListener('touchstart', revealOnHover, wrapperRef);
+  useEventListener('touchend', revealOnHover, wrapperRef);
 
   return (
     <div
