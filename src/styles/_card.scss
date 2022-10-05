@@ -8,12 +8,14 @@
 
   &__wrapper {
     display: flex;
+    justify-content: flex-end;
+    text-align: center;
     text-decoration: none !important;
   }
 
   &__image {
     min-width: 25%;
-    margin-right: 1rem;
+    margin-right: auto;
     background-position: center;
     background-size: cover;
     border-radius: 1rem 0 0 1rem;
