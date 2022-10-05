@@ -27,10 +27,6 @@
       backdrop-filter: blur(6.7px);
       transition: opacity var(--animation);
     }
-
-    &:hover &__content {
-      opacity: 0;
-    }
   }
 
   &__title {

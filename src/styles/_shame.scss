@@ -37,3 +37,12 @@ main {
   transition: opacity var(--animation);
   pointer-events: none;
 }
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  user-select: none; /* Safari */
+  user-select: none; /* Konqueror HTML */
+  user-select: none; /* Old versions of Firefox */
+  user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}

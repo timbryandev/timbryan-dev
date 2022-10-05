@@ -1,4 +1,5 @@
 import PublishDate from './PublishDate';
+import { useEffect, useRef } from 'react';
 
 export interface PostHeaderProps {
   creditLink?: string;
@@ -42,12 +43,49 @@ function PostHeader({
   title,
   updated,
 }: PostHeaderProps): JSX.Element {
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
+  const contentRef = useRef<HTMLDivElement | null>(null);
+
+  const revealOnHover = ({ type }: MouseEvent | TouchEvent): void => {
+    const content = contentRef.current;
+
+    if (content === null) return;
+
+    // Interaction starting
+    if (['mouseover', 'touchstart'].includes(type)) {
+      content.style.opacity = '0';
+      return;
+    }
+
+    // Interaction complete
+    content.style.opacity = '';
+  };
+
+  useEffect(() => {
+    const wrapper = wrapperRef.current;
+    const content = contentRef.current;
+    if (wrapper === null || content === null) return;
+
+    wrapper.addEventListener('mouseover', revealOnHover, false);
+    wrapper.addEventListener('mouseleave', revealOnHover, false);
+    wrapper.addEventListener('touchstart', revealOnHover, false);
+    wrapper.addEventListener('touchend', revealOnHover, false);
+
+    return () => {
+      wrapper.removeEventListener('mouseover', revealOnHover, false);
+      wrapper.removeEventListener('mouseleave', revealOnHover, false);
+      wrapper.removeEventListener('touchstart', revealOnHover, false);
+      wrapper.removeEventListener('touchend', revealOnHover, false);
+    };
+  }, []);
+
   return (
     <div
-      className="post__header"
+      ref={wrapperRef}
+      className="post__header noselect"
       style={{ backgroundImage: `url('${image}')` }}
     >
-      <div className="post__header__content">
+      <div className="post__header__content" ref={contentRef}>
         <p className="post__credit">
           <span>
             <Credit name={creditName} link={creditLink} />
