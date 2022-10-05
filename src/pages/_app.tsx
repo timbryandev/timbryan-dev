@@ -26,17 +26,19 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   }
 
   useEffect(() => {
+    const allowTracking = isProd && posthogId !== '';
+
     function onRouteChangeComplete(): void {
       posthog.capture('$pageview');
     }
 
-    if (isProd && posthogId !== '') {
+    if (allowTracking) {
       posthog.init(posthogId, { api_host: posthogHost });
       router.events.on('routeChangeComplete', onRouteChangeComplete);
     }
 
     return () => {
-      if (isProd && posthogId !== '') {
+      if (allowTracking) {
         router.events.off('routeChangeComplete', onRouteChangeComplete);
       }
     };
