@@ -15,7 +15,7 @@ import {
   FaBlog,
 } from 'react-icons/fa';
 import { MdRssFeed } from 'react-icons/md';
-import { TbSocial } from 'react-icons/tb';
+import { TbQrcode, TbSocial } from 'react-icons/tb';
 
 import { AppConfig } from '../../AppConfig';
 
@@ -141,6 +141,20 @@ const Footer = (): JSX.Element => (
           </p>
           <p>
             <a className="link" href="https://github.com/timbryandev/uuidv4">
+              <FaGithubAlt /> Repo
+            </a>
+          </p>
+        </li>
+        <li className="list__item list__item--star">
+          <p>
+            Q-Arr codes
+            <br />
+            <a className="link" href="https://q-arr.timbryan.dev">
+              <TbQrcode /> App
+            </a>
+          </p>
+          <p>
+            <a className="link" href="https://github.com/timbryandev/q-arr">
               <FaGithubAlt /> Repo
             </a>
           </p>
