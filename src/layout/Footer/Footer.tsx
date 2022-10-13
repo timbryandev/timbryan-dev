@@ -149,7 +149,7 @@ const Footer = (): JSX.Element => (
           <p>
             Q-Arr codes
             <br />
-            <a className="link" href="https://q-arr.timbryan.dev">
+            <a className="link" href="https://q-arrr.timbryan.dev">
               <TbQrcode /> App
             </a>
           </p>
