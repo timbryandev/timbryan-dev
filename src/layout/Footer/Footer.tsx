@@ -12,19 +12,22 @@ import {
   FaNpm,
   FaGithubAlt,
   FaGamepad,
+  FaBlog,
 } from 'react-icons/fa';
 import { MdRssFeed } from 'react-icons/md';
-import { TbSocial } from 'react-icons/tb';
+import { TbQrcode, TbSocial } from 'react-icons/tb';
 
 import { AppConfig } from '../../AppConfig';
 
 const Footer = (): JSX.Element => (
   <footer className="footer">
-    <section className="footer__links">
-      <ul className="list">
-        <h3>
+    <section className="footer__links footer__links--column">
+      <header>
+        <h2>
           <TbSocial /> Socials
-        </h3>
+        </h2>
+      </header>
+      <ul className="list">
         <li className="list__item">
           <a
             href="https://ko-fi.com/S6S5EHTC8"
@@ -42,7 +45,7 @@ const Footer = (): JSX.Element => (
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaGithub /> GitHub
+            <FaGithub /> Repo
           </a>
         </li>
         <li className="list__item">
@@ -56,10 +59,15 @@ const Footer = (): JSX.Element => (
           </a>
         </li>
       </ul>
-      <ul className="list">
-        <h3>
+    </section>
+
+    <section className="footer__links footer__links--column">
+      <header>
+        <h2>
           <MdRssFeed /> Feeds
-        </h3>
+        </h2>
+      </header>
+      <ul className="list">
         <li className="list__item">
           <Link href="/sitemap.xml">
             <a className="link">
@@ -83,81 +91,110 @@ const Footer = (): JSX.Element => (
         </li>
       </ul>
     </section>
-    <section className="footer__links">
-      <ul className="list">
-        <h3>
+
+    <section className="footer__links footer__links--row">
+      <header>
+        <h2>
           <BiGitBranch /> Notable Work
-        </h3>
+        </h2>
+      </header>
+      <ul className="list">
         <li className="list__item list__item--star">
-          <a
-            className="link"
-            href="https://github.com/timbryandev/timbryan-dev"
-          >
-            <FaGithubAlt /> TimBryan.dev
-          </a>
+          <p>
+            TimBryan.dev
+            <br />
+            <a className="link" href="https://timbryan.dev">
+              <FaBlog /> Blog
+            </a>
+            <br />
+            <a
+              className="link"
+              href="https://github.com/timbryandev/timbryan-dev"
+            >
+              <FaGithubAlt /> Repo
+            </a>
+          </p>
         </li>
         <li className="list__item list__item--star">
           <p>
+            Get-Five
+            <br />
             <a className="link" href="https://get-five.timbryan.dev">
-              <FaGamepad /> Get-Five
+              <FaGamepad /> Game
             </a>
-          </p>
-          <p>
+            <br />
             <a className="link" href="https://github.com/timbryandev/get-five">
-              <FaGithubAlt /> Get-Five
+              <FaGithubAlt /> Repo
             </a>
           </p>
         </li>
         <li className="list__item list__item--star">
           <p>
+            uuidV4
+            <br />
             <a
               className="link"
               href="https://www.npmjs.com/package/@timbryandev/uuidv4"
             >
-              <FaNpm /> uuidV4
+              <FaNpm /> Package
             </a>
           </p>
           <p>
             <a className="link" href="https://github.com/timbryandev/uuidv4">
-              <FaGithubAlt /> uuidV4
+              <FaGithubAlt /> Repo
             </a>
           </p>
         </li>
-      </ul>
-      <ul className="list">
-        <h3 className="u-hide-on-mobile" style={{ opacity: 0 }}>
-          <BiGitBranch /> Notable Work
-        </h3>
         <li className="list__item list__item--star">
           <p>
+            Q-Arr codes
+            <br />
+            <a className="link" href="https://q-arrr.timbryan.dev">
+              <TbQrcode /> App
+            </a>
+          </p>
+          <p>
+            <a className="link" href="https://github.com/timbryandev/q-arr">
+              <FaGithubAlt /> Repo
+            </a>
+          </p>
+        </li>
+        <li className="list__item list__item--star">
+          <p>
+            SCORM 1.2 Template
+            <br />
             <a
               className="link"
               href="https://github.com/timbryandev/template-scorm1.2-primer"
             >
-              <FaGithubAlt /> SCORM 1.2 Template
+              <FaGithubAlt /> Repo
             </a>
           </p>
         </li>
         <li className="list__item list__item--star">
           <p>
+            WORT - WORd Transformer
+            <br />
             <a className="link" href="https://github.com/timbryandev/wort">
-              <FaGithubAlt /> WORT - WORd Transformer
+              <FaGithubAlt /> Repo
             </a>
           </p>
         </li>
         <li className="list__item list__item--star">
           <p>
+            7zip Batch Zip
+            <br />
             <a
               className="link"
               href="https://github.com/timbryandev/7zip-batch-zip"
             >
-              <FaGithubAlt /> 7zip Batch Zip
+              <FaGithubAlt /> Repo
             </a>
           </p>
         </li>
       </ul>
     </section>
-    <p>&nbsp;</p>
+
     <p className="footer__copyright">
       © Copyright {new Date().getFullYear()}{' '}
       <Link href={AppConfig.url}>{AppConfig.author}</Link>.

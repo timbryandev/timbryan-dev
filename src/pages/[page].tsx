@@ -7,7 +7,7 @@ import { BlogGallery, IBlogGalleryProps } from '../components/BlogGallery';
 import { IPaginationProps } from '../components/Pagination/Pagination';
 import { Main } from '../layout/Main';
 import { Meta } from '../layout/Meta';
-import { getAllPosts } from '../utils/content';
+import { getPublishedPosts } from '../utils/content';
 import { convertTo2D } from '../utils/pagination';
 
 interface IPageUrl extends ParsedUrlQuery {
@@ -21,7 +21,7 @@ const PaginatePosts = (props: IBlogGalleryProps): JSX.Element => (
 );
 
 export const getStaticPaths: GetStaticPaths<IPageUrl> = async () => {
-  const posts = getAllPosts(['slug']);
+  const posts = getPublishedPosts(['slug']);
 
   const pages = convertTo2D(posts, AppConfig.pagination_size);
 
@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps<
   IBlogGalleryProps,
   IPageUrl
 > = async ({ params }) => {
-  const posts = getAllPosts(['title', 'posted', 'slug']);
+  const posts = getPublishedPosts(['title', 'posted', 'slug', 'image']);
 
   const pages = convertTo2D(posts, AppConfig.pagination_size);
   // We know params!.page will always exist
