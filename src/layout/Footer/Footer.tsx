@@ -13,6 +13,7 @@ import {
   FaGithubAlt,
   FaGamepad,
   FaBlog,
+  FaJsfiddle,
 } from 'react-icons/fa';
 import { MdRssFeed } from 'react-icons/md';
 import { TbQrcode, TbSocial } from 'react-icons/tb';
@@ -156,6 +157,18 @@ const Footer = (): JSX.Element => (
           <p>
             <a className="link" href="https://github.com/timbryandev/q-arr">
               <FaGithubAlt /> Repo
+            </a>
+          </p>
+        </li>
+        <li className="list__item list__item--star">
+          <p>
+            LinkedIn Header Generator
+            <br />
+            <a
+              className="link"
+              href="https://jsfiddle.net/timbryandev/sugcknam/"
+            >
+              <FaJsfiddle /> Fiddle
             </a>
           </p>
         </li>
