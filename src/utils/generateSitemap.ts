@@ -16,7 +16,7 @@ const urlTag = (url: string, date: string, priority: number): string =>
   </url>`;
 
 export default async function generateSitemap(): Promise<string> {
-  const postUrlPath = `${AppConfig.url}/post/`;
+  const postUrlPath = `${AppConfig.url}/posts/`;
 
   const pages = getPages();
 
