@@ -3,7 +3,7 @@ title: Beware copy/pasting code or commands from the internet
 description: You never really know what is being added to your clipboard...
 posted: "2020-10-19"
 updated: "2021-03-19"
-image: /assets/images/posts/arget-zvHhKiVuR9M-unsplash.jpg
+image: https://res.cloudinary.com/dg1mbzzfx/image/upload/v1668098135/TimBryan.dev/arget-zvHhKiVuR9M-unsplash_fejepb.jpg
 credit:
   [
     Arget,

@@ -3,7 +3,7 @@ title: Get stuck in with Tim & Deno
 description: Its not the NodeJS killer, but it might go that way...
 posted: "2021-04-27"
 updated: "2021-10-13"
-image: /assets/images/posts/deno-logo.png
+image: https://res.cloudinary.com/dg1mbzzfx/image/upload/v1668098134/TimBryan.dev/deno-logo_xwfxtd.png
 status: published
 ---
 
@@ -60,7 +60,7 @@ If you're looking for third-party modules (such as we'll be using to build a rea
 
 ### No more NPM Packages/package.json = No more `node_modules`
 
-![Illustration explaining how the node_modules folder has more gravity than our Sun, a neutron star and black hole](/assets/images/posts/node_modules-meme.png)
+![Illustration explaining how the node_modules folder has more gravity than our Sun, a neutron star and black hole](https://res.cloudinary.com/dg1mbzzfx/image/upload/v1668098136/TimBryan.dev/node_modules-meme_gupybb.png)
 
 Deno also aims to fix some of the main issues synonymous with its predecessor but can't be altered due to said faults being key to its architecture, hence the need for a clean slate. The elephant in the room being the NPM package dependencies, package.json and the hell they bring with them. Deno does away with all of this extra fat and opts for a much simpler way to import packages by allowing you to include them directly via a URL that a package is being served from. For example, to use an external library for testing we can simply use the ES6 module syntax:
 

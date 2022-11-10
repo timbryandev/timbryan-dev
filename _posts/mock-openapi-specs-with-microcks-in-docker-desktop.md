@@ -24,15 +24,15 @@ Within Docker Desktop, go to the extensions panel and click "Add Extensions" to 
 
 Within the marketplace, search for "microcks" and click install
 
-![](/assets/images/posts/microcs-1-docker.png)
+![](https://res.cloudinary.com/dg1mbzzfx/image/upload/v1668098134/TimBryan.dev/microcs-1-docker_kdfpl6.png)
 
 Then choose the Microcks plugin from the Extensions listing and click "Launch Microcks"
 
-![](/assets/images/posts/microcs-2-docker.png)
+![](https://res.cloudinary.com/dg1mbzzfx/image/upload/v1668098134/TimBryan.dev/microcs-2-docker_anublv.png)
 
 If successful, you'll see the state change from "stopped" to "running" and you can then click the given URL to view the Microcks UI in your web browser (usually <http://localhost:8080>, but you can specify a different port if you require)
 
-![](/assets/images/posts/microcs-3-docker.png)
+![](https://res.cloudinary.com/dg1mbzzfx/image/upload/v1668098135/TimBryan.dev/microcs-3-docker_tumpzt.png)
 
 ### 2. Import a spec.yml
 
@@ -40,21 +40,21 @@ For our example, let's grab an example spec such as this one from [@lornajane](h
 
 Once you've saved your example, navigate to the Importers tab and click the "Upload" button
 
-![](/assets/images/posts/microcs-4-import.png)
+![](https://res.cloudinary.com/dg1mbzzfx/image/upload/v1668098134/TimBryan.dev/microcs-4-import_xturn5.png)
 
 and click "Choose file" to upload our spec, followed by "Upload" to upload it
 
-![](/assets/images/posts/microcs-5-import.png)
+![](https://res.cloudinary.com/dg1mbzzfx/image/upload/v1668098136/TimBryan.dev/microcs-5-import_kbq2x6.png)
 
 If successful, we should now see our API listed in the "APIs | Services" tab
 
-![](/assets/images/posts/microcs-6-services.png)
+![](https://res.cloudinary.com/dg1mbzzfx/image/upload/v1668098135/TimBryan.dev/microcs-6-services_cbgdox.png)
 
 ### 3. Explore your API
 
 In the "APIs | Services" tab, click the blue text belonging to your API. Doing so will take us to the overview page for your API
 
-![](/assets/images/posts/microcs-7-services.png)
+![](https://res.cloudinary.com/dg1mbzzfx/image/upload/v1668098136/TimBryan.dev/microcs-7-services_adhe9i.png)
 
 If we click on "View documentation" you'll be taken to a page that lists all of your API endpoints. Clicking on any of your endpoints will expand the view with relevant content. In the screenshots below, you can see that we get a human-readable and parse-able interpretation of the spec we added.
 
@@ -62,8 +62,8 @@ We can see key information such as the path parameters that the endpoint is expe
 
 We can also see the response scheme that helps us understand and plan for the many types of responses we can trigger. For example, we can see here that a 200 response will return different data from the 400 response
 
-![](/assets/images/posts/microcs-8-docs.png)
+![](https://res.cloudinary.com/dg1mbzzfx/image/upload/v1668098136/TimBryan.dev/microcs-8-docs_x8tfd3.png)
 
-![](/assets/images/posts/microcs-9-docs.png)
+![](https://res.cloudinary.com/dg1mbzzfx/image/upload/v1668098136/TimBryan.dev/microcs-9-docs_jzqd2p.png)
 
 We also can see in the above screenshot that we're given an example endpoint structure, including any URL params, and will give us some example responses based on the data in the spec.
