@@ -12,6 +12,8 @@ const ThemeToggle = (): JSX.Element => {
   const linkStyle = useRef<HTMLLinkElement | null>(null);
 
   const setLinkStyleRef = (): void => {
+    if (linkStyle.current !== null) return;
+
     linkStyle.current = document.head.querySelector('#waterCssStylesheet');
   };
 
