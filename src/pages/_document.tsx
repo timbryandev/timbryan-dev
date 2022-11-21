@@ -7,7 +7,13 @@ class MyDocument extends Document {
   render(): JSX.Element {
     return (
       <Html lang={AppConfig.locale}>
-        <Head />
+        <Head>
+          <link
+            id="waterCssStylesheet"
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />
