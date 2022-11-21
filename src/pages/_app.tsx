@@ -11,6 +11,7 @@ import '../styles/prism.scss';
 import { ThemeProvider } from '../components/Theme/ThemeContext';
 import consoleBrand from '@timbryandev/console-brand';
 
+import { isBrowser } from '../utils/environment';
 import { isProd } from '../utils/getBuildEnv';
 
 const posthogHost = process.env.POSTHOG_API_HOST ?? '';
@@ -21,7 +22,7 @@ let hasSeenBrand = false;
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   const router = useRouter();
 
-  if (!hasSeenBrand) {
+  if (isBrowser && !hasSeenBrand) {
     hasSeenBrand = true;
     consoleBrand();
   }
