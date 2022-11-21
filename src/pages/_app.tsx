@@ -4,8 +4,8 @@ import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import posthog from 'posthog-js';
 
-import '../styles/water.scss';
-import '../styles/main.scss';
+// import '../styles/water.scss';
+// import '../styles/main.scss';
 import '../styles/prism.scss';
 
 import { ThemeProvider } from '../components/Theme/ThemeContext';
