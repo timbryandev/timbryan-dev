@@ -5,7 +5,7 @@ $hero: hero;
   margin: auto;
   text-align: center;
   background-color: var(--background-transparent);
-  border-radius: 1rem;
+  border-radius: var(--border-radius);
   box-shadow: var(--box-shadow-pop);
   transition: all var(--animation);
   cursor: pointer;
@@ -25,7 +25,7 @@ $hero: hero;
 
   &__image {
     margin: auto;
-    border-radius: 1rem;
+    border-radius: var(--border-radius);
   }
 
   &__text {

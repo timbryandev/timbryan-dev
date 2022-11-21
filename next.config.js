@@ -35,4 +35,5 @@ module.exports = withBundleAnalyzer({
       },
     ];
   },
+  images: { domains: ['res.cloudinary.com'] },
 });

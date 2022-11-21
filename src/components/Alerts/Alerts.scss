@@ -5,7 +5,7 @@
   color: #1d4ed8;
   background-color: #dbeafe;
   border: 2px solid #60a5fa;
-  border-radius: 1rem;
+  border-radius: var(--border-radius);
 
   &__heading {
     font-weight: bold;

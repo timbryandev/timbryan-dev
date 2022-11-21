@@ -3,13 +3,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
 code,
 pre,
 .dev-icon {
@@ -19,11 +12,19 @@ pre,
 button,
 input,
 textarea {
-  box-shadow: var(--box-shadow-pop);
+  &:hover,
+  &:focus,
+  &:active {
+    box-shadow: var(--box-shadow-pop);
+  }
 }
 
 code {
   background: var(--grey-light);
+
+  .dark & {
+    background: var(--black);
+  }
 }
 
 main {

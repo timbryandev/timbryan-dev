@@ -1,16 +1,16 @@
 .card {
   // stylelint-disable-next-line
-  @extend .hero;
-
-  padding: 1rem !important;
   margin-bottom: 2rem !important;
   list-style-type: none;
 
   &__wrapper {
     display: flex;
     justify-content: flex-end;
+    overflow: hidden;
     text-align: center;
     text-decoration: none !important;
+    background-color: var(--background);
+    border-radius: var(--border-radius);
   }
 
   &__image {
@@ -18,15 +18,22 @@
     margin-right: auto;
     background-position: center;
     background-size: cover;
-    border-radius: 1rem 0 0 1rem;
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 500px) {
       display: none;
     }
   }
 
   .dark &__title {
     color: var(--grey-light);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;
+    padding: 1rem !important;
   }
 
   &__date {

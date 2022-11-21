@@ -1,0 +1,54 @@
+.post {
+  &__footer {
+    padding: 2rem;
+    margin-top: 2rem;
+    font-weight: bold;
+    color: var(--orange);
+    text-align: center;
+  }
+
+  &__header {
+    padding: 1rem;
+    margin: 2rem auto;
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--light);
+    background: var(--light);
+    background-size: cover;
+    border-radius: var(--border-radius);
+
+    .dark .post {
+      text-shadow: 0 0 5px var(--black);
+      background: var(--black);
+    }
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__date {
+    font-size: 1rem;
+    text-align: right;
+    text-decoration: dotted;
+  }
+
+  &__credit {
+    font-size: 0.9rem;
+    text-align: right;
+  }
+
+  &__image {
+    width: 100%;
+
+    > span {
+      position: unset !important;
+    }
+
+    .image {
+      position: relative !important;
+      width: 100% !important;
+      height: unset !important;
+      object-fit: contain;
+    }
+  }
+}
