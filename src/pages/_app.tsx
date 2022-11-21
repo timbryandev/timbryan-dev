@@ -9,7 +9,8 @@ import '../styles/main.scss';
 import '../styles/prism.scss';
 
 import { ThemeProvider } from '../components/Theme/ThemeContext';
-import consoleBrand from '../utils/consoleBrand';
+import consoleBrand from '@timbryandev/console-brand';
+
 import { isProd } from '../utils/getBuildEnv';
 
 const posthogHost = process.env.POSTHOG_API_HOST ?? '';
@@ -22,7 +23,7 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
 
   if (!hasSeenBrand) {
     hasSeenBrand = true;
-    void consoleBrand();
+    consoleBrand();
   }
 
   useEffect(() => {
