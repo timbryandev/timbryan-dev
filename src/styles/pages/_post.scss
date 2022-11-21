@@ -16,7 +16,7 @@
     background-size: cover;
     border-radius: var(--border-radius);
 
-    .dark .post {
+    .dark & {
       text-shadow: 0 0 5px var(--black);
       background: var(--black);
     }
