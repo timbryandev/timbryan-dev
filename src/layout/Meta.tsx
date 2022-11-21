@@ -152,6 +152,11 @@ const Meta = (props: IMetaProps): JSX.Element => {
             />
           </>
         )}
+        <link
+          id="waterCssStylesheet"
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
+        />
       </Head>
     </>
   );
