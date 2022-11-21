@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
+import uuidV4 from '@timbryandev/uuidv4';
+
 import { AppConfig } from '../AppConfig';
 import { addTrailingSlash } from '../utils/urlHelpers';
 
@@ -18,6 +20,7 @@ interface IMetaProps {
 
 const Meta = (props: IMetaProps): JSX.Element => {
   const router = useRouter();
+  const [versionId] = uuidV4();
 
   return (
     <>
@@ -83,7 +86,7 @@ const Meta = (props: IMetaProps): JSX.Element => {
             <meta property="og:type" content="article" key="og:type" />
             <meta
               property="og:image"
-              content={`${AppConfig.url}${router.basePath}${props.post.image}`}
+              content={`${router.basePath}${props.post.image}?v=${versionId}`}
               key="og:image"
             />
             <meta

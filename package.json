@@ -20,6 +20,7 @@
   "dependencies": {
     "@mapbox/rehype-prism": "^0.7.0",
     "@timbryandev/console-brand": "^1.0.1",
+    "@timbryandev/uuidv4": "^1.0.3",
     "date-fns": "^2.28.0",
     "feed": "^4.2.2",
     "gray-matter": "^4.0.3",
