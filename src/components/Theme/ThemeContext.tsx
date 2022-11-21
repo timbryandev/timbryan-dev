@@ -6,43 +6,50 @@ import {
   useEffect,
   useState,
 } from 'react';
+import { isBrowser } from '../../utils/environment';
+import { AppConfig } from '../../AppConfig';
 
-const DEFAULT_THEME = 'dark';
+const DARK = 'dark';
+const LIGHT = 'light';
 
-type ITheme = 'dark' | 'light' | string;
+export type ThemeOption = typeof DARK | typeof LIGHT;
+
+const defaultTheme = (AppConfig.defaultTheme ?? LIGHT) as ThemeOption;
 
 interface IThemeProviderContext {
-  theme: ITheme;
-  setTheme: Dispatch<SetStateAction<ITheme>>;
+  theme: ThemeOption;
+  setTheme: Dispatch<SetStateAction<ThemeOption>>;
 }
 
 export const ThemeContext = createContext<IThemeProviderContext>({
-  theme: DEFAULT_THEME,
+  theme: defaultTheme,
   setTheme: () => {},
 });
 
 export interface IThemeProviderProps {
-  initialTheme?: ITheme;
+  initialTheme?: ThemeOption;
   children: ReactNode;
 }
 
-const getInitialTheme = (): ITheme => {
-  if (
-    typeof window !== 'undefined' &&
-    typeof window.localStorage !== 'undefined'
-  ) {
-    const storedPrefs = window.localStorage.getItem('color-theme');
-    if (typeof storedPrefs === 'string') {
+const getInitialTheme = (): ThemeOption => {
+  if (isBrowser && typeof window.localStorage !== 'undefined') {
+    const storedPrefs = window.localStorage.getItem(
+      'color-theme'
+    ) as ThemeOption | null;
+
+    if (storedPrefs !== null) {
+      console.log({ storedPrefs });
       return storedPrefs;
     }
 
     const userMedia = window.matchMedia('(prefers-color-scheme: dark)');
     if (userMedia.matches) {
+      console.log({ 'userMedia.matches': userMedia.matches });
       return 'dark';
     }
   }
 
-  return DEFAULT_THEME;
+  return defaultTheme;
 };
 
 export const ThemeProvider = ({
@@ -51,9 +58,9 @@ export const ThemeProvider = ({
 }: IThemeProviderProps): JSX.Element => {
   const [theme, setTheme] = useState(getInitialTheme());
 
-  const rawSetTheme = (rawTheme: string): void => {
+  const rawSetTheme = (rawTheme: ThemeOption): void => {
     const root = window.document.documentElement;
-    const isDark = rawTheme === 'dark';
+    const isDark = rawTheme === DARK;
 
     root.classList.remove(isDark ? 'light' : 'dark');
     root.classList.add(rawTheme);
@@ -62,7 +69,7 @@ export const ThemeProvider = ({
   };
 
   useEffect(() => {
-    if (typeof initialTheme === 'string') {
+    if (typeof initialTheme !== 'undefined') {
       setTheme(initialTheme);
       return;
     }
