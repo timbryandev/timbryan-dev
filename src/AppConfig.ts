@@ -1,5 +1,6 @@
 export const AppConfig = {
   author: 'Tim Bryan',
+  blogIntro: "If I've had anything of interest to say, you'll find it here:",
   contactFormUrl: 'https://formspree.io/f/meqrploz',
   dateFormat: 'dd MMMM yyyy',
   description:

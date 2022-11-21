@@ -1,5 +1,5 @@
 import Link from 'next/link';
-
+import { AppConfig } from '../AppConfig';
 import type { PostItem } from '../utils/content';
 import type { IPaginationProps } from './Pagination';
 import { Pagination } from './Pagination';
@@ -12,7 +12,8 @@ export interface IBlogGalleryProps {
 
 const BlogGallery = (props: IBlogGalleryProps): JSX.Element => (
   <>
-    <p>If I have anything of interest to say, you&apos;ll find it here:</p>
+    <p>{AppConfig.blogIntro ?? 'Recent posts:'}</p>
+
     <ul className="card-listing">
       {props.posts.map((post) => (
         <li key={post.slug} className="card">
