@@ -3,7 +3,7 @@ title: Mock OpenApi Specs With Microcks In Docker Desktop
 description: Microcks is a quick and easy way to an OpenAPI spec
 posted: "2022-11-10"
 updated: "2022-11-10"
-image: https://microcks.io/images/microcks-round.png
+image: https://res.cloudinary.com/dg1mbzzfx/image/upload/v1669042191/TimBryan.dev/microcks-round_o2yttd.png
 credit: [Microcks, https://microcks.io/]
 status: published
 ---

@@ -40,6 +40,7 @@
   &__image {
     width: 100%;
 
+    // Using !important to override Next.js inline image styles
     > span {
       position: unset !important;
     }
@@ -49,6 +50,7 @@
       width: 100% !important;
       height: unset !important;
       object-fit: contain;
+      max-height: 35vh !important;
     }
   }
 }
