@@ -48,7 +48,6 @@ function PostHeader({
   const contentRef = useRef<HTMLDivElement | null>(null);
 
   const revealOnHover = ({ type }: MouseEvent | TouchEvent): void => {
-    console.log('revealOHover');
     const content = contentRef.current;
 
     if (content === null) return;
