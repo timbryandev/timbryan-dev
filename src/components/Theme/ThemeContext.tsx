@@ -38,13 +38,11 @@ const getInitialTheme = (): ThemeOption => {
     ) as ThemeOption | null;
 
     if (storedPrefs !== null) {
-      console.log({ storedPrefs });
       return storedPrefs;
     }
 
     const userMedia = window.matchMedia('(prefers-color-scheme: dark)');
     if (userMedia.matches) {
-      console.log({ 'userMedia.matches': userMedia.matches });
       return 'dark';
     }
   }
