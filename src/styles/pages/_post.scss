@@ -12,13 +12,9 @@
     margin: 2rem auto;
     font-weight: bold;
     text-shadow: 0 0 5px var(--light);
-    background: var(--light);
-    background-size: cover;
-    border-radius: var(--border-radius);
 
     .dark & {
       text-shadow: 0 0 5px var(--black);
-      background: var(--black);
     }
   }
 
@@ -50,7 +46,8 @@
       width: 100% !important;
       height: unset !important;
       object-fit: contain;
-      max-height: 35vh !important;
+      max-height: 70vh !important;
+      border-radius: var(--border-radius);
     }
   }
 }
