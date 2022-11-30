@@ -3,7 +3,7 @@ title: Create a free Picture-In-Picture video feature on desktop
 description: Don't pay for this premium feature when you can make it yourself.
 posted: "2022-01-06"
 updated: "2022-06-29"
-image: https://res.cloudinary.com/dg1mbzzfx/image/upload/v1668098135/TimBryan.dev/charlesdeluvio-h6OLeuqZ6mg-unsplash_nhcclx.jpg
+image: https://res.cloudinary.com/dg1mbzzfx/image/upload/v1668098135/TimBryan.dev/posts/charlesdeluvio-h6OLeuqZ6mg-unsplash_nhcclx.jpg
 credit:
   [
     charlesdeluvio,

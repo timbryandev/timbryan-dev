@@ -3,7 +3,7 @@ title: Get stuck in with Tim & Deno
 description: Its not the NodeJS killer, but it might go that way...
 posted: "2021-04-27"
 updated: "2021-10-13"
-image: https://res.cloudinary.com/dg1mbzzfx/image/upload/v1668098134/TimBryan.dev/deno-logo_xwfxtd.png
+image: https://res.cloudinary.com/dg1mbzzfx/image/upload/v1668098134/TimBryan.dev/posts/deno-logo_xwfxtd.png
 status: published
 ---
 
