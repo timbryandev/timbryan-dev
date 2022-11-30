@@ -35,6 +35,7 @@
 
   &__image {
     width: 100%;
+    cursor: pointer;
 
     // Using !important to override Next.js inline image styles
     > span {
