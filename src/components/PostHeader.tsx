@@ -42,6 +42,10 @@ function PostHeader({
   title,
   updated,
 }: PostHeaderProps): JSX.Element {
+  function openInNewWindow(): void {
+    window.open(image, '_blank')?.focus();
+  }
+
   return (
     <header className="post__header">
       <h1 className="post__title">{title}</h1>
@@ -49,7 +53,14 @@ function PostHeader({
         <PublishDate posted={posted} updated={updated} showUpdated={true} />
       </p>
       <div className="post__image">
-        <Image src={image} layout="fill" className={'image'} alt="" />
+        <Image
+          src={image}
+          layout="fill"
+          className={'image'}
+          alt=""
+          onClick={openInNewWindow}
+          title="Open image in a new tab"
+        />
       </div>
       <p className="post__credit">
         <span>
