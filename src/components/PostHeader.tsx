@@ -59,6 +59,7 @@ function PostHeader({
           className={'image'}
           alt=""
           onClick={openInNewWindow}
+          title="Open image in a new tab"
         />
       </div>
       <p className="post__credit">
