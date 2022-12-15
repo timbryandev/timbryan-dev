@@ -1,10 +1,10 @@
 ---
 title: Building, testing and publishing mobile apps with react-native on MacOS
-description: TODO
+description: This is a general overview of getting started with react-native on MacOS, but general enough to follow on Window and GNU/Linux systems and covers all aspects from local setup, development process and publishing to app stores.
 posted: "2022-12-14"
 updated: "2022-12-14"
 image: "https://res.cloudinary.com/dg1mbzzfx/image/upload/v1671030437/TimBryan.dev/posts/react-native-apps/upgrading-react-native-version-lol_j0oudi.png"
-status: draft
+status: published
 ---
 
 **Note**: This is a typical setup/procedure I have followed before up to the time of writing, but your mileage may vary depending on your project's age and setup/config.
