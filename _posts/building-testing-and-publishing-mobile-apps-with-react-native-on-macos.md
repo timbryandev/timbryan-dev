@@ -13,19 +13,19 @@ Typically, you will develop the apps locally in emulators for both Android and i
 
 ## Git Contribution Flow
 
-- Create a fresh dev branch from master/production branch
+- Create a fresh dev branch from production branch
 - Create a branch for your ticket/task/fix from dev
 - All branches should be merged into dev branch
-- When all dev work is complete and your app is live in its respective stores, merge dev into master/production
+- When all dev work is complete and your app is live in its respective stores, merge dev into production
 
 ## Prerequisites
 
 - Follow [this guide](https://reactnative.dev/docs/environment-setup), making sure to follow the section under the "React Native CLI Quickstart" tab for setting up your machine for React Native development. (Building Projects with Native Code)
-- You will need to have Node≥14 & NPM≥6 installed (**note**: you **must** use NPM≥6 when using the flush script!)
+- You will need to have Node≥14 & NPM≥6 installed
 - Java version 1.80 is required for Android builds
 - Cocoapods version 1.4 is required for ios builds
 - Ensure your .env file has the correct data in it as this is what the build processes will read from. For example, is it using your production or development variables?
-- Ensure you have followed any other prerequisite steps in the specific react-native project you're working on as things can change dramatically between versions (as of writing, react-native is still very much beta software and is yet to reach maturity with most builds being MAJOR.MINOR.PATCH)
+- Ensure you have followed any other prerequisite steps in the specific react-native project you're working on as things can change dramatically between versions (as of writing, react-native is still very much beta software and is yet to reach maturity with most builds being 0.x.x)
 
 ## Next Steps / Dev Process
 
@@ -66,9 +66,9 @@ Typically, you will develop the apps locally in emulators for both Android and i
 ### Setup
 
 ```bash
-git clone git@your-repo.com/git app
+git clone <YOUR GIT REPO> app
 cd app
-cp env.example.js env.js
+cp env.example.js env.js # if you don't have an example env file, make your own
 npm ci
 cd ios && pod install
 ```
@@ -363,7 +363,7 @@ iOS ecosystems are managed through Apple's [App Store Connect](https://appstorec
 2. Delete the certs in appstore
    <https://developer.apple.com/account/resources/certificates/list>
 
-   ![Screenshot of existing certs in a repo](https://res.cloudinary.com/dg1mbzzfx/image/upload/v1671030436/TimBryan.dev/posts/react-native-apps/apple-certificates-identifiers-and-profiles-marked_pyekyh.png)
+   ![Screenshot of existing certs in a repo](https://res.cloudinary.com/dg1mbzzfx/image/upload/v1671104783/TimBryan.dev/posts/react-native-apps/apple-certificates-identifiers-and-profiles-marked_pyekyh_1_jgjddd.png)
 
 3. Within your project
 
@@ -403,9 +403,7 @@ Look to <https://reactnative.dev/docs/upgrading#react-native-cli> for more detai
 3. Reconfigure your config stuff like image assets for the app, find/replace "ProjectName" with your actual app name, fix build and version numbers as these will be set to the defaults
 4. Add your missing package.json entries
 5. Flush all caches and built assets.
-   It's newly recommended to use react-native-clean-project over our flush script - feel free to replace the flush script with it 😉
-   1. `npm run flush` - if your project has the `flush.sh` script, or
-   2. (newly recommended) install and use the [react-native-clean-project](https://github.com/pmadruga/react-native-clean-project) and replace the flush script in the package.json with `"clean": "react-native-clean-project --remove-iOS-pods --clean-android-project",`.
+   Install and use the [react-native-clean-project](https://github.com/pmadruga/react-native-clean-project) and add the following to your package.json scripts: `"clean": "react-native-clean-project --remove-iOS-pods --clean-android-project",`.
 6. `npm run ios` and address any build bugs and in-app bugs
 7. `npm run android` and address any build bugs and in-app bugs
 
