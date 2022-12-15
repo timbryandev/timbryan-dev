@@ -27,6 +27,9 @@ const BlogGallery = (props: IBlogGalleryProps): JSX.Element => (
               )}
               <section className="card__content">
                 <h2 className="card__title">{post.title}</h2>
+                <blockquote className="card__description">
+                  {post.description}
+                </blockquote>
                 <div className="card__date">
                   <PublishDate
                     posted={post.posted}

@@ -3,6 +3,7 @@ import Image from 'next/image';
 export interface PostHeaderProps {
   creditLink?: string;
   creditName?: string;
+  description: string;
   image: string;
   posted: string;
   title: string;
@@ -37,6 +38,7 @@ const Credit = ({
 function PostHeader({
   creditLink,
   creditName,
+  description,
   image,
   posted,
   title,
@@ -52,6 +54,7 @@ function PostHeader({
       <p className="post__date">
         <PublishDate posted={posted} updated={updated} showUpdated={true} />
       </p>
+      <blockquote>{description}</blockquote>
       <div className="post__image">
         <Image
           src={image}

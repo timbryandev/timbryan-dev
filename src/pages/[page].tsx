@@ -42,7 +42,13 @@ export const getStaticProps: GetStaticProps<
   IBlogGalleryProps,
   IPageUrl
 > = async ({ params }) => {
-  const posts = getPublishedPosts(['title', 'posted', 'slug', 'image']);
+  const posts = getPublishedPosts([
+    'title',
+    'posted',
+    'slug',
+    'image',
+    'description',
+  ]);
 
   const pages = convertTo2D(posts, AppConfig.pagination_size);
   // We know params!.page will always exist

@@ -23,10 +23,6 @@
     }
   }
 
-  .dark &__title {
-    color: var(--grey-light);
-  }
-
   &__content {
     display: flex;
     flex-direction: column;
@@ -38,6 +34,18 @@
 
   &__date {
     text-align: right;
+  }
+
+  &__description {
+    color: var(--black);
+    text-align: left;
+  }
+}
+
+.dark .card {
+  &__title,
+  &__description {
+    color: var(--grey-light);
   }
 }
 
