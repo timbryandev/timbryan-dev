@@ -342,7 +342,7 @@ iOS ecosystems are managed through Apple's [App Store Connect](https://appstorec
 
 <https://appstoreconnect.apple.com/apps/<app-id>/appstore/ios>
 
-![Screenshot of the Apple App Store manager](https://res.cloudinary.com/dg1mbzzfx/image/upload/v1671030436/TimBryan.dev/posts/react-native-apps/apple-app-store_czsykm.png)
+![Screenshot of the Apple App Store manager](https://res.cloudinary.com/dg1mbzzfx/image/upload/v1671030436/TimBryan.dev/posts/react-native-apps/apple-app-store_czsykm.pn)
 
 #### TestFlight
 
