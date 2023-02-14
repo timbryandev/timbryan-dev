@@ -47,7 +47,7 @@ To use it, simply:
 
 - Select all of the following and drag and drop into your browser's bookmarks bar, or
 - Create a new bookmark called PiP and paste the following as the bookmark's URL:
-  `javascript: var vid=document.querySelector('video');vid.removeAttribute('disablePictureInPicture');vid.requestPictureInPicture();)`
+  `javascript: var vid=document.querySelector('video');vid.removeAttribute('disablePictureInPicture');vid.requestPictureInPicture();`
 - Click the bookmark to launch PiP
 
 ## How does a "Bookmarklet" work?
