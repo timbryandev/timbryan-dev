@@ -3,8 +3,40 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  src: url("/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  src: url("/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Bold.ttf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  src: url("/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Itallic.ttf");
+  font-style: italic, oblique;
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  src: url("/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-BoldItallic.ttf");
+  font-style: italic, oblique;
+  font-weight: bold;
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Atkinson Hyperlegible",  sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Metrophobic, sans-serif;
 }
 
 code,
