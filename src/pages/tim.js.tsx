@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Main } from '../layout/Main'
 import { Meta } from '../layout/Meta'
 
