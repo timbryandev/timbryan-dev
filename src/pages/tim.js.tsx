@@ -13,10 +13,9 @@ const TimJS = (): JSX.Element => (
       height='100%'
       style={{ minHeight: '50vh', minWidth: '50vw' }}
       src='https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?si=L035Qqb0qBsd1K4q&autoplay=1'
-      title='YouTube video player'
-      frameborder='0'
+      frameBorder='0'
       allow='autoplay'
-      allowfullscreen=''
+      allowFullScreen
     ></iframe>
   </Main>
 )
