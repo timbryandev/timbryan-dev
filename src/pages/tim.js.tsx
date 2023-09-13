@@ -9,20 +9,14 @@ const TimJS = (): JSX.Element => (
     }
   >
     <iframe
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        height: '100%',
-        width: '100%',
-        zIndex: 1,
-      }}
-      width='100vw'
-      height='100vh'
+      width='100%'
+      height='100%'
+      style={{ minHeight: '50vh', minWidth: '50vw' }}
       src='https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?si=L035Qqb0qBsd1K4q&autoplay=1'
-      frameBorder='0'
+      title='YouTube video player'
+      frameborder='0'
       allow='autoplay'
-      allowFullScreen
+      allowfullscreen=''
     ></iframe>
   </Main>
 )
