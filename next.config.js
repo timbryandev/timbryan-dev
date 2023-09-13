@@ -32,10 +32,6 @@ module.exports = withBundleAnalyzer({
       {
         source: '/sitemap.xml',
         destination: '/api/sitemap',
-      },
-      {
-        source: 'tim.js',
-        destination: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?si=L035Qqb0qBsd1K4q&autoplay=1',
       }
     ];
   },
