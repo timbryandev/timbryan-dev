@@ -9,13 +9,14 @@ const TimJS = (): JSX.Element => (
     }
   >
     <iframe
-      width='100%'
-      height='100%'
-      style={{ minHeight: '50vh', minWidth: '50vw' }}
-      src='https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?si=L035Qqb0qBsd1K4q&autoplay=1'
+      width='560'
+      height='315'
+      src='https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?si=mB3rfPyLMtsaDkng&autoplay=1'
+      title='YouTube video player'
       frameBorder='0'
-      allow='autoplay'
+      allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
       allowFullScreen
+      style={{ height: '50vh', width: '100%' }}
     ></iframe>
   </Main>
 )
